@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)file:///D:/Program%20Files/CLAUDEAI/The%20Boston%20Tea%20Cake%20Company.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Boston Tea Cake Company</title>
+<link href="./index_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F0E6;
+    --parchment: #EDE0CC;
+    --warm-brown: #3D2B1F;
+    --deep-brown: #1E120A;
+    --gold: #C4923A;
+    --gold-light: #E8B86D;
+    --muted-sage: #7A8C6E;
+    --dusty-rose: #C4826A;
+    --ink: #1A1008;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--cream);
+    color: var(--warm-brown);
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    background: linear-gradient(160deg, #1E120A 0%, #3D2B1F 45%, #5C3D28 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(196,146,58,0.12) 0%, transparent 65%),
+                radial-gradient(ellipse at 20% 80%, rgba(196,130,106,0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* Decorative circles */
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(196,146,58,0.15);
+  }
+  .hero-orb-1 { width: 600px; height: 600px; top: -200px; right: -150px; }
+  .hero-orb-2 { width: 300px; height: 300px; top: 40%; right: 8%; border-color: rgba(196,146,58,0.08); }
+  .hero-orb-3 { width: 900px; height: 900px; bottom: -400px; left: -300px; border-color: rgba(196,146,58,0.06); }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  .nav-wordmark {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(247,240,230,0.6);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* ── HERO CONTENT ── */
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem 4rem 4rem;
+    position: relative;
+    z-index: 10;
+    max-width: 780px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.7rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    display: inline-block;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 900;
+    line-height: 0.92;
+    color: var(--cream);
+    margin-bottom: 0.2em;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+    font-weight: 400;
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(247,240,230,0.55);
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+    max-width: 480px;
+    line-height: 1.7;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--deep-brown);
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(247,240,230,0.6);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s;
+  }
+
+  .btn-ghost:hover { color: var(--gold-light); }
+  .btn-ghost::after { content: '→'; }
+
+  /* ── HERO FOOTER BAR ── */
+  .hero-bar {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    border-top: 1px solid rgba(196,146,58,0.2);
+    position: relative;
+    z-index: 10;
+    gap: 3rem;
+  }
+
+  .hero-bar-item {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(247,240,230,0.4);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-bar-item span {
+    color: var(--gold);
+    font-size: 1rem;
+  }
+
+  /* ── DIVIDER ── */
+  .ornamental-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 4rem 0 2rem;
+    color: var(--gold);
+    font-size: 1.2rem;
+  }
+
+  .ornamental-divider::before,
+  .ornamental-divider::after {
+    content: '';
+    flex: 1;
+    max-width: 200px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 4rem; }
+
+  .section-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.68rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--deep-brown);
+    margin-bottom: 1rem;
+  }
+
+  /* ── ABOUT ── */
+  .about {
+    background: var(--parchment);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-text p {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--warm-brown);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text p strong {
+    font-weight: 600;
+    color: var(--deep-brown);
+  }
+
+  .about-badge-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .about-badge {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+
+  .about-badge .year {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .about-badge .since {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.6rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--warm-brown);
+    margin-top: 0.25rem;
+  }
+
+  .about-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .about-card {
+    background: var(--cream);
+    padding: 2rem 1.5rem;
+    border-left: 2px solid var(--gold);
+  }
+
+  .about-card .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .about-card .label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--warm-brown);
+    margin-top: 0.5rem;
+  }
+
+  /* ── CAKES ── */
+  .cakes { background: var(--cream); }
+
+  .cakes-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .cakes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+  }
+
+  .cake-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--warm-brown);
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: transform 0.4s;
+  }
+
+  .cake-card:hover { z-index: 2; }
+
+  .cake-bg {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.6s ease;
+  }
+
+  .cake-card:hover .cake-bg { transform: scale(1.04); }
+
+  /* Individual cake color palettes */
+  .cake-classic .cake-bg {
+    background: linear-gradient(160deg, #5C3D20 0%, #3D2410 40%, #1E1008 100%);
+  }
+  .cake-chocolate .cake-bg {
+    background: linear-gradient(160deg, #2A1A0E 0%, #1A0C05 50%, #0D0603 100%);
+  }
+  .cake-lemon .cake-bg {
+    background: linear-gradient(160deg, #6B6B2A 0%, #4A4A18 50%, #2A2A08 100%);
+  }
+  .cake-blueberry .cake-bg {
+    background: linear-gradient(160deg, #2A2A5C 0%, #1A1A3D 50%, #0A0A20 100%);
+  }
+
+  /* Decorative cake texture */
+  .cake-texture {
+    position: absolute;
+    inset: 0;
+    opacity: 0.15;
+  }
+  .cake-classic .cake-texture {
+    background: radial-gradient(circle at 30% 40%, rgba(196,146,58,0.6) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(196,146,58,0.3) 0%, transparent 40%);
+  }
+  .cake-chocolate .cake-texture {
+    background: radial-gradient(circle at 60% 30%, rgba(139,69,19,0.8) 0%, transparent 50%),
+                radial-gradient(circle at 30% 70%, rgba(80,30,10,0.6) 0%, transparent 40%);
+  }
+  .cake-lemon .cake-texture {
+    background: radial-gradient(circle at 50% 40%, rgba(255,230,100,0.7) 0%, transparent 50%),
+                radial-gradient(circle at 20% 70%, rgba(200,180,50,0.4) 0%, transparent 40%);
+  }
+  .cake-blueberry .cake-texture {
+    background: radial-gradient(circle at 40% 35%, rgba(100,100,200,0.7) 0%, transparent 50%),
+                radial-gradient(circle at 70% 65%, rgba(60,60,150,0.5) 0%, transparent 40%);
+  }
+
+  .cake-info {
+    position: relative;
+    z-index: 2;
+    padding: 2.5rem;
+    background: linear-gradient(to top, rgba(10,5,2,0.95) 0%, rgba(10,5,2,0.6) 60%, transparent 100%);
+  }
+
+  .cake-tag {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.6rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .cake-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .cake-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(247,240,230,0.65);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .cake-order-btn {
+    background: transparent;
+    border: 1px solid rgba(196,146,58,0.5);
+    color: var(--gold-light);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+
+  .cake-order-btn:hover {
+    background: var(--gold);
+    color: var(--deep-brown);
+    border-color: var(--gold);
+  }
+
+  /* ── ORDER MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,5,2,0.85);
+    z-index: 500;
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .modal-overlay.active { display: flex; }
+
+  .modal {
+    background: var(--cream);
+    max-width: 580px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modalIn 0.35s ease;
+  }
+
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .modal-header {
+    background: var(--deep-brown);
+    padding: 2.5rem;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: rgba(247,240,230,0.5);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s;
+    line-height: 1;
+  }
+
+  .modal-close:hover { color: var(--gold-light); }
+
+  .modal-cake-tag {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.6rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-cake-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-cake-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(247,240,230,0.55);
+  }
+
+  .modal-body { padding: 2.5rem; }
+
+  .form-group { margin-bottom: 1.75rem; }
+
+  .form-label {
+    display: block;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--warm-brown);
+    margin-bottom: 0.6rem;
+  }
+
+  .form-input, .form-select, .form-textarea {
+    width: 100%;
+    background: var(--parchment);
+    border: 1px solid rgba(61,43,31,0.2);
+    color: var(--deep-brown);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    padding: 0.85rem 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+    -webkit-appearance: none;
+  }
+
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--gold);
+  }
+
+  .form-textarea { resize: vertical; min-height: 100px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .qty-control {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    width: fit-content;
+  }
+
+  .qty-btn {
+    width: 40px;
+    height: 40px;
+    background: var(--parchment);
+    border: 1px solid rgba(61,43,31,0.2);
+    color: var(--warm-brown);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    font-family: 'Jost', sans-serif;
+  }
+
+  .qty-btn:hover { background: var(--gold); color: white; }
+
+  .qty-display {
+    width: 60px;
+    height: 40px;
+    background: var(--parchment);
+    border-top: 1px solid rgba(61,43,31,0.2);
+    border-bottom: 1px solid rgba(61,43,31,0.2);
+    border-left: none;
+    border-right: none;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--deep-brown);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .order-summary {
+    background: var(--parchment);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.75rem;
+    border-left: 3px solid var(--gold);
+  }
+
+  .order-summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    color: var(--warm-brown);
+    padding: 0.3rem 0;
+  }
+
+  .order-summary-row.total {
+    border-top: 1px solid rgba(61,43,31,0.2);
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: var(--deep-brown);
+  }
+
+  .btn-submit {
+    width: 100%;
+    background: var(--gold);
+    color: var(--deep-brown);
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 1.25rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .btn-submit:hover { background: var(--gold-light); }
+
+  /* ── B2B SECTION ── */
+  .wholesale {
+    background: var(--deep-brown);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wholesale::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, rgba(196,146,58,0.08) 0%, transparent 60%);
+  }
+
+  .wholesale-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .wholesale .section-title { color: var(--cream); }
+
+  .wholesale-desc {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: rgba(247,240,230,0.65);
+    margin: 1.5rem 0 2rem;
+  }
+
+  .wholesale-channels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .channel-item {
+    border-top: 1px solid rgba(196,146,58,0.3);
+    padding-top: 1.25rem;
+  }
+
+  .channel-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .channel-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 0.25rem;
+  }
+
+  .channel-note {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: rgba(247,240,230,0.45);
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: var(--parchment);
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contact p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--warm-brown);
+    margin: 1.5rem 0 2.5rem;
+  }
+
+  .contact-details {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(61,43,31,0.15);
+  }
+
+  .contact-item {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--warm-brown);
+    text-align: center;
+  }
+
+  .contact-item a {
+    display: block;
+    color: var(--gold);
+    text-decoration: none;
+    margin-top: 0.5rem;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .contact-item a:hover { color: var(--deep-brown); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: gap;
+    gap: 1.5rem;
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .footer-copy {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: rgba(247,240,230,0.25);
+    text-align: center;
+  }
+
+  .footer-est {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: rgba(247,240,230,0.3);
+  }
+
+  /* ── SUCCESS STATE ── */
+  .success-message {
+    display: none;
+    text-align: center;
+    padding: 3rem 2.5rem;
+  }
+
+  .success-message.active { display: block; }
+
+  .success-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .success-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--deep-brown);
+    margin-bottom: 0.75rem;
+  }
+
+  .success-text {
+    font-size: 1.05rem;
+    color: var(--warm-brown);
+    line-height: 1.7;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1.5rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero-content { padding: 2rem 1.5rem 3rem; }
+    .hero-bar { padding: 1.25rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
+    section { padding: 4rem 1.5rem; }
+    .about { grid-template-columns: 1fr; gap: 3rem; }
+    .cakes-grid { grid-template-columns: 1fr; }
+    .wholesale-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.8s ease 0.2s both; }
+  .hero-title { animation: fadeUp 0.8s ease 0.4s both; }
+  .hero-subtitle { animation: fadeUp 0.8s ease 0.6s both; }
+  .hero-cta-group { animation: fadeUp 0.8s ease 0.8s both; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+
+  <nav>
+    <div class="nav-wordmark">Boston Tea Cake Co.</div>
+    <ul class="nav-links">
+      <li><a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes.html#cakes">Our Cakes</a></li>
+      <li><a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes.html#wholesale">Wholesale</a></li>
+      <li><a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes.html#contact">Contact</a></li>
+      <li><a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes.html#order" onclick="document.querySelector(&#39;.modal-overlay&#39;).classList.add(&#39;active&#39;)">Order Now</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Est. 1993 · Milford, Massachusetts</div>
+    <h1 class="hero-title">
+      Baked with<br><em>Devotion.</em><br>Make a lasting memory.
+    </h1>
+    <p class="hero-subtitle">
+      Gourmet bundt cakes crafted from scratch, using only the purest ingredients. 
+      Four signature flavors. No shortcuts. No compromises.
+    </p>
+    <div class="hero-cta-group">
+      <a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes.html#cakes" class="btn-primary">Order a Cake</a>
+      <a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes.html#wholesale" class="btn-ghost">Wholesale Inquiries</a>
+    </div>
+  </div>
+
+  <div class="hero-bar">
+    <div class="hero-bar-item"><span>🎂</span> Four Signature Flavors</div>
+    <div class="hero-bar-item"><span>📦</span> Local Delivery · Worcester Area</div>
+    <div class="hero-bar-item"><span>✦</span> Made Fresh Weekly</div>
+    <div class="hero-bar-item"><span>🏅</span> Family Recipe Since 1993</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-text">
+    <div class="section-eyebrow">Our Story</div>
+    <h2 class="section-title">A Legacy Baked Into Every Crumb</h2>
+    <p>
+      The Boston Tea Cake Company has been a <strong>Worcester institution</strong> since 1993. 
+      What began as a devotion to quality — real ingredients, real recipes, real care — 
+      has grown into a brand that people remember and return to, year after year.
+    </p>
+    <p>
+      Our gourmet bundt cakes are individually prepared from scratch. 
+      <strong>No fillers. No shortcuts.</strong> Just the kind of baking that takes time, 
+      skill, and genuine pride in the craft.
+    </p>
+    <div class="about-badge-wrapper">
+      <div class="about-badge">
+        <div class="year">1993</div>
+        <div class="since">Est. in Milford, MA</div>
+      </div>
+    </div>
+  </div>
+  <div class="about-visual">
+    <div class="about-card">
+      <div class="num">4</div>
+      <div class="label">Signature Flavors</div>
+    </div>
+    <div class="about-card">
+      <div class="num">30+</div>
+      <div class="label">Years of Craft</div>
+    </div>
+    <div class="about-card">
+      <div class="num">2</div>
+      <div class="label">Sizes Available</div>
+    </div>
+    <div class="about-card">
+      <div class="num">100%</div>
+      <div class="label">From Scratch</div>
+    </div>
+  </div>
+</section>
+
+<!-- CAKES -->
+<section class="cakes" id="cakes">
+  <div class="cakes-intro">
+    <div>
+      <div class="section-eyebrow">The Collection</div>
+      <h2 class="section-title">Four Flavors.<br>All Exceptional.</h2>
+    </div>
+    <p style="max-width:320px; font-size:1.05rem; line-height:1.8; color:var(--warm-brown); font-style:italic;">
+      Each cake available in Small (1½ lbs.) and Large (3 lbs.). 
+      All orders fulfilled fresh and delivered locally.
+    </p>
+  </div>
+
+  <div class="cakes-grid">
+
+    <!-- Classic -->
+    <div class="cake-card cake-classic" onclick="openOrder(&#39;The Classic&#39;, &#39;Coffee Cake Crumble&#39;, &#39;Our signature. A sour cream coffee cake with cinnamon and walnuts — the foundation of everything we do.&#39;)">
+      <div class="cake-bg"></div>
+      <div class="cake-texture"></div>
+      <div class="cake-info">
+        <div class="cake-tag">Signature · The Original</div>
+        <div class="cake-name">The Classic</div>
+        <div class="cake-desc">Sour cream coffee cake with cinnamon crumble &amp; walnuts. Where it all began.</div>
+        <button class="cake-order-btn">Order This Cake</button>
+      </div>
+    </div>
+
+    <!-- Double Chocolate -->
+    <div class="cake-card cake-chocolate" onclick="openOrder(&#39;Double Chocolate&#39;, &#39;Dense &amp; Decadent&#39;, &#39;Rich, dark, deeply chocolatey. A cake that makes a statement on any table.&#39;)">
+      <div class="cake-bg"></div>
+      <div class="cake-texture"></div>
+      <div class="cake-info">
+        <div class="cake-tag">Indulgent · Bold</div>
+        <div class="cake-name">Double Chocolate</div>
+        <div class="cake-desc">Dense, dark, and utterly decadent. For those who don't believe in half-measures.</div>
+        <button class="cake-order-btn">Order This Cake</button>
+      </div>
+    </div>
+
+    <!-- Lemon -->
+    <div class="cake-card cake-lemon" onclick="openOrder(&#39;Lemon Vanilla Glaze&#39;, &#39;Bright &amp; Refined&#39;, &#39;Zesty lemon cake finished with a smooth vanilla glaze. Elegant and refreshing.&#39;)">
+      <div class="cake-bg"></div>
+      <div class="cake-texture"></div>
+      <div class="cake-info">
+        <div class="cake-tag">Refined · Fan Favorite</div>
+        <div class="cake-name">Lemon Vanilla Glaze</div>
+        <div class="cake-desc">Bright lemon with a silky vanilla glaze. Delicate, refined, and impossible to resist.</div>
+        <button class="cake-order-btn">Order This Cake</button>
+      </div>
+    </div>
+
+    <!-- Blueberry -->
+    <div class="cake-card cake-blueberry" onclick="openOrder(&#39;Blueberry&#39;, &#39;Dense &amp; Bursting&#39;, &#39;Generously loaded with blueberries, impossibly moist. No skimping — ever.&#39;)">
+      <div class="cake-bg"></div>
+      <div class="cake-texture"></div>
+      <div class="cake-info">
+        <div class="cake-tag">Seasonal · Luscious</div>
+        <div class="cake-name">Blueberry</div>
+        <div class="cake-desc">Dense, moist, bursting with real blueberries in every single bite. Pure generosity.</div>
+        <button class="cake-order-btn">Order This Cake</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHOLESALE -->
+<section class="wholesale" id="wholesale">
+  <div class="wholesale-grid">
+    <div>
+      <div class="section-eyebrow" style="color:var(--gold)">Trade &amp; Wholesale</div>
+      <h2 class="section-title">Bring The Club<br>To Your Guests</h2>
+      <p class="wholesale-desc">
+        The Boston Tea Cake Company supplies wholesale accounts to cafes, hotels, 
+        event planners, and corporate dining. Our cakes pair beautifully with tea and coffee service, 
+        and make memorable corporate gifts.
+      </p>
+      <a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes.html#contact" class="btn-primary">Inquire About Wholesale</a>
+    </div>
+    <div class="wholesale-channels">
+      <div class="channel-item">
+        <div class="channel-icon">☕</div>
+        <div class="channel-name">Cafes &amp; Tea Rooms</div>
+        <div class="channel-note">Perfect pairing for sit-down service</div>
+      </div>
+      <div class="channel-item">
+        <div class="channel-icon">🏨</div>
+        <div class="channel-name">Hotels</div>
+        <div class="channel-note">Prestige placement &amp; amenity gifting</div>
+      </div>
+      <div class="channel-item">
+        <div class="channel-icon">🎉</div>
+        <div class="channel-name">Event Planners</div>
+        <div class="channel-note">Volume orders, consistent quality</div>
+      </div>
+      <div class="channel-item">
+        <div class="channel-icon">🏢</div>
+        <div class="channel-name">Corporate Dining</div>
+        <div class="channel-note">Standing weekly orders available</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="section-eyebrow" style="justify-content:center">Get In Touch</div>
+    <h2 class="section-title">Ready to Order?</h2>
+    <p>
+      Whether you're ordering for yourself, a special occasion, or exploring 
+      a wholesale relationship — we'd love to hear from you.
+      All orders are handled personally and fulfilled with care.
+    </p>
+    <a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes.html#cakes" class="btn-primary">Place an Order</a>
+    <div class="contact-details">
+      <div class="contact-item">
+        Location
+        <a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes.html#">Worcester, Massachusetts</a>
+      </div>
+      <div class="contact-item">
+        Email
+        <a href="file:///C:/cdn-cgi/l/email-protection#4c233e28293e3f0c2e233f38232238292d2f2d27293f622f20392e"><span class="__cf_email__" data-cfemail="caa5b8aeafb8b98aa8a5b9bea5a4beafaba9aba1afb9e4a9a6bfa8">[email&nbsp;protected]</span></a>
+      </div>
+      <div class="contact-item">
+        Delivery
+        <a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes.html#">Massachusetts</a>
+      </div>
+      <div class="contact-item">
+        Shipping
+        <a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes.html#">Global</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">The Boston Tea Cake Company</div>
+  <div class="footer-copy">© 2026 Boston Tea Cake Company, Ltd. · Milford, MA · bostonteacakes.club</div>
+  <div class="footer-est">Est. 1993</div>
+</footer>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="orderModal" onclick="handleOverlayClick(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-cake-tag" id="modalTag">Place Your Order</div>
+      <div class="modal-cake-name" id="modalName">Select a Cake</div>
+      <div class="modal-cake-desc" id="modalDesc">Complete the form below</div>
+    </div>
+
+    <div class="modal-body" id="modalForm">
+      <div class="form-group">
+        <label class="form-label">Cake Selection</label>
+        <select class="form-select" id="cakeSelect" onchange="updateSummary()">
+          <option value="">— Choose a flavor —</option>
+          <option value="The Classic">The Classic · Coffee Cake Crumble</option>
+          <option value="Double Chocolate">Double Chocolate · Dense &amp; Decadent</option>
+          <option value="Lemon Vanilla Glaze">Lemon Vanilla Glaze · Bright &amp; Refined</option>
+          <option value="Blueberry">Blueberry · Dense &amp; Bursting</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Size</label>
+        <select class="form-select" id="sizeSelect" onchange="updateSummary()">
+          <option value="small">Small — 1½ lbs. (serves 4–6)</option>
+          <option value="large">Large — 3 lbs. (serves 8–12)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Quantity</label>
+        <div class="qty-control">
+          <button class="qty-btn" onclick="changeQty(-1)">−</button>
+          <div class="qty-display" id="qtyDisplay">1</div>
+          <button class="qty-btn" onclick="changeQty(1)">+</button>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-input" id="firstName" placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-input" id="lastName" placeholder="Last name">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-input" id="email" placeholder="you@email.com">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Phone Number</label>
+        <input type="tel" class="form-input" id="phone" placeholder="(508) 000-0000">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Delivery Address · Worcester Area</label>
+        <input type="text" class="form-input" id="address" placeholder="Street address, City, MA ZIP">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Requested Delivery Date</label>
+        <input type="date" class="form-input" id="deliveryDate">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Special Instructions (optional)</label>
+        <textarea class="form-textarea" id="notes" placeholder="Allergies, gift messages, delivery notes..."></textarea>
+      </div>
+
+      <div class="order-summary" id="orderSummary">
+        <div class="order-summary-row"><span>Cake</span><span id="summCake">—</span></div>
+        <div class="order-summary-row"><span>Size</span><span id="summSize">Small (1½ lbs.)</span></div>
+        <div class="order-summary-row"><span>Quantity</span><span id="summQty">1</span></div>
+        <div class="order-summary-row total"><span>Order Submitted To</span><span>Steven Jacobs · Baker</span></div>
+      </div>
+
+      <button class="btn-submit" onclick="submitOrder()">Submit Order Request</button>
+      <p style="font-family:&#39;Jost&#39;,sans-serif; font-weight:200; font-size:0.65rem; letter-spacing:0.15em; text-align:center; color:var(--warm-brown); margin-top:1rem; opacity:0.7;">
+        PAYMENT DETAILS WILL BE CONFIRMED DIRECTLY · ORDERS FULFILLED WEEKLY
+      </p>
+    </div>
+
+    <div class="success-message" id="successMsg">
+      <div class="success-icon">🎂</div>
+      <div class="success-title">Order Received!</div>
+      <p class="success-text">
+        Thank you for your order. Steven will be in touch within 24 hours 
+        to confirm details and arrange payment and delivery.
+        <br><br>
+        <em style="color:var(--gold)">— The Boston Tea Cake Company</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="file:///C:/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  let qty = 1;
+
+  function openOrder(name, tag, desc) {
+    document.getElementById('modalName').textContent = name;
+    document.getElementById('modalTag').textContent = tag;
+    document.getElementById('modalDesc').textContent = desc;
+    // Pre-select the cake
+    const sel = document.getElementById('cakeSelect');
+    for (let i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].value === name) { sel.selectedIndex = i; break; }
+    }
+    updateSummary();
+    document.getElementById('orderModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('orderModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('orderModal')) closeModal();
+  }
+
+  function changeQty(delta) {
+    qty = Math.max(1, Math.min(20, qty + delta));
+    document.getElementById('qtyDisplay').textContent = qty;
+    updateSummary();
+  }
+
+  function updateSummary() {
+    const cake = document.getElementById('cakeSelect').value || '—';
+    const size = document.getElementById('sizeSelect').value;
+    const sizeLabel = size === 'large' ? 'Large (3 lbs.)' : 'Small (1½ lbs.)';
+    document.getElementById('summCake').textContent = cake;
+    document.getElementById('summSize').textContent = sizeLabel;
+    document.getElementById('summQty').textContent = qty;
+  }
+
+  function submitOrder() {
+    const required = ['firstName', 'email', 'phone', 'address', 'cakeSelect'];
+    let valid = true;
+    required.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) {
+        el.style.borderColor = '#C4826A';
+        valid = false;
+      } else {
+        el.style.borderColor = '';
+      }
+   </script></body></html>
