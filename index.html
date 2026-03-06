@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- demo site -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Boston Tea Cake Company</title>
-<link href="./index_files/css2" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --cream: #F7F0E6;
@@ -906,7 +906,7 @@
   .hero-subtitle { animation: fadeUp 0.8s ease 0.6s both; }
   .hero-cta-group { animation: fadeUp 0.8s ease 0.8s both; }
 </style>
-<style type="text/css" id="operaUserStyle"></style></head>
+</head>
 <body>
 
 <!-- HERO -->
@@ -918,10 +918,10 @@
   <nav>
     <div class="nav-wordmark">Boston Tea Cake Co.</div>
     <ul class="nav-links">
-      <li><a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes_1.html#cakes">Our Cakes</a></li>
-      <li><a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes_1.html#wholesale">Wholesale</a></li>
-      <li><a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes_1.html#contact">Contact</a></li>
-      <li><a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes_1.html#order" onclick="document.querySelector(&#39;.modal-overlay&#39;).classList.add(&#39;active&#39;)">Order Now</a></li>
+      <li><a href="#cakes">Our Cakes</a></li>
+      <li><a href="#wholesale">Wholesale</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#order" onclick="document.querySelector('.modal-overlay').classList.add('active')">Order Now</a></li>
     </ul>
   </nav>
 
@@ -935,8 +935,8 @@
       Four signature flavors. No shortcuts. No compromises.
     </p>
     <div class="hero-cta-group">
-      <a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes_1.html#cakes" class="btn-primary">Order a Cake</a>
-      <a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes_1.html#wholesale" class="btn-ghost">Wholesale Inquiries</a>
+      <a href="#cakes" class="btn-primary">Order a Cake</a>
+      <a href="#wholesale" class="btn-ghost">Wholesale Inquiries</a>
     </div>
   </div>
 
@@ -1006,19 +1006,19 @@
   <div class="cakes-grid">
 
     <!-- Classic -->
-    <div class="cake-card cake-classic" onclick="openOrder(&#39;The Classic&#39;, &#39;Coffee Cake Crumble&#39;, &#39;Our signature. A sour cream coffee cake with cinnamon and walnuts — the foundation of everything we do.&#39;)">
+    <div class="cake-card cake-classic" onclick="openOrder('The Classic', 'Coffee Cake Crumble', 'Our signature. A sour cream coffee cake with cinnamon and walnuts — the foundation of everything we do.')">
       <div class="cake-bg"></div>
       <div class="cake-texture"></div>
       <div class="cake-info">
         <div class="cake-tag">Signature · The Original</div>
         <div class="cake-name">The Classic</div>
-        <div class="cake-desc">Sour cream coffee cake with cinnamon crumble &amp; walnuts. Where it all began.</div>
+        <div class="cake-desc">Sour cream coffee cake with cinnamon crumble & walnuts. Where it all began.</div>
         <button class="cake-order-btn">Order This Cake</button>
       </div>
     </div>
 
     <!-- Double Chocolate -->
-    <div class="cake-card cake-chocolate" onclick="openOrder(&#39;Double Chocolate&#39;, &#39;Dense &amp; Decadent&#39;, &#39;Rich, dark, deeply chocolatey. A cake that makes a statement on any table.&#39;)">
+    <div class="cake-card cake-chocolate" onclick="openOrder('Double Chocolate', 'Dense & Decadent', 'Rich, dark, deeply chocolatey. A cake that makes a statement on any table.')">
       <div class="cake-bg"></div>
       <div class="cake-texture"></div>
       <div class="cake-info">
@@ -1030,7 +1030,7 @@
     </div>
 
     <!-- Lemon -->
-    <div class="cake-card cake-lemon" onclick="openOrder(&#39;Lemon Vanilla Glaze&#39;, &#39;Bright &amp; Refined&#39;, &#39;Zesty lemon cake finished with a smooth vanilla glaze. Elegant and refreshing.&#39;)">
+    <div class="cake-card cake-lemon" onclick="openOrder('Lemon Vanilla Glaze', 'Bright & Refined', 'Zesty lemon cake finished with a smooth vanilla glaze. Elegant and refreshing.')">
       <div class="cake-bg"></div>
       <div class="cake-texture"></div>
       <div class="cake-info">
@@ -1042,7 +1042,7 @@
     </div>
 
     <!-- Blueberry -->
-    <div class="cake-card cake-blueberry" onclick="openOrder(&#39;Blueberry&#39;, &#39;Dense &amp; Bursting&#39;, &#39;Generously loaded with blueberries, impossibly moist. No skimping — ever.&#39;)">
+    <div class="cake-card cake-blueberry" onclick="openOrder('Blueberry', 'Dense & Bursting', 'Generously loaded with blueberries, impossibly moist. No skimping — ever.')">
       <div class="cake-bg"></div>
       <div class="cake-texture"></div>
       <div class="cake-info">
@@ -1060,25 +1060,25 @@
 <section class="wholesale" id="wholesale">
   <div class="wholesale-grid">
     <div>
-      <div class="section-eyebrow" style="color:var(--gold)">Trade &amp; Wholesale</div>
+      <div class="section-eyebrow" style="color:var(--gold)">Trade & Wholesale</div>
       <h2 class="section-title">Bring The Club<br>To Your Guests</h2>
       <p class="wholesale-desc">
         The Boston Tea Cake Company supplies wholesale accounts to cafes, hotels, 
         event planners, and corporate dining. Our cakes pair beautifully with tea and coffee service, 
         and make memorable corporate gifts.
       </p>
-      <a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes_1.html#contact" class="btn-primary">Inquire About Wholesale</a>
+      <a href="#contact" class="btn-primary">Inquire About Wholesale</a>
     </div>
     <div class="wholesale-channels">
       <div class="channel-item">
         <div class="channel-icon">☕</div>
-        <div class="channel-name">Cafes &amp; Tea Rooms</div>
+        <div class="channel-name">Cafes & Tea Rooms</div>
         <div class="channel-note">Perfect pairing for sit-down service</div>
       </div>
       <div class="channel-item">
         <div class="channel-icon">🏨</div>
         <div class="channel-name">Hotels</div>
-        <div class="channel-note">Prestige placement &amp; amenity gifting</div>
+        <div class="channel-note">Prestige placement & amenity gifting</div>
       </div>
       <div class="channel-item">
         <div class="channel-icon">🎉</div>
@@ -1104,23 +1104,23 @@
       a wholesale relationship — we'd love to hear from you.
       All orders are handled personally and fulfilled with care.
     </p>
-    <a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes_1.html#cakes" class="btn-primary">Place an Order</a>
+    <a href="#cakes" class="btn-primary">Place an Order</a>
     <div class="contact-details">
       <div class="contact-item">
         Location
-        <a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes_1.html#">Worcester, Massachusetts</a>
+        <a href="#">Worcester, Massachusetts</a>
       </div>
       <div class="contact-item">
         Email
-        <a href="file:///C:/cdn-cgi/l/email-protection#4c233e28293e3f0c2e233f38232238292d2f2d27293f622f20392e"><span class="__cf_email__" data-cfemail="caa5b8aeafb8b98aa8a5b9bea5a4beafaba9aba1afb9e4a9a6bfa8">[email&nbsp;protected]</span></a>
+        <a href="/cdn-cgi/l/email-protection#4c233e28293e3f0c2e233f38232238292d2f2d27293f622f20392e"><span class="__cf_email__" data-cfemail="caa5b8aeafb8b98aa8a5b9bea5a4beafaba9aba1afb9e4a9a6bfa8">[email&#160;protected]</span></a>
       </div>
       <div class="contact-item">
         Delivery
-        <a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes_1.html#">Massachusetts</a>
+        <a href="#">Massachusetts</a>
       </div>
       <div class="contact-item">
         Shipping
-        <a href="file:///C:/Users/Anthony%20Ball/Downloads/bostonteacakes_1.html#">Global</a>
+        <a href="#">Global</a>
       </div>
     </div>
   </div>
@@ -1149,9 +1149,9 @@
         <select class="form-select" id="cakeSelect" onchange="updateSummary()">
           <option value="">— Choose a flavor —</option>
           <option value="The Classic">The Classic · Coffee Cake Crumble</option>
-          <option value="Double Chocolate">Double Chocolate · Dense &amp; Decadent</option>
-          <option value="Lemon Vanilla Glaze">Lemon Vanilla Glaze · Bright &amp; Refined</option>
-          <option value="Blueberry">Blueberry · Dense &amp; Bursting</option>
+          <option value="Double Chocolate">Double Chocolate · Dense & Decadent</option>
+          <option value="Lemon Vanilla Glaze">Lemon Vanilla Glaze · Bright & Refined</option>
+          <option value="Blueberry">Blueberry · Dense & Bursting</option>
         </select>
       </div>
 
@@ -1216,7 +1216,7 @@
       </div>
 
       <button class="btn-submit" onclick="submitOrder()">Submit Order Request</button>
-      <p style="font-family:&#39;Jost&#39;,sans-serif; font-weight:200; font-size:0.65rem; letter-spacing:0.15em; text-align:center; color:var(--warm-brown); margin-top:1rem; opacity:0.7;">
+      <p style="font-family:'Jost',sans-serif; font-weight:200; font-size:0.65rem; letter-spacing:0.15em; text-align:center; color:var(--warm-brown); margin-top:1rem; opacity:0.7;">
         PAYMENT DETAILS WILL BE CONFIRMED DIRECTLY · ORDERS FULFILLED WEEKLY
       </p>
     </div>
@@ -1234,7 +1234,7 @@
   </div>
 </div>
 
-<script data-cfasync="false" src="file:///C:/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   let qty = 1;
 
   function openOrder(name, tag, desc) {
@@ -1275,15 +1275,50 @@
     document.getElementById('summQty').textContent = qty;
   }
 
-  function submitOrder() {
+  async function submitOrder() {
     const required = ['firstName', 'email', 'phone', 'address', 'cakeSelect'];
     let valid = true;
     required.forEach(id => {
       const el = document.getElementById(id);
-      if (!el.value.trim()) {
-        el.style.borderColor = '#C4826A';
-        valid = false;
+      if (!el.value.trim()) { el.style.borderColor = '#C4826A'; valid = false; }
+      else { el.style.borderColor = ''; }
+    });    });
+    if (!valid) { alert('Please fill in all required fields.'); return; }
+    const orderData = {
+      _subject: 'New Cake Order — Boston Tea Cake Company',
+      customer_first_name: document.getElementById('firstName').value,
+      customer_last_name: document.getElementById('lastName').value,
+      customer_email: document.getElementById('email').value,
+      customer_phone: document.getElementById('phone').value,
+      delivery_address: document.getElementById('address').value,
+      requested_delivery_date: document.getElementById('deliveryDate').value,
+      cake_flavor: document.getElementById('cakeSelect').value,
+      cake_size: document.getElementById('sizeSelect').value === 'large' ? 'Large — 3 lbs.' : 'Small — 1.5 lbs.',
+      quantity: document.getElementById('qtyDisplay').textContent,
+      special_instructions: document.getElementById('notes').value || 'None',
+      _replyto: document.getElementById('email').value,
+    };
+    const btn = document.querySelector('.btn-submit');
+    btn.textContent = 'Sending Order...';
+    btn.disabled = true;
+    try {
+      const response = await fetch('https://formspree.io/f/mdawnqag', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(orderData)
+      });
+      if (response.ok) {
+        document.getElementById('modalForm').style.display = 'none';
+        document.getElementById('successMsg').classList.add('active');
       } else {
-        el.style.borderColor = '';
+        btn.textContent = 'Submit Order Request'; btn.disabled = false;
+        alert('There was an issue submitting your order. Please try again.');
       }
-   </script></body></html>
+    } catch (error) {
+      btn.textContent = 'Submit Order Request'; btn.disabled = false;
+      alert('Connection error. Please check your internet and try again.');
+    }
+  }
+</script>
+</body>
+</html>
