@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Received — The Boston Tea Cake Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F7F3EC;
+    --warm-white: #FDFAF5;
+    --brown: #3B2314;
+    --brown-mid: #6B3D22;
+    --brown-light: #A0664A;
+    --gold: #C49A4A;
+    --gold-light: #DDB96A;
+    --text: #2A1A0E;
+    --text-muted: #7A6050;
+    --border: #D8C9B5;
+  }
+
+  html, body {
+    height: 100%;
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(247,243,236,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--brown);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+
+  .nav-back {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .nav-back:hover { color: var(--brown); }
+
+  /* ─── MAIN ─── */
+  main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  main::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 50% 60% at 50% 40%, rgba(196,154,74,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 30% 40% at 80% 80%, rgba(59,35,20,0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    max-width: 580px;
+    width: 100%;
+    padding: 4rem 3.5rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(59,35,20,0.08);
+    animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 10%; right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  /* Decorative ring */
+  .emblem {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: radial-gradient(ellipse at 35% 35%, rgba(196,154,74,0.15), rgba(59,35,20,0.04));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2.5rem;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(59,35,20,0.08), inset 0 1px 0 rgba(255,255,255,0.7);
+    animation: popIn 0.5s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes popIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+  }
+
+  .emblem::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    border: 1px dashed var(--border);
+    opacity: 0.5;
+  }
+
+  .emblem-icon { font-size: 3rem; line-height: 1; }
+
+  .eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--brown);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 em { font-style: italic; color: var(--brown-light); }
+
+  .body-text {
+    font-size: 0.96rem;
+    color: var(--text-muted);
+    max-width: 400px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.85;
+  }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--border);
+    margin: 2rem auto;
+  }
+
+  .what-next {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    text-align: left;
+  }
+
+  .next-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.1rem 1.2rem;
+    background: var(--cream);
+    border: 1px solid var(--border);
+  }
+
+  .next-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 1.5rem;
+  }
+
+  .next-text strong {
+    display: block;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brown);
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+  }
+
+  .next-text span {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+
+  .sig {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+  }
+
+  .btn-primary {
+    background: var(--brown);
+    color: var(--cream);
+    padding: 0.9rem 2.4rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+    font-weight: 400;
+  }
+  .btn-primary:hover { background: var(--brown-mid); transform: translateY(-1px); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 1rem 1.5rem; }
+    .card { padding: 3rem 1.8rem; }
+    h1 { font-size: 2.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Boston Tea Cake Co.</a>
+  <a href="/" class="nav-back">← Back to site</a>
+</nav>
+
+<main>
+  <div class="card">
+    <div class="emblem">
+      <span class="emblem-icon">🎂</span>
+    </div>
+
+    <p class="eyebrow">Order Received</p>
+    <h1>Thank you for<br>your <em>order.</em></h1>
+
+    <p class="body-text">
+      Your order has been submitted and Steven has been notified. 
+      Expect a personal reply within 24 hours to confirm the details 
+      and arrange payment and delivery.
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="what-next">
+      <div class="next-item">
+        <span class="next-num">1</span>
+        <div class="next-text">
+          <strong>Confirmation email</strong>
+          <span>Check your inbox — a copy of your order details is on its way.</span>
+        </div>
+      </div>
+      <div class="next-item">
+        <span class="next-num">2</span>
+        <div class="next-text">
+          <strong>Steven will be in touch</strong>
+          <span>Within 24 hours to confirm your order and arrange payment.</span>
+        </div>
+      </div>
+      <div class="next-item">
+        <span class="next-num">3</span>
+        <div class="next-text">
+          <strong>Fresh-baked & delivered</strong>
+          <span>Your cake is baked to order and delivered directly to you.</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="sig">— The Boston Tea Cake Company, Milford, MA · Est. 1993</p>
+
+    <a href="/" class="btn-primary">Back to the Bakery</a>
+  </div>
+</main>
+
+<footer>
+  © 2026 Boston Tea Cake Company, Ltd. · bostonteacakes.club
+</footer>
+
+</body>
+</html>
