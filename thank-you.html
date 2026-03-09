@@ -3,342 +3,116 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Order Request Received — The Boston Tea Cake Company</title>
+<title>Order Received — The Boston Tea Cake Company</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
-  /* ============================================================
-     Shared tokens — matches index.html exactly
-  ============================================================ */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F7F3EC;--warm-white:#FDFAF5;--brown:#3B2314;--brown-mid:#6B3D22;
+  --brown-light:#A0664A;--gold:#C49A4A;--gold-light:#DDB96A;--sage:#8A9E7A;
+  --text:#2A1A0E;--text-muted:#7A6050;--border:#D8C9B5;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);font-weight:300;line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
 
-  :root {
-    --cream: #F7F3EC;
-    --warm-white: #FDFAF5;
-    --brown: #3B2314;
-    --brown-mid: #6B3D22;
-    --brown-light: #A0664A;
-    --gold: #C49A4A;
-    --gold-light: #DDB96A;
-    --text: #2A1A0E;
-    --text-muted: #7A6050;
-    --border: #D8C9B5;
-  }
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 4rem;background:rgba(247,243,236,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:500;color:var(--brown);letter-spacing:0.04em;text-decoration:none}
 
-  html, body {
-    height: 100%;
-    font-family: 'Jost', sans-serif;
-    background: var(--cream);
-    color: var(--text);
-    font-weight: 300;
-    line-height: 1.7;
-  }
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:5rem 2rem}
+.ty-card{background:var(--warm-white);border:1px solid var(--border);max-width:640px;width:100%;padding:4rem;text-align:center;box-shadow:0 20px 60px rgba(59,35,20,0.08)}
 
-  /* ── Nav ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.2rem 4rem;
-    background: rgba(247,243,236,0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
+.ty-icon{font-size:3.5rem;margin-bottom:1.5rem;display:block;line-height:1}
 
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem;
-    font-weight: 500;
-    color: var(--brown);
-    letter-spacing: 0.04em;
-    text-decoration: none;
-  }
+.ty-label{font-size:0.65rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);font-weight:400;display:block;margin-bottom:1rem}
 
-  .nav-back {
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    text-decoration: none;
-    font-weight: 400;
-    transition: color 0.2s;
-  }
-  .nav-back:hover { color: var(--brown); }
+.ty-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3rem);font-weight:300;color:var(--brown);line-height:1.2;margin-bottom:1.5rem}
 
-  /* ── Main centered layout ── */
-  main {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 8rem 2rem 4rem;
-    position: relative;
-    overflow: hidden;
-  }
+.ty-divider{width:40px;height:1px;background:var(--gold);margin:0 auto 2rem}
 
-  main::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 50% 60% at 50% 40%, rgba(196,154,74,0.10) 0%, transparent 60%),
-      radial-gradient(ellipse 30% 40% at 80% 80%, rgba(59,35,20,0.05) 0%, transparent 50%);
-    pointer-events: none;
-  }
+.ty-body{font-size:0.95rem;color:var(--text-muted);line-height:1.9;margin-bottom:2.5rem;max-width:480px;margin-left:auto;margin-right:auto}
 
-  /* ── Confirmation card ── */
-  .card {
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    max-width: 560px;
-    width: 100%;
-    padding: 4rem 3.5rem;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 30px 80px rgba(59,35,20,0.08);
-    animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
+.ty-steps{display:flex;flex-direction:column;gap:1.2rem;text-align:left;margin-bottom:3rem}
 
-  @keyframes rise {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+.ty-step{display:flex;gap:1.2rem;align-items:flex-start;padding:1.4rem 1.6rem;background:var(--cream);border:1px solid var(--border)}
 
-  /* Gold top accent line */
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 10%; right: 10%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  }
+.ty-step-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--gold);line-height:1;flex-shrink:0;min-width:1.8rem}
 
-  /* Decorative emblem */
-  .emblem {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    background: radial-gradient(ellipse at 35% 35%, rgba(196,154,74,0.15), rgba(59,35,20,0.04));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 2.5rem;
-    position: relative;
-    box-shadow: 0 8px 30px rgba(59,35,20,0.08), inset 0 1px 0 rgba(255,255,255,0.7);
-    animation: popIn 0.5s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
+.ty-step-text strong{display:block;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--brown);font-weight:500;margin-bottom:0.3rem}
 
-  @keyframes popIn {
-    from { transform: scale(0.7); opacity: 0; }
-    to   { transform: scale(1);   opacity: 1; }
-  }
+.ty-step-text span{font-size:0.88rem;color:var(--text-muted);line-height:1.7}
 
-  .emblem::before {
-    content: '';
-    position: absolute;
-    inset: 8px;
-    border-radius: 50%;
-    border: 1px dashed var(--border);
-    opacity: 0.5;
-  }
+.ty-back{background:var(--brown);color:var(--cream);padding:0.9rem 2.4rem;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.2s,transform 0.15s;font-weight:400}
+.ty-back:hover{background:var(--brown-mid);transform:translateY(-1px)}
 
-  .emblem-icon { font-size: 3rem; line-height: 1; position: relative; z-index: 1; }
+footer{background:var(--brown);color:rgba(253,250,245,0.5);padding:2.5rem 4rem;display:flex;align-items:center;justify-content:space-between;font-size:0.72rem;letter-spacing:0.1em}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(253,250,245,0.8);font-weight:400;letter-spacing:0.05em}
 
-  .eyebrow {
-    font-size: 0.65rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-    font-weight: 400;
-    display: block;
-  }
-
-  h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.9rem;
-    font-weight: 300;
-    color: var(--brown);
-    line-height: 1.15;
-    margin-bottom: 1.5rem;
-  }
-
-  h1 em { font-style: italic; color: var(--brown-light); }
-
-  .body-text {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    max-width: 400px;
-    margin: 0 auto 2.5rem;
-    line-height: 1.85;
-  }
-
-  .divider {
-    width: 40px;
-    height: 1px;
-    background: var(--border);
-    margin: 0 auto 2rem;
-  }
-
-  /* What happens next — clean three-step list */
-  .next-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 0.9rem;
-    margin-bottom: 2.5rem;
-    text-align: left;
-  }
-
-  .next-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1.1rem 1.2rem;
-    background: var(--cream);
-    border: 1px solid var(--border);
-  }
-
-  .next-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 300;
-    color: var(--gold);
-    line-height: 1;
-    flex-shrink: 0;
-    min-width: 1.4rem;
-  }
-
-  .next-text strong {
-    display: block;
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--brown);
-    font-weight: 500;
-    margin-bottom: 0.2rem;
-  }
-
-  .next-text span {
-    font-size: 0.86rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
-
-  .sig {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    font-style: italic;
-    color: var(--text-muted);
-    margin-bottom: 2.5rem;
-  }
-
-  .btn-primary {
-    background: var(--brown);
-    color: var(--cream);
-    padding: 0.9rem 2.4rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: background 0.2s, transform 0.15s;
-    font-weight: 400;
-  }
-  .btn-primary:hover { background: var(--brown-mid); transform: translateY(-1px); }
-
-  /* ── Footer ── */
-  footer {
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    color: var(--text-muted);
-    border-top: 1px solid var(--border);
-    margin-top: auto;
-  }
-
-  @media (max-width: 600px) {
-    nav { padding: 1rem 1.5rem; }
-    .card { padding: 3rem 1.8rem; }
-    h1 { font-size: 2.3rem; }
-  }
+@media(max-width:700px){
+  nav,footer{padding:1rem 1.5rem}
+  .ty-card{padding:2.5rem 1.5rem}
+  footer{flex-direction:column;gap:0.8rem;text-align:center}
+}
 </style>
 </head>
 <body>
 
 <nav>
   <a href="/" class="nav-logo">Boston Tea Cake Co.</a>
-  <a href="/" class="nav-back">← Back to site</a>
 </nav>
 
 <main>
-  <div class="card">
+  <div class="ty-card">
+    <span class="ty-icon">🎂</span>
+    <span class="ty-label">Order Request Received</span>
+    <h1 class="ty-title">Thank you for<br>your order.</h1>
+    <div class="ty-divider"></div>
 
-    <div class="emblem">
-      <span class="emblem-icon">🎂</span>
-    </div>
-
-    <span class="eyebrow">Order Request Received</span>
-    <h1>Thank you for<br>your <em>order.</em></h1>
-
-    <p class="body-text">
-      Your order request has been received. We will follow up shortly 
+    <p class="ty-body">
+      Your order request has been received. We will follow up shortly
       to confirm your order — then send payment instructions by email.
       PayPal is accepted.
     </p>
 
-    <div class="divider"></div>
-
-    <div class="next-steps">
-      <div class="next-item">
-        <span class="next-num">1</span>
-        <div class="next-text">
+    <div class="ty-steps">
+      <div class="ty-step">
+        <span class="ty-step-num">1</span>
+        <div class="ty-step-text">
           <strong>Request Received</strong>
           <span>Your order request is in. Check your inbox for a copy of your submission details.</span>
         </div>
       </div>
-      <div class="next-item">
-        <span class="next-num">2</span>
-        <div class="next-text">
+      <div class="ty-step">
+        <span class="ty-step-num">2</span>
+        <div class="ty-step-text">
           <strong>We Review &amp; Confirm</strong>
           <span>We'll be in touch to confirm your order, discuss delivery or shipping, and answer any questions.</span>
         </div>
       </div>
-      <div class="next-item">
-        <span class="next-num">3</span>
-        <div class="next-text">
+      <div class="ty-step">
+        <span class="ty-step-num">3</span>
+        <div class="ty-step-text">
           <strong>Payment Instructions Sent</strong>
           <span>After we confirm your order, we will email you payment instructions. PayPal is accepted.</span>
         </div>
       </div>
-      <div class="next-item">
-        <span class="next-num">4</span>
-        <div class="next-text">
+      <div class="ty-step">
+        <span class="ty-step-num">4</span>
+        <div class="ty-step-text">
           <strong>Freshly Baked &amp; Delivered</strong>
           <span>Your order is fulfilled within a week of payment confirmation and delivered directly to you.</span>
         </div>
       </div>
     </div>
 
-    <p class="sig">— The Boston Tea Cake Company, Milford, MA · Est. 1993</p>
-
-    <a href="/" class="btn-primary">Back to the Bakery</a>
-
+    <a href="/" class="ty-back">Back to the Bakery</a>
   </div>
 </main>
 
 <footer>
-  © 2026 Boston Tea Cake Company, Ltd. · Milford, MA · bostonteacakes.club · Est. 1993
+  <span class="footer-logo">The Boston Tea Cake Company</span>
+  <span>© 2026 Boston Tea Cake Company, Ltd. · Milford, MA · bostonteacakes.club · Est. 1993</span>
 </footer>
 
 </body>
