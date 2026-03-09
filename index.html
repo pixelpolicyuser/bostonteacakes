@@ -7,1023 +7,193 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
-  /* ============================================================
-     BASE RESET & DESIGN TOKENS  (preserved from original)
-  ============================================================ */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --cream: #F7F3EC;
-    --warm-white: #FDFAF5;
-    --brown: #3B2314;
-    --brown-mid: #6B3D22;
-    --brown-light: #A0664A;
-    --gold: #C49A4A;
-    --gold-light: #DDB96A;
-    --sage: #8A9E7A;
-    --text: #2A1A0E;
-    --text-muted: #7A6050;
-    --border: #D8C9B5;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Jost', sans-serif;
-    background: var(--cream);
-    color: var(--text);
-    font-weight: 300;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  /* ============================================================
-     NAVIGATION  (preserved from original)
-  ============================================================ */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.2rem 4rem;
-    background: rgba(247,243,236,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem;
-    font-weight: 500;
-    color: var(--brown);
-    letter-spacing: 0.04em;
-    text-decoration: none;
-  }
-
-  .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2.8rem;
-    align-items: center;
-  }
-
-  .nav-links a {
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.2s;
-    font-weight: 400;
-  }
-
-  .nav-links a:hover { color: var(--brown); }
-
-  .nav-links .btn-nav {
-    background: var(--brown);
-    color: var(--cream) !important;
-    padding: 0.55rem 1.4rem;
-    letter-spacing: 0.16em;
-    transition: background 0.2s;
-  }
-  .nav-links .btn-nav:hover { background: var(--brown-mid); }
-
-  /* ============================================================
-     HERO  (preserved from original)
-  ============================================================ */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 8rem 4rem 5rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 70% at 70% 50%, rgba(196,154,74,0.10) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 50% at 20% 80%, rgba(59,35,20,0.06) 0%, transparent 50%);
-  }
-
-  .hero-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-    position: relative;
-  }
-
-  .hero-eyebrow {
-    font-size: 0.68rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-    font-weight: 400;
-  }
-
-  .hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3.2rem, 6vw, 5.2rem);
-    font-weight: 300;
-    line-height: 1.12;
-    color: var(--brown);
-    margin-bottom: 1.8rem;
-  }
-
-  .hero h1 em { font-style: italic; color: var(--brown-light); }
-
-  .hero-sub {
-    font-size: 1rem;
-    color: var(--text-muted);
-    max-width: 400px;
-    margin-bottom: 2.8rem;
-    line-height: 1.8;
-  }
-
-  .hero-btns {
-    display: flex;
-    gap: 1.2rem;
-    flex-wrap: wrap;
-  }
-
-  /* Shared button styles */
-  .btn-primary {
-    background: var(--brown);
-    color: var(--cream);
-    padding: 0.9rem 2.2rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: background 0.2s, transform 0.15s;
-    font-weight: 400;
-  }
-  .btn-primary:hover { background: var(--brown-mid); transform: translateY(-1px); }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--brown);
-    padding: 0.9rem 2.2rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    border: 1px solid var(--brown);
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.2s;
-    font-weight: 400;
-  }
-  .btn-outline:hover { background: var(--brown); color: var(--cream); }
-
-  /* Credential badges */
-  .badge-row {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-  }
-
-  .badge {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 400;
-  }
-
-  .badge::before { content: '✦'; color: var(--gold); font-size: 0.5rem; }
-
-  /* Hero decorative emblem */
-  .hero-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .cake-emblem {
-    width: 380px;
-    height: 380px;
-    border-radius: 50%;
-    background: radial-gradient(ellipse at 35% 35%, rgba(196,154,74,0.18), rgba(59,35,20,0.08));
-    border: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    position: relative;
-    box-shadow: 0 30px 80px rgba(59,35,20,0.12), inset 0 1px 0 rgba(255,255,255,0.6);
-  }
-
-  .cake-emblem::before {
-    content: '';
-    position: absolute;
-    inset: 12px;
-    border-radius: 50%;
-    border: 1px dashed var(--border);
-    opacity: 0.6;
-  }
-
-  .cake-emblem-icon { font-size: 5rem; line-height: 1; }
-
-  .cake-emblem-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.9rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--brown-light);
-    font-weight: 400;
-  }
-
-  /* ============================================================
-     SHARED SECTION STYLES  (preserved from original)
-  ============================================================ */
-  section { padding: 7rem 4rem; }
-
-  .section-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-    font-weight: 400;
-    display: block;
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.2rem, 4vw, 3.4rem);
-    font-weight: 300;
-    color: var(--brown);
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-  }
-
-  /* ============================================================
-     STORY SECTION  (preserved from original)
-  ============================================================ */
-  #story { background: var(--warm-white); }
-
-  .story-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-  }
-
-  .story-copy p {
-    color: var(--text-muted);
-    margin-bottom: 1.2rem;
-    font-size: 0.98rem;
-  }
-
-  .story-copy strong { color: var(--brown); font-weight: 500; }
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-  }
-
-  .stat {
-    background: var(--cream);
-    padding: 2rem;
-    text-align: center;
-  }
-
-  .stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem;
-    font-weight: 300;
-    color: var(--brown);
-    line-height: 1;
-    display: block;
-  }
-
-  .stat-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-top: 0.5rem;
-    display: block;
-  }
-
-  /* ============================================================
-     THE COLLECTION  (preserved from original + pricing added)
-  ============================================================ */
-  #cakes { background: var(--cream); }
-
-  .cakes-header {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
-
-  .cakes-sub {
-    color: var(--text-muted);
-    font-size: 0.92rem;
-  }
-
-  .cakes-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-  }
-
-  .cake-card {
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    padding: 2.5rem 2rem;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .cake-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 50px rgba(59,35,20,0.1);
-  }
-
-  .cake-tag {
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.2rem;
-    font-weight: 400;
-  }
-
-  .cake-icon { font-size: 2.8rem; margin-bottom: 1.2rem; }
-
-  .cake-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: var(--brown);
-    margin-bottom: 0.8rem;
-    line-height: 1.2;
-  }
-
-  .cake-desc {
-    font-size: 0.88rem;
-    color: var(--text-muted);
-    flex: 1;
-    margin-bottom: 1.2rem;
-    line-height: 1.7;
-  }
-
-  /* Per-cake pricing pills */
-  .cake-pricing {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-bottom: 1.4rem;
-  }
-
-  .cake-price-pill {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    background: var(--cream);
-    border: 1px solid var(--border);
-    padding: 0.28rem 0.7rem;
-    letter-spacing: 0.04em;
-    line-height: 1.5;
-  }
-
-  .cake-price-pill strong {
-    font-weight: 500;
-    color: var(--brown);
-  }
-
-  .cake-order-btn {
-    background: transparent;
-    color: var(--brown);
-    border: 1px solid var(--brown);
-    padding: 0.7rem 1.4rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-weight: 400;
-    width: 100%;
-  }
-  .cake-order-btn:hover { background: var(--brown); color: var(--cream); }
-
-  /* Tasteful pricing disclaimer under the cake grid */
-  .pricing-disclaimer {
-    text-align: center;
-    margin-top: 2.5rem;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    font-style: italic;
-  }
-
-  /* ============================================================
-     CASE PRICING SECTION
-  ============================================================ */
-  #cases { background: var(--warm-white); }
-
-  .cases-header {
-    text-align: center;
-    margin-bottom: 3.5rem;
-  }
-
-  .cases-header p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    max-width: 520px;
-    margin: 0 auto;
-    line-height: 1.8;
-  }
-
-  .cases-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    max-width: 800px;
-    margin: 0 auto 2.5rem;
-  }
-
-  .case-card {
-    border: 1px solid var(--border);
-    padding: 2.8rem 2.5rem;
-    background: var(--cream);
-    text-align: center;
-    transition: box-shadow 0.2s, transform 0.2s;
-  }
-
-  .case-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 16px 45px rgba(59,35,20,0.09);
-  }
-
-  .case-card-label {
-    font-size: 0.6rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    display: block;
-    margin-bottom: 0.6rem;
-    font-weight: 400;
-  }
-
-  .case-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: var(--brown);
-    margin-bottom: 0.2rem;
-  }
-
-  .case-card-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.8rem;
-    font-weight: 300;
-    color: var(--brown);
-    line-height: 1.1;
-    margin-bottom: 1.6rem;
-  }
-
-  .case-card-price sup { font-size: 1.3rem; vertical-align: super; }
-
-  .case-card-price small {
-    font-family: 'Jost', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    font-weight: 400;
-    margin-left: 0.2rem;
-  }
-
-  .case-details {
-    display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
-    margin-bottom: 1.8rem;
-    padding-bottom: 1.8rem;
-    border-bottom: 1px solid var(--border);
-    text-align: left;
-  }
-
-  .case-detail {
-    font-size: 0.87rem;
-    color: var(--text-muted);
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-  }
-
-  .case-detail::before {
-    content: '—';
-    color: var(--gold);
-    flex-shrink: 0;
-  }
-
-  .case-card-note {
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    font-style: italic;
-    line-height: 1.6;
-  }
-
-  /* Mixed assortment note strip */
-  .assortment-strip {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--gold);
-    padding: 1.2rem 1.8rem;
-    display: flex;
-    align-items: flex-start;
-    gap: 0.9rem;
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 0.88rem;
-    color: var(--text-muted);
-    line-height: 1.7;
-  }
-
-  .assortment-strip strong { color: var(--brown); font-weight: 500; }
-
-  /* ============================================================
-     WHOLESALE / TRADE  (dark band — preserved exactly from original)
-  ============================================================ */
-  #wholesale {
-    background: var(--brown);
-    color: var(--cream);
-  }
-
-  #wholesale .section-label { color: var(--gold-light); }
-  #wholesale .section-title { color: var(--cream); }
-
-  .wholesale-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: start;
-  }
-
-  .wholesale-copy p {
-    color: rgba(253,250,245,0.65);
-    margin-bottom: 1.2rem;
-    font-size: 0.98rem;
-  }
-
-  .wholesale-copy .btn-primary {
-    background: var(--gold);
-    color: var(--brown);
-    margin-top: 1rem;
-  }
-  .wholesale-copy .btn-primary:hover { background: var(--gold-light); }
-
-  .wholesale-types {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .wholesale-type {
-    border: 1px solid rgba(253,250,245,0.15);
-    padding: 1.8rem;
-  }
-
-  .wholesale-type-icon { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
-
-  .wholesale-type-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: var(--cream);
-    margin-bottom: 0.4rem;
-  }
-
-  .wholesale-type-desc {
-    font-size: 0.82rem;
-    color: rgba(253,250,245,0.5);
-    line-height: 1.6;
-  }
-
-  /* ============================================================
-     CONTACT  (preserved from original, email updated)
-  ============================================================ */
-  #contact { background: var(--warm-white); }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: start;
-  }
-
-  .contact-copy p {
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-    font-size: 0.98rem;
-  }
-
-  .contact-details {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-
-  .contact-item {
-    display: flex;
-    gap: 1.2rem;
-    align-items: flex-start;
-    padding: 1.5rem;
-    background: var(--cream);
-    border: 1px solid var(--border);
-  }
-
-  .contact-item-label {
-    font-size: 0.62rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.3rem;
-    display: block;
-    font-weight: 400;
-  }
-
-  .contact-item-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    color: var(--brown);
-    font-weight: 400;
-  }
-
-  .contact-item-value a {
-    color: var(--brown);
-    text-decoration: none;
-  }
-  .contact-item-value a:hover { color: var(--brown-light); }
-
-  /* Contact form */
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
-
-  .form-group label {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    font-weight: 400;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    padding: 0.9rem 1rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.92rem;
-    color: var(--text);
-    font-weight: 300;
-    outline: none;
-    transition: border-color 0.2s;
-    width: 100%;
-    -webkit-appearance: none;
-    appearance: none;
-    border-radius: 0;
-  }
-
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus { border-color: var(--brown-light); }
-
-  .form-group textarea { resize: vertical; min-height: 100px; }
-
-  .form-submit {
-    background: var(--brown);
-    color: var(--cream);
-    border: none;
-    padding: 1rem 2rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.2s;
-    font-weight: 400;
-    align-self: flex-start;
-  }
-  .form-submit:hover { background: var(--brown-mid); }
-
-  .form-success {
-    display: none;
-    background: var(--sage);
-    color: white;
-    padding: 1.5rem;
-    font-size: 0.9rem;
-    line-height: 1.7;
-  }
-
-  /* ============================================================
-     FOOTER  (preserved from original)
-  ============================================================ */
-  footer {
-    background: var(--brown);
-    color: rgba(253,250,245,0.5);
-    padding: 3rem 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-  }
-
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    color: rgba(253,250,245,0.8);
-    font-weight: 400;
-    letter-spacing: 0.05em;
-  }
-
-  /* ============================================================
-     ORDER MODAL  (rebuilt for case ordering)
-  ============================================================ */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(42,26,14,0.7);
-    z-index: 200;
-    backdrop-filter: blur(4px);
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
-
-  .modal-overlay.open { display: flex; }
-
-  .modal {
-    background: var(--warm-white);
-    max-width: 600px;
-    width: 100%;
-    max-height: 92vh;
-    overflow-y: auto;
-    position: relative;
-    border: 1px solid var(--border);
-    box-shadow: 0 40px 100px rgba(42,26,14,0.3);
-  }
-
-  .modal-header {
-    padding: 2.5rem 2.5rem 1.5rem;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-
-  .modal-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: var(--brown);
-  }
-
-  .modal-title small {
-    display: block;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.62rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    font-weight: 400;
-    margin-top: 0.3rem;
-  }
-
-  .modal-close {
-    background: none;
-    border: none;
-    font-size: 1.4rem;
-    cursor: pointer;
-    color: var(--text-muted);
-    line-height: 1;
-    padding: 0.2rem;
-    transition: color 0.2s;
-    flex-shrink: 0;
-  }
-  .modal-close:hover { color: var(--brown); }
-
-  .modal-body { padding: 2rem 2.5rem 2.5rem; }
-
-  .modal-form { display: flex; flex-direction: column; gap: 1.2rem; }
-
-  /* Section dividers within modal form */
-  .modal-section-label {
-    font-size: 0.6rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 400;
-    padding-bottom: 0.7rem;
-    border-bottom: 1px solid var(--border);
-    margin-top: 0.3rem;
-    display: block;
-  }
-
-  /* Case quantity steppers */
-  .qty-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .qty-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .qty-group label {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    font-weight: 400;
-  }
-
-  .qty-control {
-    display: flex;
-    align-items: center;
-    border: 1px solid var(--border);
-    width: 100%;
-  }
-
-  .qty-btn {
-    background: var(--cream);
-    border: none;
-    width: 42px;
-    height: 44px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    color: var(--brown);
-    transition: background 0.15s;
-    font-family: 'Jost', sans-serif;
-    flex-shrink: 0;
-  }
-  .qty-btn:hover { background: var(--border); }
-
-  .qty-display {
-    flex: 1;
-    text-align: center;
-    font-size: 0.95rem;
-    color: var(--brown);
-    background: var(--warm-white);
-    border: none;
-    border-left: 1px solid var(--border);
-    border-right: 1px solid var(--border);
-    padding: 0.5rem;
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    height: 44px;
-    line-height: 34px;
-  }
-
-  .qty-hint {
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    font-style: italic;
-  }
-
-  /* Dynamic order summary */
-  .order-summary {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    padding: 1.2rem 1.5rem;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    display: none;
-    line-height: 1.7;
-  }
-
-  .order-summary.visible { display: block; }
-
-  .order-summary-line {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.3rem 0;
-    border-bottom: 1px dashed var(--border);
-  }
-
-  .order-summary-line:last-of-type { border-bottom: none; }
-
-  .order-summary-total {
-    display: flex;
-    justify-content: space-between;
-    font-weight: 500;
-    color: var(--brown);
-    padding-top: 0.6rem;
-    margin-top: 0.4rem;
-    border-top: 1px solid var(--border);
-    font-size: 0.9rem;
-  }
-
-  .order-summary-disclaimer {
-    font-size: 0.7rem;
-    font-style: italic;
-    color: var(--text-muted);
-    margin-top: 0.6rem;
-  }
-
-  .modal-footer-note {
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    text-align: center;
-    margin-top: 0.5rem;
-    font-weight: 400;
-    line-height: 1.8;
-  }
-
-  /* ============================================================
-     SCROLL FADE-IN  (preserved from original)
-  ============================================================ */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-  /* ============================================================
-     RESPONSIVE  (preserved + additions for new sections)
-  ============================================================ */
-  @media (max-width: 900px) {
-    nav { padding: 1rem 2rem; }
-    .nav-links { gap: 1.5rem; }
-    .hero, section { padding: 5rem 2rem; }
-    .hero-inner, .story-grid, .wholesale-grid, .contact-grid {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-    .hero { padding-top: 7rem; }
-    .cake-emblem { width: 260px; height: 260px; }
-    .cakes-grid { grid-template-columns: 1fr 1fr; }
-    .cases-grid { grid-template-columns: 1fr; max-width: 420px; }
-    footer { flex-direction: column; gap: 1rem; text-align: center; }
-  }
-
-  @media (max-width: 600px) {
-    .nav-links { display: none; }
-    .cakes-grid { grid-template-columns: 1fr; }
-    .wholesale-types { grid-template-columns: 1fr; }
-    .form-row { grid-template-columns: 1fr; }
-    .qty-row { grid-template-columns: 1fr; }
-    .modal-body { padding: 1.5rem; }
-    .modal-header { padding: 1.5rem 1.5rem 1.2rem; }
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F7F3EC;--warm-white:#FDFAF5;--brown:#3B2314;--brown-mid:#6B3D22;
+  --brown-light:#A0664A;--gold:#C49A4A;--gold-light:#DDB96A;--sage:#8A9E7A;
+  --text:#2A1A0E;--text-muted:#7A6050;--border:#D8C9B5;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);font-weight:300;line-height:1.7;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 4rem;background:rgba(247,243,236,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:500;color:var(--brown);letter-spacing:0.04em;text-decoration:none}
+.nav-links{display:flex;list-style:none;gap:2.8rem;align-items:center}
+.nav-links a{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color 0.2s;font-weight:400}
+.nav-links a:hover{color:var(--brown)}
+.nav-links .btn-nav{background:var(--brown);color:var(--cream)!important;padding:0.55rem 1.4rem;letter-spacing:0.16em;transition:background 0.2s}
+.nav-links .btn-nav:hover{background:var(--brown-mid)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:8rem 4rem 5rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 70% 50%,rgba(196,154,74,0.10) 0%,transparent 60%),radial-gradient(ellipse 40% 50% at 20% 80%,rgba(59,35,20,0.06) 0%,transparent 50%)}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;position:relative}
+.hero-eyebrow{font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;font-weight:400}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,6vw,5.2rem);font-weight:300;line-height:1.12;color:var(--brown);margin-bottom:1.8rem}
+.hero h1 em{font-style:italic;color:var(--brown-light)}
+.hero-sub{font-size:1rem;color:var(--text-muted);max-width:400px;margin-bottom:2.8rem;line-height:1.8}
+.hero-btns{display:flex;gap:1.2rem;flex-wrap:wrap}
+.btn-primary{background:var(--brown);color:var(--cream);padding:0.9rem 2.2rem;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.2s,transform 0.15s;font-weight:400}
+.btn-primary:hover{background:var(--brown-mid);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--brown);padding:0.9rem 2.2rem;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;border:1px solid var(--brown);cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.2s;font-weight:400}
+.btn-outline:hover{background:var(--brown);color:var(--cream)}
+.badge-row{display:flex;gap:2rem;flex-wrap:wrap;margin-top:2rem}
+.badge{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);display:flex;align-items:center;gap:0.5rem;font-weight:400}
+.badge::before{content:'✦';color:var(--gold);font-size:0.5rem}
+.hero-visual{display:flex;justify-content:center;align-items:center}
+.cake-emblem{width:380px;height:380px;border-radius:50%;background:radial-gradient(ellipse at 35% 35%,rgba(196,154,74,0.18),rgba(59,35,20,0.08));border:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;position:relative;box-shadow:0 30px 80px rgba(59,35,20,0.12),inset 0 1px 0 rgba(255,255,255,0.6)}
+.cake-emblem::before{content:'';position:absolute;inset:12px;border-radius:50%;border:1px dashed var(--border);opacity:0.6}
+.cake-emblem-icon{font-size:5rem;line-height:1}
+.cake-emblem-text{font-family:'Cormorant Garamond',serif;font-size:0.9rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--brown-light);font-weight:400}
+
+/* SHARED SECTIONS */
+section{padding:7rem 4rem}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-label{font-size:0.65rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:400;display:block}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:300;color:var(--brown);line-height:1.2;margin-bottom:1.5rem}
+
+/* STORY */
+#story{background:var(--warm-white)}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.story-copy p{color:var(--text-muted);margin-bottom:1.2rem;font-size:0.98rem}
+.story-copy strong{color:var(--brown);font-weight:500}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+.stat{background:var(--cream);padding:2rem;text-align:center}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--brown);line-height:1;display:block}
+.stat-label{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-top:0.5rem;display:block}
+
+/* COLLECTION */
+#cakes{background:var(--cream)}
+.cakes-header{text-align:center;margin-bottom:4rem}
+.cakes-sub{color:var(--text-muted);font-size:0.92rem}
+.cakes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.cake-card{background:var(--warm-white);border:1px solid var(--border);padding:2.5rem 2rem;display:flex;flex-direction:column;position:relative;transition:transform 0.2s,box-shadow 0.2s}
+.cake-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(59,35,20,0.1)}
+.cake-tag{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;font-weight:400}
+.cake-icon{font-size:2.8rem;margin-bottom:1.2rem}
+.cake-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--brown);margin-bottom:0.8rem;line-height:1.2}
+.cake-desc{font-size:0.88rem;color:var(--text-muted);flex:1;margin-bottom:1.2rem;line-height:1.7}
+.cake-pricing{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:1.4rem}
+.cake-price-pill{font-size:0.72rem;color:var(--text-muted);background:var(--cream);border:1px solid var(--border);padding:0.28rem 0.7rem;letter-spacing:0.04em;line-height:1.5}
+.cake-price-pill strong{font-weight:500;color:var(--brown)}
+.cake-order-btn{background:transparent;color:var(--brown);border:1px solid var(--brown);padding:0.7rem 1.4rem;font-family:'Jost',sans-serif;font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;font-weight:400;width:100%}
+.cake-order-btn:hover{background:var(--brown);color:var(--cream)}
+.pricing-disclaimer{text-align:center;margin-top:2.5rem;font-size:0.75rem;color:var(--text-muted);font-style:italic}
+
+/* CASE PRICING */
+#cases{background:var(--warm-white)}
+.cases-header{text-align:center;margin-bottom:3.5rem}
+.cases-header p{color:var(--text-muted);font-size:0.95rem;max-width:520px;margin:0 auto;line-height:1.8}
+.cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:800px;margin:0 auto 2.5rem}
+.case-card{border:1px solid var(--border);padding:2.8rem 2.5rem;background:var(--cream);text-align:center;transition:box-shadow 0.2s,transform 0.2s}
+.case-card:hover{transform:translateY(-3px);box-shadow:0 16px 45px rgba(59,35,20,0.09)}
+.case-card-label{font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:0.6rem;font-weight:400}
+.case-card h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:400;color:var(--brown);margin-bottom:0.2rem}
+.case-card-price{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--brown);line-height:1.1;margin-bottom:1.6rem}
+.case-card-price sup{font-size:1.3rem;vertical-align:super}
+.case-card-price small{font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);font-weight:400;margin-left:0.2rem}
+.case-details{display:flex;flex-direction:column;gap:0.55rem;margin-bottom:1.8rem;padding-bottom:1.8rem;border-bottom:1px solid var(--border);text-align:left}
+.case-detail{font-size:0.87rem;color:var(--text-muted);display:flex;align-items:flex-start;gap:0.6rem}
+.case-detail::before{content:'—';color:var(--gold);flex-shrink:0}
+.case-card-note{font-size:0.82rem;color:var(--text-muted);font-style:italic;line-height:1.6}
+.assortment-strip{background:var(--cream);border:1px solid var(--border);border-left:3px solid var(--gold);padding:1.2rem 1.8rem;display:flex;align-items:flex-start;gap:0.9rem;max-width:800px;margin:0 auto;font-size:0.88rem;color:var(--text-muted);line-height:1.7}
+.assortment-strip strong{color:var(--brown);font-weight:500}
+
+/* WHOLESALE */
+#wholesale{background:var(--brown);color:var(--cream)}
+#wholesale .section-label{color:var(--gold-light)}
+#wholesale .section-title{color:var(--cream)}
+.wholesale-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.wholesale-copy p{color:rgba(253,250,245,0.65);margin-bottom:1.2rem;font-size:0.98rem}
+.wholesale-copy .btn-primary{background:var(--gold);color:var(--brown);margin-top:1rem}
+.wholesale-copy .btn-primary:hover{background:var(--gold-light)}
+.wholesale-types{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.wholesale-type{border:1px solid rgba(253,250,245,0.15);padding:1.8rem}
+.wholesale-type-icon{font-size:1.8rem;margin-bottom:0.8rem;display:block}
+.wholesale-type-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--cream);margin-bottom:0.4rem}
+.wholesale-type-desc{font-size:0.82rem;color:rgba(253,250,245,0.5);line-height:1.6}
+
+/* CONTACT */
+#contact{background:var(--warm-white)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.contact-copy p{color:var(--text-muted);margin-bottom:1.5rem;font-size:0.98rem}
+.contact-details{display:flex;flex-direction:column;gap:1.5rem;margin-top:2rem}
+.contact-item{display:flex;gap:1.2rem;align-items:flex-start;padding:1.5rem;background:var(--cream);border:1px solid var(--border)}
+.contact-item-label{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem;display:block;font-weight:400}
+.contact-item-value{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--brown);font-weight:400}
+.contact-item-value a{color:var(--brown);text-decoration:none}
+.contact-item-value a:hover{color:var(--brown-light)}
+.contact-form{display:flex;flex-direction:column;gap:1.2rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:0.5rem}
+.form-group label{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);font-weight:400}
+.form-group input,.form-group select,.form-group textarea{background:var(--cream);border:1px solid var(--border);padding:0.9rem 1rem;font-family:'Jost',sans-serif;font-size:0.92rem;color:var(--text);font-weight:300;outline:none;transition:border-color 0.2s;width:100%;-webkit-appearance:none;appearance:none;border-radius:0}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--brown-light)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-submit{background:var(--brown);color:var(--cream);border:none;padding:1rem 2rem;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;font-weight:400;align-self:flex-start}
+.form-submit:hover{background:var(--brown-mid)}
+.form-success{display:none;background:var(--sage);color:white;padding:1.5rem;font-size:0.9rem;line-height:1.7}
+
+/* FOOTER */
+footer{background:var(--brown);color:rgba(253,250,245,0.5);padding:3rem 4rem;display:flex;align-items:center;justify-content:space-between;font-size:0.72rem;letter-spacing:0.1em}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(253,250,245,0.8);font-weight:400;letter-spacing:0.05em}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(42,26,14,0.7);z-index:200;backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:2rem}
+.modal-overlay.open{display:flex}
+.modal{background:var(--warm-white);max-width:600px;width:100%;max-height:92vh;overflow-y:auto;position:relative;border:1px solid var(--border);box-shadow:0 40px 100px rgba(42,26,14,0.3)}
+.modal-header{padding:2.5rem 2.5rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:400;color:var(--brown)}
+.modal-close{background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--text-muted);line-height:1;padding:0.2rem;transition:color 0.2s;flex-shrink:0}
+.modal-close:hover{color:var(--brown)}
+.modal-body{padding:2rem 2.5rem 2.5rem}
+.modal-form{display:flex;flex-direction:column;gap:1.2rem}
+.modal-section-label{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:400;padding-bottom:0.7rem;border-bottom:1px solid var(--border);margin-top:0.3rem;display:block}
+.qty-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.qty-group{display:flex;flex-direction:column;gap:0.5rem}
+.qty-group label{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);font-weight:400}
+.qty-control{display:flex;align-items:center;border:1px solid var(--border);width:100%}
+.qty-btn{background:var(--cream);border:none;width:42px;height:44px;font-size:1.1rem;cursor:pointer;color:var(--brown);transition:background 0.15s;font-family:'Jost',sans-serif;flex-shrink:0}
+.qty-btn:hover{background:var(--border)}
+.qty-display{flex:1;text-align:center;font-size:0.95rem;color:var(--brown);background:var(--warm-white);border:none;border-left:1px solid var(--border);border-right:1px solid var(--border);padding:0.5rem;font-family:'Jost',sans-serif;font-weight:400;height:44px;line-height:34px}
+.order-summary{background:var(--cream);border:1px solid var(--border);padding:1.2rem 1.5rem;font-size:0.85rem;color:var(--text-muted);display:none;line-height:1.7}
+.order-summary.visible{display:block}
+.order-summary-line{display:flex;justify-content:space-between;padding:0.3rem 0;border-bottom:1px dashed var(--border)}
+.order-summary-total{display:flex;justify-content:space-between;font-weight:500;color:var(--brown);padding-top:0.6rem;margin-top:0.4rem;border-top:1px solid var(--border);font-size:0.9rem}
+.order-summary-disclaimer{font-size:0.7rem;font-style:italic;color:var(--text-muted);margin-top:0.6rem}
+.modal-footer-note{font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);text-align:center;margin-top:0.5rem;font-weight:400;line-height:1.8}
+
+/* FADE-IN */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:1rem 2rem}
+  .nav-links{gap:1.5rem}
+  .hero,section{padding:5rem 2rem}
+  .hero-inner,.story-grid,.wholesale-grid,.contact-grid{grid-template-columns:1fr;gap:3rem}
+  .hero{padding-top:7rem}
+  .cake-emblem{width:260px;height:260px}
+  .cakes-grid{grid-template-columns:1fr 1fr}
+  .cases-grid{grid-template-columns:1fr;max-width:420px}
+  footer{flex-direction:column;gap:1rem;text-align:center}
+}
+@media(max-width:600px){
+  .nav-links{display:none}
+  .cakes-grid{grid-template-columns:1fr}
+  .wholesale-types{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .qty-row{grid-template-columns:1fr}
+  .modal-body{padding:1.5rem}
+  .modal-header{padding:1.5rem 1.5rem 1.2rem}
+}
 </style>
 </head>
 <body>
 
-<!-- ============================================================
-     NAVIGATION
-============================================================ -->
 <nav>
   <a href="#" class="nav-logo">Boston Tea Cake Co.</a>
   <ul class="nav-links">
@@ -1031,34 +201,20 @@
     <li><a href="#cases">Pricing</a></li>
     <li><a href="#wholesale">Wholesale</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#" class="btn-nav" onclick="openModal(); return false;">Order the Cakes</a></li>
+    <li><a href="#" class="btn-nav" onclick="openModal();return false;">Order the Cakes</a></li>
   </ul>
 </nav>
 
-
-<!-- ============================================================
-     HERO
-     TOP PRIORITY: preserve this copy exactly per instructions
-============================================================ -->
 <section class="hero" id="top">
   <div class="hero-inner">
-
     <div class="hero-left">
       <p class="hero-eyebrow">Est. 1993 · Milford, Massachusetts</p>
-
-      <!-- Preserved hero headline -->
       <h1>Baked with <em>Devotion</em><br>to flavor.</h1>
-
-      <!-- Preserved subheading -->
       <p class="hero-sub">Gourmet bundt cakes crafted from scratch, using only the purest ingredients. Four signature flavors. No shortcuts. No compromises.</p>
-
-      <!-- "Order the Cakes" only — no wholesale button in hero -->
       <div class="hero-btns">
-        <a href="#" class="btn-primary" onclick="openModal(); return false;">Order the Cakes</a>
+        <a href="#" class="btn-primary" onclick="openModal();return false;">Order the Cakes</a>
         <a href="#cakes" class="btn-outline">View the Collection</a>
       </div>
-
-      <!-- Preserved credential badges -->
       <div class="badge-row">
         <span class="badge">Four Signature Flavors</span>
         <span class="badge">Locally Delivered</span>
@@ -1066,21 +222,15 @@
         <span class="badge">Family Recipe Since 1993</span>
       </div>
     </div>
-
     <div class="hero-visual">
       <div class="cake-emblem">
         <span class="cake-emblem-icon">🎂</span>
         <span class="cake-emblem-text">The Collection</span>
       </div>
     </div>
-
   </div>
 </section>
 
-
-<!-- ============================================================
-     STORY  (preserved from original)
-============================================================ -->
 <section id="story">
   <div class="section-inner">
     <div class="story-grid fade-in">
@@ -1091,44 +241,23 @@
         <p>Our gourmet bundt cakes are individually prepared from scratch. <strong>No fillers. No shortcuts.</strong> Just the kind of baking that takes time, skill, and genuine pride in the craft.</p>
       </div>
       <div class="stats-grid">
-        <div class="stat">
-          <span class="stat-num">1993</span>
-          <span class="stat-label">Est. in Milford, MA</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">4</span>
-          <span class="stat-label">Signature Flavors</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">30+</span>
-          <span class="stat-label">Years of Craft</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">100%</span>
-          <span class="stat-label">From Scratch</span>
-        </div>
+        <div class="stat"><span class="stat-num">1993</span><span class="stat-label">Est. in Milford, MA</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">Signature Flavors</span></div>
+        <div class="stat"><span class="stat-num">30+</span><span class="stat-label">Years of Craft</span></div>
+        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">From Scratch</span></div>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ============================================================
-     THE COLLECTION — Four Flavors
-     Content order: cakes BEFORE commercial/wholesale section
-============================================================ -->
 <section id="cakes">
   <div class="section-inner">
-
     <div class="cakes-header fade-in">
       <span class="section-label">The Collection</span>
       <h2 class="section-title">Four Flavors. All Exceptional.</h2>
       <p class="cakes-sub">Each flavor available as a Small (24 oz) or Large (48 oz) cake. All orders fulfilled fresh.</p>
     </div>
-
     <div class="cakes-grid">
-
-      <!-- The Classic -->
       <div class="cake-card fade-in">
         <span class="cake-tag">Signature · The Original</span>
         <div class="cake-icon">☕</div>
@@ -1140,8 +269,6 @@
         </div>
         <button class="cake-order-btn" onclick="openModal('The Classic')">Order This Cake</button>
       </div>
-
-      <!-- Double Chocolate -->
       <div class="cake-card fade-in">
         <span class="cake-tag">Indulgent · Bold</span>
         <div class="cake-icon">🍫</div>
@@ -1153,8 +280,6 @@
         </div>
         <button class="cake-order-btn" onclick="openModal('Double Chocolate')">Order This Cake</button>
       </div>
-
-      <!-- Lemon Vanilla Glaze -->
       <div class="cake-card fade-in">
         <span class="cake-tag">Refined · Fan Favorite</span>
         <div class="cake-icon">🍋</div>
@@ -1166,8 +291,6 @@
         </div>
         <button class="cake-order-btn" onclick="openModal('Lemon Vanilla Glaze')">Order This Cake</button>
       </div>
-
-      <!-- Blueberry -->
       <div class="cake-card fade-in">
         <span class="cake-tag">Seasonal · Luscious</span>
         <div class="cake-icon">🫐</div>
@@ -1179,32 +302,19 @@
         </div>
         <button class="cake-order-btn" onclick="openModal('Blueberry')">Order This Cake</button>
       </div>
-
     </div>
-
-    <!-- Tasteful pricing disclaimer -->
     <p class="pricing-disclaimer">Prices are based on market rates and are subject to change.</p>
-
   </div>
 </section>
 
-
-<!-- ============================================================
-     CASE PRICING
-     Shown after the product showcase, before commercial section
-============================================================ -->
 <section id="cases">
   <div class="section-inner">
-
     <div class="cases-header fade-in">
       <span class="section-label">Case Pricing</span>
       <h2 class="section-title">Sold by the case.</h2>
       <p>All orders are fulfilled by the case. Mix and match any of the four flavors — just describe your preferred assortment when you submit your request.</p>
     </div>
-
     <div class="cases-grid fade-in">
-
-      <!-- Small Case -->
       <div class="case-card">
         <span class="case-card-label">Small Case</span>
         <h3>12 Cakes</h3>
@@ -1217,8 +327,6 @@
         </div>
         <p class="case-card-note">Ideal for variety orders, introductory supply, or smaller accounts.</p>
       </div>
-
-      <!-- Large Case -->
       <div class="case-card">
         <span class="case-card-label">Large Case</span>
         <h3>6 Cakes</h3>
@@ -1231,34 +339,23 @@
         </div>
         <p class="case-card-note">Greater yield per unit — preferred for service accounts and recurring orders.</p>
       </div>
-
     </div>
-
-    <!-- Mixed assortment callout -->
     <div class="assortment-strip fade-in">
-      <span style="font-size:1.1rem; flex-shrink:0; margin-top:0.1rem;">🎨</span>
+      <span style="font-size:1.1rem;flex-shrink:0;margin-top:0.1rem;">🎨</span>
       <span><strong>Mixed cases welcome.</strong> Each case may contain any combination of The Classic, Double Chocolate, Lemon Vanilla Glaze, and Blueberry. Simply describe your preferred mix in the order request.</span>
     </div>
-
   </div>
 </section>
 
-
-<!-- ============================================================
-     WHOLESALE / TRADE  (dark band — preserved exactly from original)
-     Placed AFTER the product showcase per content order requirements
-============================================================ -->
 <section id="wholesale">
   <div class="section-inner">
     <div class="wholesale-grid fade-in">
-
       <div class="wholesale-copy">
         <span class="section-label">Trade &amp; Wholesale</span>
         <h2 class="section-title">Bring The Club<br>To Your Guests</h2>
         <p>Boston Tea Cake Company supplies wholesale accounts to cafés, hotels, event planners, and corporate dining. Our cakes pair beautifully with tea and coffee service, and make memorable corporate gifts.</p>
         <a href="#contact" class="btn-primary">Get In Touch</a>
       </div>
-
       <div class="wholesale-types">
         <div class="wholesale-type">
           <span class="wholesale-type-icon">☕</span>
@@ -1281,19 +378,13 @@
           <div class="wholesale-type-desc">Standing weekly orders available</div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-
-<!-- ============================================================
-     CONTACT  (preserved from original)
-============================================================ -->
 <section id="contact">
   <div class="section-inner">
     <div class="contact-grid fade-in">
-
       <div class="contact-copy">
         <span class="section-label">Get In Touch</span>
         <h2 class="section-title">Ready to Order?</h2>
@@ -1308,9 +399,7 @@
           <div class="contact-item">
             <div>
               <span class="contact-item-label">Email</span>
-              <span class="contact-item-value">
-                <a href="/cdn-cgi/l/email-protection#e9869b8d8c9b9aa98b869a9d86879d8c888a88828c9ac78a859c8b"><span class="__cf_email__" data-cfemail="107f627475626350727f63647f7e64757173717b75633e737c6572">[email&#160;protected]</span></a>
-              </span>
+              <span class="contact-item-value"><a href="mailto:orders@bostonteacakes.club">orders@bostonteacakes.club</a></span>
             </div>
           </div>
           <div class="contact-item">
@@ -1321,18 +410,13 @@
           </div>
         </div>
       </div>
-
-      <!-- General enquiry form -->
       <div>
         <form class="contact-form" id="contactForm"
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
+              name="contact" method="POST"
+              data-netlify="true" netlify-honeypot="bot-field"
               onsubmit="submitContact(event)">
           <input type="hidden" name="form-name" value="contact">
           <p style="display:none"><input name="bot-field"></p>
-
           <div class="form-row">
             <div class="form-group">
               <label for="cf-first">First Name</label>
@@ -1343,12 +427,10 @@
               <input type="text" id="cf-last" name="last-name" placeholder="Smith" autocomplete="family-name">
             </div>
           </div>
-
           <div class="form-group">
             <label for="cf-email">Email Address</label>
             <input type="email" id="cf-email" name="email" placeholder="jane@example.com" autocomplete="email">
           </div>
-
           <div class="form-group">
             <label for="cf-subject">Subject</label>
             <select id="cf-subject" name="subject">
@@ -1359,82 +441,52 @@
               <option>Corporate Gifting</option>
             </select>
           </div>
-
           <div class="form-group">
             <label for="cf-message">Message</label>
             <textarea id="cf-message" name="message" placeholder="Tell us what you're looking for…"></textarea>
           </div>
-
           <button type="submit" class="form-submit">Send Message</button>
           <div class="form-success" id="contactSuccess">
             <strong>Message received.</strong> We'll be in touch shortly.
           </div>
         </form>
       </div>
-
     </div>
   </div>
 </section>
 
-
-<!-- ============================================================
-     FOOTER  (preserved from original)
-============================================================ -->
 <footer>
   <span class="footer-logo">The Boston Tea Cake Company</span>
   <span>© 2026 Boston Tea Cake Company, Ltd. · Milford, MA · bostonteacakes.club · Est. 1993</span>
 </footer>
 
-
-<!-- ============================================================
-     ORDER REQUEST MODAL
-     - Collects a case order request. No live payment.
-     - Compatible with Netlify form handling (data-netlify="true").
-     - The "email" field name enables Netlify's Reply-To feature so
-       notification emails sent to bostonteacakecompany@comcast.net
-       can be replied to directly. Configure the notification address
-       in the Netlify dashboard under: Forms → Notifications → Email.
-     - On successful submission, redirects to /thank-you.html.
-============================================================ -->
 <div class="modal-overlay" id="orderModal" onclick="handleOverlayClick(event)">
   <div class="modal">
-
     <div class="modal-header">
       <div>
         <div class="modal-title">Submit an Order Request</div>
-        <small style="font-family:'Jost',sans-serif; font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-muted); font-weight:400; display:block; margin-top:0.3rem;">No payment required now · We'll be in touch</small>
+        <small style="font-family:'Jost',sans-serif;font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);font-weight:400;display:block;margin-top:0.3rem;">No payment required now · We'll be in touch</small>
       </div>
       <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
     </div>
-
     <div class="modal-body">
       <form class="modal-form" id="orderForm"
-            name="order-request"
-            method="POST"
+            name="order-request" method="POST"
             action="/thank-you.html"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
+            data-netlify="true" netlify-honeypot="bot-field"
             onsubmit="submitOrder(event)">
-
-        <!-- Netlify required hidden field -->
         <input type="hidden" name="form-name" value="order-request">
-
-        <!-- Honeypot — hidden from humans, traps bots -->
         <p style="display:none"><label>Leave blank: <input name="bot-field"></label></p>
 
-        <!-- ── Contact Information ── -->
         <span class="modal-section-label">Contact Information</span>
-
         <div class="form-group">
           <label for="o-name">Full Name</label>
           <input type="text" id="o-name" name="customer-name" placeholder="Jane Smith" autocomplete="name" required>
         </div>
-
         <div class="form-group">
-          <label for="o-business">Business Name <span style="font-size:0.7rem; font-weight:300; text-transform:none; letter-spacing:0; color:var(--text-muted);">(optional)</span></label>
+          <label for="o-business">Business Name <span style="font-size:0.7rem;font-weight:300;text-transform:none;letter-spacing:0;color:var(--text-muted)">(optional)</span></label>
           <input type="text" id="o-business" name="business-name" placeholder="Café, hotel, event company…" autocomplete="organization">
         </div>
-
         <div class="form-row">
           <div class="form-group">
             <label for="o-email">Email</label>
@@ -1445,7 +497,6 @@
             <input type="tel" id="o-phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel" required>
           </div>
         </div>
-
         <div class="form-group">
           <label for="o-contact-pref">Preferred Contact Method</label>
           <select id="o-contact-pref" name="preferred-contact">
@@ -1455,12 +506,10 @@
             <option value="Text message">Text message</option>
           </select>
         </div>
-
         <div class="form-group">
           <label for="o-address">Delivery Address</label>
           <input type="text" id="o-address" name="delivery-address" placeholder="Street, city, state, ZIP" autocomplete="street-address" required>
         </div>
-
         <div class="form-group">
           <label for="o-delivery-type">Local Delivery or Shipping?</label>
           <select id="o-delivery-type" name="delivery-type" required>
@@ -1471,285 +520,167 @@
           </select>
         </div>
 
-        <!-- ── Case Order ── -->
         <span class="modal-section-label">Case Order</span>
-
         <div class="qty-row">
           <div class="qty-group">
-            <label>Small Cases
-              <span style="font-size:0.68rem; font-weight:300; text-transform:none; letter-spacing:0; color:var(--text-muted);">(12 × 24 oz · $144)</span>
-            </label>
+            <label>Small Cases <span style="font-size:0.68rem;font-weight:300;text-transform:none;letter-spacing:0;color:var(--text-muted)">(12 × 24 oz · $144)</span></label>
             <div class="qty-control">
-              <button type="button" class="qty-btn" onclick="adjustQty('small', -1)" aria-label="Decrease small cases">−</button>
+              <button type="button" class="qty-btn" onclick="adjustQty('small',-1)" aria-label="Decrease small cases">−</button>
               <span class="qty-display" id="qtySmallDisplay">0</span>
-              <button type="button" class="qty-btn" onclick="adjustQty('small', 1)" aria-label="Increase small cases">+</button>
+              <button type="button" class="qty-btn" onclick="adjustQty('small',1)" aria-label="Increase small cases">+</button>
             </div>
             <input type="hidden" name="small-cases" id="qtySmallHidden" value="0">
           </div>
-
           <div class="qty-group">
-            <label>Large Cases
-              <span style="font-size:0.68rem; font-weight:300; text-transform:none; letter-spacing:0; color:var(--text-muted);">(6 × 48 oz · $138)</span>
-            </label>
+            <label>Large Cases <span style="font-size:0.68rem;font-weight:300;text-transform:none;letter-spacing:0;color:var(--text-muted)">(6 × 48 oz · $138)</span></label>
             <div class="qty-control">
-              <button type="button" class="qty-btn" onclick="adjustQty('large', -1)" aria-label="Decrease large cases">−</button>
+              <button type="button" class="qty-btn" onclick="adjustQty('large',-1)" aria-label="Decrease large cases">−</button>
               <span class="qty-display" id="qtyLargeDisplay">0</span>
-              <button type="button" class="qty-btn" onclick="adjustQty('large', 1)" aria-label="Increase large cases">+</button>
+              <button type="button" class="qty-btn" onclick="adjustQty('large',1)" aria-label="Increase large cases">+</button>
             </div>
             <input type="hidden" name="large-cases" id="qtyLargeHidden" value="0">
           </div>
         </div>
-
         <div class="form-group">
           <label for="o-flavors">Flavor Assortment</label>
           <textarea id="o-flavors" name="flavor-assortment" placeholder="e.g. 2 small cases of The Classic, 1 small case mixed: Lemon Vanilla Glaze &amp; Blueberry" required></textarea>
         </div>
 
-        <!-- ── Fulfillment ── -->
         <span class="modal-section-label">Fulfillment</span>
-
         <div class="form-group">
           <label for="o-date">Requested Fulfillment Date</label>
           <input type="date" id="o-date" name="fulfillment-date" required>
         </div>
-
         <div class="form-group">
-          <label for="o-notes">Additional Notes <span style="font-size:0.7rem; font-weight:300; text-transform:none; letter-spacing:0; color:var(--text-muted);">(optional)</span></label>
+          <label for="o-notes">Additional Notes <span style="font-size:0.7rem;font-weight:300;text-transform:none;letter-spacing:0;color:var(--text-muted)">(optional)</span></label>
           <textarea id="o-notes" name="notes" placeholder="Special instructions, delivery notes, or anything else we should know…"></textarea>
         </div>
 
-        <!-- Dynamic order summary — appears when quantities are set -->
         <div class="order-summary" id="orderSummary"></div>
 
-        <button type="submit" class="form-submit" style="width:100%; padding:1.1rem;" id="orderSubmitBtn">
+        <button type="submit" class="form-submit" style="width:100%;padding:1.1rem;" id="orderSubmitBtn">
           Submit Order Request
         </button>
 
-        <!-- Payment notice — clear, simple, no live checkout implied -->
         <p class="modal-footer-note">
           After we review your order, we will email you payment instructions.<br>
           PayPal is accepted. No payment is collected on this form.
         </p>
-
       </form>
     </div>
-
   </div>
 </div>
 
+<script>
+var PRICE_SMALL=144,PRICE_LARGE=138,qtySmall=0,qtyLarge=0;
 
-<!-- ============================================================
-     JAVASCRIPT
-============================================================ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  /* ── Pricing constants ── */
-  var PRICE_SMALL = 144;
-  var PRICE_LARGE = 138;
-  var qtySmall    = 0;
-  var qtyLarge    = 0;
-
-  /* ─────────────────────────────────────
-     adjustQty
-     Increments or decrements a case count.
-     type: 'small' | 'large'
-     delta: +1 | -1
-  ───────────────────────────────────── */
-  function adjustQty(type, delta) {
-    if (type === 'small') {
-      qtySmall = Math.max(0, qtySmall + delta);
-      document.getElementById('qtySmallDisplay').textContent = qtySmall;
-      document.getElementById('qtySmallHidden').value        = qtySmall;
-    } else {
-      qtyLarge = Math.max(0, qtyLarge + delta);
-      document.getElementById('qtyLargeDisplay').textContent = qtyLarge;
-      document.getElementById('qtyLargeHidden').value        = qtyLarge;
-    }
-    updateOrderSummary();
+function adjustQty(type,delta){
+  if(type==='small'){
+    qtySmall=Math.max(0,qtySmall+delta);
+    document.getElementById('qtySmallDisplay').textContent=qtySmall;
+    document.getElementById('qtySmallHidden').value=qtySmall;
+  }else{
+    qtyLarge=Math.max(0,qtyLarge+delta);
+    document.getElementById('qtyLargeDisplay').textContent=qtyLarge;
+    document.getElementById('qtyLargeHidden').value=qtyLarge;
   }
+  updateOrderSummary();
+}
 
-  /* ─────────────────────────────────────
-     updateOrderSummary
-     Rebuilds the live summary when
-     case quantities change.
-  ───────────────────────────────────── */
-  function updateOrderSummary() {
-    var box = document.getElementById('orderSummary');
+function updateOrderSummary(){
+  var box=document.getElementById('orderSummary');
+  if(qtySmall===0&&qtyLarge===0){box.classList.remove('visible');box.innerHTML='';return;}
+  var total=(qtySmall*PRICE_SMALL)+(qtyLarge*PRICE_LARGE);
+  var html='<div style="font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;font-weight:400;">Order Summary</div>';
+  if(qtySmall>0) html+='<div class="order-summary-line"><span>'+qtySmall+' &times; Small Case (12 ct &middot; 24 oz)</span><span>$'+(qtySmall*PRICE_SMALL).toLocaleString()+'</span></div>';
+  if(qtyLarge>0) html+='<div class="order-summary-line"><span>'+qtyLarge+' &times; Large Case (6 ct &middot; 48 oz)</span><span>$'+(qtyLarge*PRICE_LARGE).toLocaleString()+'</span></div>';
+  html+='<div class="order-summary-total"><span>Estimated Total</span><span>$'+total.toLocaleString()+'</span></div>';
+  html+='<div class="order-summary-disclaimer">Estimate only &middot; final pricing confirmed after review</div>';
+  box.innerHTML=html;
+  box.classList.add('visible');
+}
 
-    if (qtySmall === 0 && qtyLarge === 0) {
-      box.classList.remove('visible');
-      box.innerHTML = '';
-      return;
-    }
-
-    var total = (qtySmall * PRICE_SMALL) + (qtyLarge * PRICE_LARGE);
-    var html  = '<div style="font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.5rem; font-weight:400;">Order Summary</div>';
-
-    if (qtySmall > 0) {
-      html += '<div class="order-summary-line">'
-            + '<span>' + qtySmall + ' × Small Case (12 ct · 24 oz)</span>'
-            + '<span>$' + (qtySmall * PRICE_SMALL).toLocaleString() + '</span>'
-            + '</div>';
-    }
-
-    if (qtyLarge > 0) {
-      html += '<div class="order-summary-line">'
-            + '<span>' + qtyLarge + ' × Large Case (6 ct · 48 oz)</span>'
-            + '<span>$' + (qtyLarge * PRICE_LARGE).toLocaleString() + '</span>'
-            + '</div>';
-    }
-
-    html += '<div class="order-summary-total">'
-          + '<span>Estimated Total</span>'
-          + '<span>$' + total.toLocaleString() + '</span>'
-          + '</div>';
-    html += '<div class="order-summary-disclaimer">Estimate only · final pricing confirmed after review</div>';
-
-    box.innerHTML = html;
-    box.classList.add('visible');
+function openModal(flavorPreset){
+  var modal=document.getElementById('orderModal');
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+  qtySmall=0;qtyLarge=0;
+  document.getElementById('qtySmallDisplay').textContent='0';
+  document.getElementById('qtyLargeDisplay').textContent='0';
+  document.getElementById('qtySmallHidden').value='0';
+  document.getElementById('qtyLargeHidden').value='0';
+  document.getElementById('orderSummary').classList.remove('visible');
+  document.getElementById('orderSummary').innerHTML='';
+  var btn=document.getElementById('orderSubmitBtn');
+  btn.disabled=false;btn.textContent='Submit Order Request';
+  if(flavorPreset){
+    var f=document.getElementById('o-flavors');
+    if(f&&!f.value) f.value=flavorPreset;
   }
+  var today=new Date().toISOString().split('T')[0];
+  document.getElementById('o-date').setAttribute('min',today);
+  modal.querySelector('.modal').scrollTop=0;
+}
 
-  /* ─────────────────────────────────────
-     openModal
-     Opens the order modal.
-     flavorPreset: optional string that
-     pre-fills the assortment textarea.
-  ───────────────────────────────────── */
-  function openModal(flavorPreset) {
-    var modal = document.getElementById('orderModal');
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
+function closeModal(){
+  document.getElementById('orderModal').classList.remove('open');
+  document.body.style.overflow='';
+}
 
-    /* Reset case counts */
-    qtySmall = 0;
-    qtyLarge = 0;
-    document.getElementById('qtySmallDisplay').textContent = '0';
-    document.getElementById('qtyLargeDisplay').textContent = '0';
-    document.getElementById('qtySmallHidden').value        = '0';
-    document.getElementById('qtyLargeHidden').value        = '0';
-    document.getElementById('orderSummary').classList.remove('visible');
-    document.getElementById('orderSummary').innerHTML = '';
+function handleOverlayClick(e){
+  if(e.target===document.getElementById('orderModal')) closeModal();
+}
 
-    /* Reset submit button */
-    var btn = document.getElementById('orderSubmitBtn');
-    btn.disabled    = false;
-    btn.textContent = 'Submit Order Request';
+document.addEventListener('keydown',function(e){if(e.key==='Escape') closeModal();});
 
-    /* Pre-fill flavor field if opened from a cake card */
-    if (flavorPreset) {
-      var flavorField = document.getElementById('o-flavors');
-      if (flavorField && !flavorField.value) {
-        flavorField.value = flavorPreset;
-      }
-    }
+function submitOrder(e){
+  e.preventDefault();
+  var name=document.getElementById('o-name').value.trim();
+  var email=document.getElementById('o-email').value.trim();
+  var phone=document.getElementById('o-phone').value.trim();
+  var address=document.getElementById('o-address').value.trim();
+  var delivery=document.getElementById('o-delivery-type').value;
+  var flavors=document.getElementById('o-flavors').value.trim();
+  var date=document.getElementById('o-date').value;
+  if(!name){alert('Please enter your full name.');return;}
+  if(!email||!email.includes('@')){alert('Please enter a valid email address.');return;}
+  if(!phone){alert('Please enter a phone number.');return;}
+  if(!address){alert('Please enter a delivery address.');return;}
+  if(!delivery){alert('Please select a delivery or shipping preference.');return;}
+  if(qtySmall===0&&qtyLarge===0){alert('Please add at least one case to your order.');return;}
+  if(!flavors){alert('Please describe your flavor assortment.');return;}
+  if(!date){alert('Please select a requested fulfillment date.');return;}
+  var btn=document.getElementById('orderSubmitBtn');
+  btn.disabled=true;btn.textContent='Submitting…';
+  var formData=new FormData(e.target);
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(formData).toString()})
+  .then(function(){window.location.href='/thank-you.html';})
+  .catch(function(){btn.disabled=false;btn.textContent='Submit Order Request';alert('Something went wrong. Please email orders@bostonteacakes.club directly.');});
+}
 
-    /* Set minimum date to today */
-    var today = new Date().toISOString().split('T')[0];
-    document.getElementById('o-date').setAttribute('min', today);
+function submitContact(e){
+  e.preventDefault();
+  var first=document.getElementById('cf-first').value.trim();
+  var email=document.getElementById('cf-email').value.trim();
+  var msg=document.getElementById('cf-message').value.trim();
+  if(!first){alert('Please enter your first name.');return;}
+  if(!email||!email.includes('@')){alert('Please enter a valid email address.');return;}
+  if(!msg){alert('Please enter a message.');return;}
+  var formData=new FormData(e.target);
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(formData).toString()})
+  .then(function(){
+    document.getElementById('contactSuccess').style.display='block';
+    e.target.querySelector('button[type="submit"]').style.display='none';
+  })
+  .catch(function(){alert('Something went wrong. Please email orders@bostonteacakes.club directly.');});
+}
 
-    /* Scroll modal to top */
-    modal.querySelector('.modal').scrollTop = 0;
-  }
-
-  /* ─────────────────────────────────────
-     closeModal
-  ───────────────────────────────────── */
-  function closeModal() {
-    document.getElementById('orderModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  /* Click outside modal to close */
-  function handleOverlayClick(e) {
-    if (e.target === document.getElementById('orderModal')) closeModal();
-  }
-
-  /* Escape key to close modal */
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeModal();
+var fadeObserver=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){entry.target.classList.add('visible');fadeObserver.unobserve(entry.target);}
   });
-
-  /* ─────────────────────────────────────
-     submitOrder
-     Validates the form client-side, then
-     submits via fetch to Netlify.
-     On success → redirects to thank-you.html
-  ───────────────────────────────────── */
-  function submitOrder(e) {
-    e.preventDefault();
-
-    var name     = document.getElementById('o-name').value.trim();
-    var email    = document.getElementById('o-email').value.trim();
-    var phone    = document.getElementById('o-phone').value.trim();
-    var address  = document.getElementById('o-address').value.trim();
-    var delivery = document.getElementById('o-delivery-type').value;
-    var flavors  = document.getElementById('o-flavors').value.trim();
-    var date     = document.getElementById('o-date').value;
-
-    if (!name)                            { alert('Please enter your full name.');                    return; }
-    if (!email || !email.includes('@'))   { alert('Please enter a valid email address.');             return; }
-    if (!phone)                           { alert('Please enter a phone number.');                    return; }
-    if (!address)                         { alert('Please enter a delivery address.');                return; }
-    if (!delivery)                        { alert('Please select a delivery or shipping preference.'); return; }
-    if (qtySmall === 0 && qtyLarge === 0) { alert('Please add at least one case to your order.');     return; }
-    if (!flavors)                         { alert('Please describe your flavor assortment.');         return; }
-    if (!date)                            { alert('Please select a requested fulfillment date.');      return; }
-
-    /* Disable button to prevent double-submit */
-    var btn = document.getElementById('orderSubmitBtn');
-    btn.disabled    = true;
-    btn.textContent = 'Submitting…';
-
-    /* POST to Netlify, then redirect to thank-you.html */
-    var formData = new FormData(e.target);
-    fetch('/', {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body:    new URLSearchParams(formData).toString()
-    })
-    .then(function() {
-      window.location.href = '/thank-you.html';
-    })
-    .catch(function() {
-      btn.disabled    = false;
-      btn.textContent = 'Submit Order Request';
-      alert('Something went wrong. Please email orders@bostonteacakes.club directly.');
-    });
-  }
-
-  /* ─────────────────────────────────────
-     submitContact
-     General enquiry form handler
-  ───────────────────────────────────── */
-  function submitContact(e) {
-    e.preventDefault();
-
-    var first = document.getElementById('cf-first').value.trim();
-    var email = document.getElementById('cf-email').value.trim();
-    var msg   = document.getElementById('cf-message').value.trim();
-
-    if (!first)                          { alert('Please enter your first name.');        return; }
-    if (!email || !email.includes('@'))  { alert('Please enter a valid email address.'); return; }
-    if (!msg)                            { alert('Please enter a message.');              return; }
-
-    var formData = new FormData(e.target);
-    fetch('/', {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body:    new URLSearchParams(formData).toString()
-    })
-    .then(function() {
-      document.getElementById('contactSuccess').style.display = 'block';
-      e.target.querySelector('button[type="submit"]').style.display = 'none';
-    })
-    .catch(function() {
-      alert('Something went wrong. Please email orders@bostonteacakes.club directly.');
-    });
-  }
-
-  /* ─────────────────────────────────────
-     Scroll fade-in observer
-  ───────────────────────────────────── */
-  var fadeObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-     
+},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(function(el){fadeObserver.observe(el);});
+</script>
+</body>
+</html>
