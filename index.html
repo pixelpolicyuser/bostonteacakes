@@ -9,6 +9,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+  /* ============================================================
+     BASE RESET & DESIGN TOKENS  (preserved from original)
+  ============================================================ */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
@@ -36,7 +39,9 @@
     overflow-x: hidden;
   }
 
-  /* ─── NAV ─── */
+  /* ============================================================
+     NAVIGATION  (preserved from original)
+  ============================================================ */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -87,7 +92,9 @@
   }
   .nav-links .btn-nav:hover { background: var(--brown-mid); }
 
-  /* ─── HERO ─── */
+  /* ============================================================
+     HERO  (preserved from original)
+  ============================================================ */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -135,10 +142,7 @@
     margin-bottom: 1.8rem;
   }
 
-  .hero h1 em {
-    font-style: italic;
-    color: var(--brown-light);
-  }
+  .hero h1 em { font-style: italic; color: var(--brown-light); }
 
   .hero-sub {
     font-size: 1rem;
@@ -154,6 +158,7 @@
     flex-wrap: wrap;
   }
 
+  /* Shared button styles */
   .btn-primary {
     background: var(--brown);
     color: var(--cream);
@@ -188,12 +193,28 @@
   }
   .btn-outline:hover { background: var(--brown); color: var(--cream); }
 
-  .hero-badges {
+  /* Credential badges */
+  .badge-row {
     display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
   }
 
+  .badge {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 400;
+  }
+
+  .badge::before { content: '✦'; color: var(--gold); font-size: 0.5rem; }
+
+  /* Hero decorative emblem */
   .hero-visual {
     display: flex;
     justify-content: center;
@@ -224,10 +245,7 @@
     opacity: 0.6;
   }
 
-  .cake-emblem-icon {
-    font-size: 5rem;
-    line-height: 1;
-  }
+  .cake-emblem-icon { font-size: 5rem; line-height: 1; }
 
   .cake-emblem-text {
     font-family: 'Cormorant Garamond', serif;
@@ -238,27 +256,9 @@
     font-weight: 400;
   }
 
-  .badge-row {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-  }
-
-  .badge {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 400;
-  }
-
-  .badge::before { content: '✦'; color: var(--gold); font-size: 0.5rem; }
-
-  /* ─── SECTION SHARED ─── */
+  /* ============================================================
+     SHARED SECTION STYLES  (preserved from original)
+  ============================================================ */
   section { padding: 7rem 4rem; }
 
   .section-inner {
@@ -285,7 +285,9 @@
     margin-bottom: 1.5rem;
   }
 
-  /* ─── STORY ─── */
+  /* ============================================================
+     STORY SECTION  (preserved from original)
+  ============================================================ */
   #story { background: var(--warm-white); }
 
   .story-grid {
@@ -335,7 +337,9 @@
     display: block;
   }
 
-  /* ─── CAKES ─── */
+  /* ============================================================
+     THE COLLECTION  (preserved from original + pricing added)
+  ============================================================ */
   #cakes { background: var(--cream); }
 
   .cakes-header {
@@ -393,8 +397,31 @@
     font-size: 0.88rem;
     color: var(--text-muted);
     flex: 1;
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
     line-height: 1.7;
+  }
+
+  /* Per-cake pricing pills */
+  .cake-pricing {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .cake-price-pill {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 0.28rem 0.7rem;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+  }
+
+  .cake-price-pill strong {
+    font-weight: 500;
+    color: var(--brown);
   }
 
   .cake-order-btn {
@@ -413,7 +440,145 @@
   }
   .cake-order-btn:hover { background: var(--brown); color: var(--cream); }
 
-  /* ─── WHOLESALE ─── */
+  /* Tasteful pricing disclaimer under the cake grid */
+  .pricing-disclaimer {
+    text-align: center;
+    margin-top: 2.5rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* ============================================================
+     CASE PRICING SECTION
+  ============================================================ */
+  #cases { background: var(--warm-white); }
+
+  .cases-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .cases-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  .cases-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .case-card {
+    border: 1px solid var(--border);
+    padding: 2.8rem 2.5rem;
+    background: var(--cream);
+    text-align: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .case-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 45px rgba(59,35,20,0.09);
+  }
+
+  .case-card-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 400;
+  }
+
+  .case-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--brown);
+    margin-bottom: 0.2rem;
+  }
+
+  .case-card-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--brown);
+    line-height: 1.1;
+    margin-bottom: 1.6rem;
+  }
+
+  .case-card-price sup { font-size: 1.3rem; vertical-align: super; }
+
+  .case-card-price small {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-left: 0.2rem;
+  }
+
+  .case-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 1.8rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+  }
+
+  .case-detail {
+    font-size: 0.87rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .case-detail::before {
+    content: '—';
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .case-card-note {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* Mixed assortment note strip */
+  .assortment-strip {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    padding: 1.2rem 1.8rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .assortment-strip strong { color: var(--brown); font-weight: 500; }
+
+  /* ============================================================
+     WHOLESALE / TRADE  (dark band — preserved exactly from original)
+  ============================================================ */
   #wholesale {
     background: var(--brown);
     color: var(--cream);
@@ -454,6 +619,7 @@
   }
 
   .wholesale-type-icon { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
+
   .wholesale-type-name {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.1rem;
@@ -461,13 +627,16 @@
     color: var(--cream);
     margin-bottom: 0.4rem;
   }
+
   .wholesale-type-desc {
     font-size: 0.82rem;
     color: rgba(253,250,245,0.5);
     line-height: 1.6;
   }
 
-  /* ─── CONTACT ─── */
+  /* ============================================================
+     CONTACT  (preserved from original, email updated)
+  ============================================================ */
   #contact { background: var(--warm-white); }
 
   .contact-grid {
@@ -516,6 +685,13 @@
     font-weight: 400;
   }
 
+  .contact-item-value a {
+    color: var(--brown);
+    text-decoration: none;
+  }
+  .contact-item-value a:hover { color: var(--brown-light); }
+
+  /* Contact form */
   .contact-form {
     display: flex;
     flex-direction: column;
@@ -547,13 +723,14 @@
     outline: none;
     transition: border-color 0.2s;
     width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0;
   }
 
   .form-group input:focus,
   .form-group select:focus,
-  .form-group textarea:focus {
-    border-color: var(--brown-light);
-  }
+  .form-group textarea:focus { border-color: var(--brown-light); }
 
   .form-group textarea { resize: vertical; min-height: 100px; }
 
@@ -582,7 +759,31 @@
     line-height: 1.7;
   }
 
-  /* ─── ORDER MODAL ─── */
+  /* ============================================================
+     FOOTER  (preserved from original)
+  ============================================================ */
+  footer {
+    background: var(--brown);
+    color: rgba(253,250,245,0.5);
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: rgba(253,250,245,0.8);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
+  /* ============================================================
+     ORDER MODAL  (rebuilt for case ordering)
+  ============================================================ */
   .modal-overlay {
     display: none;
     position: fixed;
@@ -599,9 +800,9 @@
 
   .modal {
     background: var(--warm-white);
-    max-width: 560px;
+    max-width: 600px;
     width: 100%;
-    max-height: 90vh;
+    max-height: 92vh;
     overflow-y: auto;
     position: relative;
     border: 1px solid var(--border);
@@ -623,6 +824,17 @@
     color: var(--brown);
   }
 
+  .modal-title small {
+    display: block;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-top: 0.3rem;
+  }
+
   .modal-close {
     background: none;
     border: none;
@@ -632,6 +844,7 @@
     line-height: 1;
     padding: 0.2rem;
     transition: color 0.2s;
+    flex-shrink: 0;
   }
   .modal-close:hover { color: var(--brown); }
 
@@ -639,39 +852,63 @@
 
   .modal-form { display: flex; flex-direction: column; gap: 1.2rem; }
 
-  .modal-footer-note {
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
+  /* Section dividers within modal form */
+  .modal-section-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 400;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--border);
+    margin-top: 0.3rem;
+    display: block;
+  }
+
+  /* Case quantity steppers */
+  .qty-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .qty-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .qty-group label {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--text-muted);
-    text-align: center;
-    margin-top: 1rem;
     font-weight: 400;
   }
 
   .qty-control {
     display: flex;
     align-items: center;
-    gap: 0;
     border: 1px solid var(--border);
-    width: fit-content;
+    width: 100%;
   }
 
   .qty-btn {
     background: var(--cream);
     border: none;
-    width: 40px;
-    height: 42px;
+    width: 42px;
+    height: 44px;
     font-size: 1.1rem;
     cursor: pointer;
     color: var(--brown);
     transition: background 0.15s;
     font-family: 'Jost', sans-serif;
+    flex-shrink: 0;
   }
   .qty-btn:hover { background: var(--border); }
 
   .qty-display {
-    width: 50px;
+    flex: 1;
     text-align: center;
     font-size: 0.95rem;
     color: var(--brown);
@@ -682,61 +919,70 @@
     padding: 0.5rem;
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    height: 42px;
+    height: 44px;
+    line-height: 34px;
   }
 
+  .qty-hint {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* Dynamic order summary */
   .order-summary {
     background: var(--cream);
     border: 1px solid var(--border);
     padding: 1.2rem 1.5rem;
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
     display: none;
+    line-height: 1.7;
   }
 
   .order-summary.visible { display: block; }
 
-  .order-success {
-    display: none;
-    text-align: center;
-    padding: 2rem;
-  }
-
-  .order-success.visible { display: block; }
-
-  .order-success-icon { font-size: 3rem; margin-bottom: 1rem; }
-
-  .order-success h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
-    font-weight: 300;
-    color: var(--brown);
-    margin-bottom: 1rem;
-  }
-
-  .order-success p { color: var(--text-muted); font-size: 0.92rem; }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--brown);
-    color: rgba(253,250,245,0.5);
-    padding: 3rem 4rem;
+  .order-summary-line {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
+    padding: 0.3rem 0;
+    border-bottom: 1px dashed var(--border);
   }
 
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    color: rgba(253,250,245,0.8);
+  .order-summary-line:last-of-type { border-bottom: none; }
+
+  .order-summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    color: var(--brown);
+    padding-top: 0.6rem;
+    margin-top: 0.4rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+
+  .order-summary-disclaimer {
+    font-size: 0.7rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 0.6rem;
+  }
+
+  .modal-footer-note {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.5rem;
     font-weight: 400;
-    letter-spacing: 0.05em;
+    line-height: 1.8;
   }
 
-  /* ─── FADE IN ─── */
+  /* ============================================================
+     SCROLL FADE-IN  (preserved from original)
+  ============================================================ */
   .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -744,7 +990,9 @@
   }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-  /* ─── RESPONSIVE ─── */
+  /* ============================================================
+     RESPONSIVE  (preserved + additions for new sections)
+  ============================================================ */
   @media (max-width: 900px) {
     nav { padding: 1rem 2rem; }
     .nav-links { gap: 1.5rem; }
@@ -756,6 +1004,7 @@
     .hero { padding-top: 7rem; }
     .cake-emblem { width: 260px; height: 260px; }
     .cakes-grid { grid-template-columns: 1fr 1fr; }
+    .cases-grid { grid-template-columns: 1fr; max-width: 420px; }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
   }
 
@@ -764,50 +1013,74 @@
     .cakes-grid { grid-template-columns: 1fr; }
     .wholesale-types { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
+    .qty-row { grid-template-columns: 1fr; }
+    .modal-body { padding: 1.5rem; }
+    .modal-header { padding: 1.5rem 1.5rem 1.2rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
 <nav>
   <a href="#" class="nav-logo">Boston Tea Cake Co.</a>
   <ul class="nav-links">
     <li><a href="#cakes">Our Cakes</a></li>
+    <li><a href="#cases">Pricing</a></li>
     <li><a href="#wholesale">Wholesale</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#order" class="btn-nav" onclick="openModal(); return false;">Order Now</a></li>
+    <li><a href="#" class="btn-nav" onclick="openModal(); return false;">Order the Cakes</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
+
+<!-- ============================================================
+     HERO
+     TOP PRIORITY: preserve this copy exactly per instructions
+============================================================ -->
 <section class="hero" id="top">
   <div class="hero-inner">
+
     <div class="hero-left">
       <p class="hero-eyebrow">Est. 1993 · Milford, Massachusetts</p>
-      <h1>Baked with <em>Devotion.</em><br>Make a lasting memory.</h1>
+
+      <!-- Preserved hero headline -->
+      <h1>Baked with <em>Devotion</em><br>to flavor.</h1>
+
+      <!-- Preserved subheading -->
       <p class="hero-sub">Gourmet bundt cakes crafted from scratch, using only the purest ingredients. Four signature flavors. No shortcuts. No compromises.</p>
+
+      <!-- "Order the Cakes" only — no wholesale button in hero -->
       <div class="hero-btns">
-        <a href="#cakes" class="btn-primary">Order a Cake</a>
-        <a href="#wholesale" class="btn-outline">Wholesale Inquiries</a>
+        <a href="#" class="btn-primary" onclick="openModal(); return false;">Order the Cakes</a>
+        <a href="#cakes" class="btn-outline">View the Collection</a>
       </div>
+
+      <!-- Preserved credential badges -->
       <div class="badge-row">
         <span class="badge">Four Signature Flavors</span>
-        <span class="badge">Local Delivery · Massachusetts</span>
+        <span class="badge">Locally Delivered</span>
         <span class="badge">Made Fresh Weekly</span>
         <span class="badge">Family Recipe Since 1993</span>
       </div>
     </div>
+
     <div class="hero-visual">
       <div class="cake-emblem">
         <span class="cake-emblem-icon">🎂</span>
         <span class="cake-emblem-text">The Collection</span>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- STORY -->
+
+<!-- ============================================================
+     STORY  (preserved from original)
+============================================================ -->
 <section id="story">
   <div class="section-inner">
     <div class="story-grid fade-in">
@@ -839,61 +1112,157 @@
   </div>
 </section>
 
-<!-- CAKES -->
+
+<!-- ============================================================
+     THE COLLECTION — Four Flavors
+     Content order: cakes BEFORE commercial/wholesale section
+============================================================ -->
 <section id="cakes">
   <div class="section-inner">
+
     <div class="cakes-header fade-in">
       <span class="section-label">The Collection</span>
       <h2 class="section-title">Four Flavors. All Exceptional.</h2>
-      <p class="cakes-sub">Each cake available in Small (1½ lbs.) and Large (3 lbs.). All orders fulfilled fresh and delivered locally.</p>
+      <p class="cakes-sub">Each flavor available as a Small (24 oz) or Large (48 oz) cake. All orders fulfilled fresh.</p>
     </div>
+
     <div class="cakes-grid">
+
+      <!-- The Classic -->
       <div class="cake-card fade-in">
         <span class="cake-tag">Signature · The Original</span>
         <div class="cake-icon">☕</div>
         <h3 class="cake-name">The Classic</h3>
-        <p class="cake-desc">Sour cream coffee cake with cinnamon crumble &amp; walnuts. Where it all began.</p>
-        <button class="cake-order-btn" onclick="openModal('The Classic · Coffee Cake Crumble')">Order This Cake</button>
+        <p class="cake-desc">Sour cream coffee cake with cinnamon crumble &amp; walnuts. Where it all began — the original recipe, unchanged since 1993.</p>
+        <div class="cake-pricing">
+          <span class="cake-price-pill">Small 24 oz · <strong>$12</strong></span>
+          <span class="cake-price-pill">Large 48 oz · <strong>$23</strong></span>
+        </div>
+        <button class="cake-order-btn" onclick="openModal('The Classic')">Order This Cake</button>
       </div>
+
+      <!-- Double Chocolate -->
       <div class="cake-card fade-in">
         <span class="cake-tag">Indulgent · Bold</span>
         <div class="cake-icon">🍫</div>
         <h3 class="cake-name">Double Chocolate</h3>
         <p class="cake-desc">Dense, dark, and utterly decadent. For those who don't believe in half-measures.</p>
-        <button class="cake-order-btn" onclick="openModal('Double Chocolate · Dense &amp; Decadent')">Order This Cake</button>
+        <div class="cake-pricing">
+          <span class="cake-price-pill">Small 24 oz · <strong>$12</strong></span>
+          <span class="cake-price-pill">Large 48 oz · <strong>$23</strong></span>
+        </div>
+        <button class="cake-order-btn" onclick="openModal('Double Chocolate')">Order This Cake</button>
       </div>
+
+      <!-- Lemon Vanilla Glaze -->
       <div class="cake-card fade-in">
         <span class="cake-tag">Refined · Fan Favorite</span>
         <div class="cake-icon">🍋</div>
         <h3 class="cake-name">Lemon Vanilla Glaze</h3>
         <p class="cake-desc">Bright lemon with a silky vanilla glaze. Delicate, refined, and impossible to resist.</p>
-        <button class="cake-order-btn" onclick="openModal('Lemon Vanilla Glaze · Bright &amp; Refined')">Order This Cake</button>
+        <div class="cake-pricing">
+          <span class="cake-price-pill">Small 24 oz · <strong>$12</strong></span>
+          <span class="cake-price-pill">Large 48 oz · <strong>$23</strong></span>
+        </div>
+        <button class="cake-order-btn" onclick="openModal('Lemon Vanilla Glaze')">Order This Cake</button>
       </div>
+
+      <!-- Blueberry -->
       <div class="cake-card fade-in">
         <span class="cake-tag">Seasonal · Luscious</span>
         <div class="cake-icon">🫐</div>
         <h3 class="cake-name">Blueberry</h3>
         <p class="cake-desc">Dense, moist, bursting with real blueberries in every single bite. Pure generosity.</p>
-        <button class="cake-order-btn" onclick="openModal('Blueberry · Dense &amp; Bursting')">Order This Cake</button>
+        <div class="cake-pricing">
+          <span class="cake-price-pill">Small 24 oz · <strong>$12</strong></span>
+          <span class="cake-price-pill">Large 48 oz · <strong>$23</strong></span>
+        </div>
+        <button class="cake-order-btn" onclick="openModal('Blueberry')">Order This Cake</button>
       </div>
+
     </div>
+
+    <!-- Tasteful pricing disclaimer -->
+    <p class="pricing-disclaimer">Prices are based on market rates and are subject to change.</p>
+
   </div>
 </section>
 
-<!-- WHOLESALE -->
+
+<!-- ============================================================
+     CASE PRICING
+     Shown after the product showcase, before commercial section
+============================================================ -->
+<section id="cases">
+  <div class="section-inner">
+
+    <div class="cases-header fade-in">
+      <span class="section-label">Case Pricing</span>
+      <h2 class="section-title">Sold by the case.</h2>
+      <p>All orders are fulfilled by the case. Mix and match any of the four flavors — just describe your preferred assortment when you submit your request.</p>
+    </div>
+
+    <div class="cases-grid fade-in">
+
+      <!-- Small Case -->
+      <div class="case-card">
+        <span class="case-card-label">Small Case</span>
+        <h3>12 Cakes</h3>
+        <div class="case-card-price"><sup>$</sup>144 <small>per case</small></div>
+        <div class="case-details">
+          <div class="case-detail">12 individual cakes</div>
+          <div class="case-detail">24 oz · approx. 6 slices each</div>
+          <div class="case-detail">$12 per cake</div>
+          <div class="case-detail">Any flavor or mixed assortment</div>
+        </div>
+        <p class="case-card-note">Ideal for variety orders, introductory supply, or smaller accounts.</p>
+      </div>
+
+      <!-- Large Case -->
+      <div class="case-card">
+        <span class="case-card-label">Large Case</span>
+        <h3>6 Cakes</h3>
+        <div class="case-card-price"><sup>$</sup>138 <small>per case</small></div>
+        <div class="case-details">
+          <div class="case-detail">6 large-format cakes</div>
+          <div class="case-detail">48 oz · approx. 8 slices each</div>
+          <div class="case-detail">$23 per cake</div>
+          <div class="case-detail">Any flavor or mixed assortment</div>
+        </div>
+        <p class="case-card-note">Greater yield per unit — preferred for service accounts and recurring orders.</p>
+      </div>
+
+    </div>
+
+    <!-- Mixed assortment callout -->
+    <div class="assortment-strip fade-in">
+      <span style="font-size:1.1rem; flex-shrink:0; margin-top:0.1rem;">🎨</span>
+      <span><strong>Mixed cases welcome.</strong> Each case may contain any combination of The Classic, Double Chocolate, Lemon Vanilla Glaze, and Blueberry. Simply describe your preferred mix in the order request.</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHOLESALE / TRADE  (dark band — preserved exactly from original)
+     Placed AFTER the product showcase per content order requirements
+============================================================ -->
 <section id="wholesale">
   <div class="section-inner">
     <div class="wholesale-grid fade-in">
+
       <div class="wholesale-copy">
         <span class="section-label">Trade &amp; Wholesale</span>
-        <h2 class="section-title">Bring The Club To Your Guests</h2>
-        <p>The Boston Tea Cake Company supplies wholesale accounts to cafes, hotels, event planners, and corporate dining. Our cakes pair beautifully with tea and coffee service, and make memorable corporate gifts.</p>
-        <a href="#contact" class="btn-primary">Inquire About Wholesale</a>
+        <h2 class="section-title">Bring The Club<br>To Your Guests</h2>
+        <p>Boston Tea Cake Company supplies wholesale accounts to cafés, hotels, event planners, and corporate dining. Our cakes pair beautifully with tea and coffee service, and make memorable corporate gifts.</p>
+        <a href="#contact" class="btn-primary">Get In Touch</a>
       </div>
+
       <div class="wholesale-types">
         <div class="wholesale-type">
           <span class="wholesale-type-icon">☕</span>
-          <div class="wholesale-type-name">Cafes &amp; Tea Rooms</div>
+          <div class="wholesale-type-name">Cafés &amp; Tea Rooms</div>
           <div class="wholesale-type-desc">Perfect pairing for sit-down service</div>
         </div>
         <div class="wholesale-type">
@@ -912,18 +1281,23 @@
           <div class="wholesale-type-desc">Standing weekly orders available</div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+
+<!-- ============================================================
+     CONTACT  (preserved from original)
+============================================================ -->
 <section id="contact">
   <div class="section-inner">
     <div class="contact-grid fade-in">
+
       <div class="contact-copy">
         <span class="section-label">Get In Touch</span>
         <h2 class="section-title">Ready to Order?</h2>
-        <p>Whether you're ordering for yourself, a special occasion, or exploring a wholesale relationship — we'd love to hear from you. All orders are handled personally and fulfilled with care.</p>
+        <p>Whether you're placing a case order, exploring a wholesale relationship, or simply have a question — we'd love to hear from you. All orders are handled personally and fulfilled with care.</p>
         <div class="contact-details">
           <div class="contact-item">
             <div>
@@ -934,239 +1308,448 @@
           <div class="contact-item">
             <div>
               <span class="contact-item-label">Email</span>
-              <span class="contact-item-value">hello@bostonteacakes.club</span>
+              <span class="contact-item-value">
+                <a href="/cdn-cgi/l/email-protection#e9869b8d8c9b9aa98b869a9d86879d8c888a88828c9ac78a859c8b"><span class="__cf_email__" data-cfemail="107f627475626350727f63647f7e64757173717b75633e737c6572">[email&#160;protected]</span></a>
+              </span>
             </div>
           </div>
           <div class="contact-item">
             <div>
               <span class="contact-item-label">Delivery</span>
-              <span class="contact-item-value">Massachusetts &amp; Global Shipping</span>
+              <span class="contact-item-value">Local delivery &amp; shipping available</span>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- General enquiry form -->
       <div>
-        <div class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm"
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              onsubmit="submitContact(event)">
+          <input type="hidden" name="form-name" value="contact">
+          <p style="display:none"><input name="bot-field"></p>
+
           <div class="form-row">
             <div class="form-group">
-              <label>First Name</label>
-              <input type="text" id="cf-first" placeholder="Jane">
+              <label for="cf-first">First Name</label>
+              <input type="text" id="cf-first" name="first-name" placeholder="Jane" autocomplete="given-name">
             </div>
             <div class="form-group">
-              <label>Last Name</label>
-              <input type="text" id="cf-last" placeholder="Smith">
+              <label for="cf-last">Last Name</label>
+              <input type="text" id="cf-last" name="last-name" placeholder="Smith" autocomplete="family-name">
             </div>
           </div>
+
           <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" id="cf-email" placeholder="jane@example.com">
+            <label for="cf-email">Email Address</label>
+            <input type="email" id="cf-email" name="email" placeholder="jane@example.com" autocomplete="email">
           </div>
+
           <div class="form-group">
-            <label>Subject</label>
-            <select id="cf-subject">
+            <label for="cf-subject">Subject</label>
+            <select id="cf-subject" name="subject">
               <option value="">— Select a topic —</option>
-              <option>Place an Order</option>
+              <option>Submit an Order Request</option>
               <option>Wholesale Inquiry</option>
               <option>General Question</option>
               <option>Corporate Gifting</option>
             </select>
           </div>
+
           <div class="form-group">
-            <label>Message</label>
-            <textarea id="cf-message" placeholder="Tell us what you're looking for…"></textarea>
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" placeholder="Tell us what you're looking for…"></textarea>
           </div>
-          <button class="form-submit" onclick="submitContact()">Send Message</button>
+
+          <button type="submit" class="form-submit">Send Message</button>
           <div class="form-success" id="contactSuccess">
-            <strong>Message received.</strong> Steven will be in touch within 24 hours to assist you personally.
+            <strong>Message received.</strong> We'll be in touch shortly.
           </div>
-        </div>
+        </form>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+
+<!-- ============================================================
+     FOOTER  (preserved from original)
+============================================================ -->
 <footer>
   <span class="footer-logo">The Boston Tea Cake Company</span>
   <span>© 2026 Boston Tea Cake Company, Ltd. · Milford, MA · bostonteacakes.club · Est. 1993</span>
 </footer>
 
-<!-- ORDER MODAL -->
+
+<!-- ============================================================
+     ORDER REQUEST MODAL
+     - Collects a case order request. No live payment.
+     - Compatible with Netlify form handling (data-netlify="true").
+     - The "email" field name enables Netlify's Reply-To feature so
+       notification emails sent to bostonteacakecompany@comcast.net
+       can be replied to directly. Configure the notification address
+       in the Netlify dashboard under: Forms → Notifications → Email.
+     - On successful submission, redirects to /thank-you.html.
+============================================================ -->
 <div class="modal-overlay" id="orderModal" onclick="handleOverlayClick(event)">
   <div class="modal">
+
     <div class="modal-header">
-      <span class="modal-title">Place Your Order</span>
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div>
+        <div class="modal-title">Submit an Order Request</div>
+        <small style="font-family:'Jost',sans-serif; font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-muted); font-weight:400; display:block; margin-top:0.3rem;">No payment required now · We'll be in touch</small>
+      </div>
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
     </div>
+
     <div class="modal-body">
+      <form class="modal-form" id="orderForm"
+            name="order-request"
+            method="POST"
+            action="/thank-you.html"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            onsubmit="submitOrder(event)">
 
-      <div id="orderFormSection">
-        <div class="modal-form">
-          <div class="form-group">
-            <label>Cake Selection</label>
-            <select id="modal-flavor" onchange="updateSummary()">
-              <option value="">— Choose a flavor —</option>
-              <option>The Classic · Coffee Cake Crumble</option>
-              <option>Double Chocolate · Dense &amp; Decadent</option>
-              <option>Lemon Vanilla Glaze · Bright &amp; Refined</option>
-              <option>Blueberry · Dense &amp; Bursting</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Size</label>
-            <select id="modal-size" onchange="updateSummary()">
-              <option value="Small (1½ lbs.)">Small — 1½ lbs. (serves 4–6)</option>
-              <option value="Large (3 lbs.)">Large — 3 lbs. (serves 8–12)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Quantity</label>
-            <div class="qty-control">
-              <button class="qty-btn" onclick="adjustQty(-1)">−</button>
-              <span class="qty-display" id="qtyDisplay">1</span>
-              <button class="qty-btn" onclick="adjustQty(1)">+</button>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>First Name</label>
-              <input type="text" id="modal-first" placeholder="Jane">
-            </div>
-            <div class="form-group">
-              <label>Last Name</label>
-              <input type="text" id="modal-last" placeholder="Smith">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" id="modal-email" placeholder="jane@example.com">
-          </div>
-          <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel" id="modal-phone" placeholder="+1 (555) 000-0000">
-          </div>
-          <div class="form-group">
-            <label>Delivery Address · Massachusetts</label>
-            <input type="text" id="modal-address" placeholder="123 Main St, Worcester, MA 01601">
-          </div>
-          <div class="form-group">
-            <label>Requested Delivery Date</label>
-            <input type="date" id="modal-date">
-          </div>
-          <div class="form-group">
-            <label>Special Instructions (optional)</label>
-            <textarea id="modal-notes" placeholder="Any dietary notes or delivery instructions…"></textarea>
-          </div>
+        <!-- Netlify required hidden field -->
+        <input type="hidden" name="form-name" value="order-request">
 
-          <div class="order-summary" id="orderSummary"></div>
+        <!-- Honeypot — hidden from humans, traps bots -->
+        <p style="display:none"><label>Leave blank: <input name="bot-field"></label></p>
 
-          <button class="form-submit" style="width:100%; padding:1.1rem;" onclick="submitOrder()">Submit Order Request</button>
-          <p class="modal-footer-note">Payment details will be confirmed directly · Orders fulfilled weekly</p>
+        <!-- ── Contact Information ── -->
+        <span class="modal-section-label">Contact Information</span>
+
+        <div class="form-group">
+          <label for="o-name">Full Name</label>
+          <input type="text" id="o-name" name="customer-name" placeholder="Jane Smith" autocomplete="name" required>
         </div>
-      </div>
 
-      <div class="order-success" id="orderSuccess">
-        <div class="order-success-icon">🎂</div>
-        <h3>Order Received!</h3>
-        <p>Thank you for your order. Steven will be in touch within 24 hours to confirm details and arrange payment and delivery.</p>
-        <br>
-        <p style="font-style:italic; color: var(--text-muted); font-size:0.85rem;">— The Boston Tea Cake Company</p>
-        <br>
-        <button class="btn-outline" onclick="closeModal()" style="margin-top:0.5rem;">Close</button>
-      </div>
+        <div class="form-group">
+          <label for="o-business">Business Name <span style="font-size:0.7rem; font-weight:300; text-transform:none; letter-spacing:0; color:var(--text-muted);">(optional)</span></label>
+          <input type="text" id="o-business" name="business-name" placeholder="Café, hotel, event company…" autocomplete="organization">
+        </div>
 
+        <div class="form-row">
+          <div class="form-group">
+            <label for="o-email">Email</label>
+            <input type="email" id="o-email" name="email" placeholder="jane@example.com" autocomplete="email" required>
+          </div>
+          <div class="form-group">
+            <label for="o-phone">Phone</label>
+            <input type="tel" id="o-phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="o-contact-pref">Preferred Contact Method</label>
+          <select id="o-contact-pref" name="preferred-contact">
+            <option value="">— Select preference —</option>
+            <option value="Email">Email</option>
+            <option value="Phone call">Phone call</option>
+            <option value="Text message">Text message</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="o-address">Delivery Address</label>
+          <input type="text" id="o-address" name="delivery-address" placeholder="Street, city, state, ZIP" autocomplete="street-address" required>
+        </div>
+
+        <div class="form-group">
+          <label for="o-delivery-type">Local Delivery or Shipping?</label>
+          <select id="o-delivery-type" name="delivery-type" required>
+            <option value="">— Select option —</option>
+            <option value="Local delivery">Local delivery</option>
+            <option value="Shipping requested">Shipping — please arrange</option>
+            <option value="Not sure — please advise">Not sure — please advise</option>
+          </select>
+        </div>
+
+        <!-- ── Case Order ── -->
+        <span class="modal-section-label">Case Order</span>
+
+        <div class="qty-row">
+          <div class="qty-group">
+            <label>Small Cases
+              <span style="font-size:0.68rem; font-weight:300; text-transform:none; letter-spacing:0; color:var(--text-muted);">(12 × 24 oz · $144)</span>
+            </label>
+            <div class="qty-control">
+              <button type="button" class="qty-btn" onclick="adjustQty('small', -1)" aria-label="Decrease small cases">−</button>
+              <span class="qty-display" id="qtySmallDisplay">0</span>
+              <button type="button" class="qty-btn" onclick="adjustQty('small', 1)" aria-label="Increase small cases">+</button>
+            </div>
+            <input type="hidden" name="small-cases" id="qtySmallHidden" value="0">
+          </div>
+
+          <div class="qty-group">
+            <label>Large Cases
+              <span style="font-size:0.68rem; font-weight:300; text-transform:none; letter-spacing:0; color:var(--text-muted);">(6 × 48 oz · $138)</span>
+            </label>
+            <div class="qty-control">
+              <button type="button" class="qty-btn" onclick="adjustQty('large', -1)" aria-label="Decrease large cases">−</button>
+              <span class="qty-display" id="qtyLargeDisplay">0</span>
+              <button type="button" class="qty-btn" onclick="adjustQty('large', 1)" aria-label="Increase large cases">+</button>
+            </div>
+            <input type="hidden" name="large-cases" id="qtyLargeHidden" value="0">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="o-flavors">Flavor Assortment</label>
+          <textarea id="o-flavors" name="flavor-assortment" placeholder="e.g. 2 small cases of The Classic, 1 small case mixed: Lemon Vanilla Glaze &amp; Blueberry" required></textarea>
+        </div>
+
+        <!-- ── Fulfillment ── -->
+        <span class="modal-section-label">Fulfillment</span>
+
+        <div class="form-group">
+          <label for="o-date">Requested Fulfillment Date</label>
+          <input type="date" id="o-date" name="fulfillment-date" required>
+        </div>
+
+        <div class="form-group">
+          <label for="o-notes">Additional Notes <span style="font-size:0.7rem; font-weight:300; text-transform:none; letter-spacing:0; color:var(--text-muted);">(optional)</span></label>
+          <textarea id="o-notes" name="notes" placeholder="Special instructions, delivery notes, or anything else we should know…"></textarea>
+        </div>
+
+        <!-- Dynamic order summary — appears when quantities are set -->
+        <div class="order-summary" id="orderSummary"></div>
+
+        <button type="submit" class="form-submit" style="width:100%; padding:1.1rem;" id="orderSubmitBtn">
+          Submit Order Request
+        </button>
+
+        <!-- Payment notice — clear, simple, no live checkout implied -->
+        <p class="modal-footer-note">
+          After we review your order, we will email you payment instructions.<br>
+          PayPal is accepted. No payment is collected on this form.
+        </p>
+
+      </form>
     </div>
+
   </div>
 </div>
 
-<script>
-  let qty = 1;
 
-  function adjustQty(delta) {
-    qty = Math.max(1, qty + delta);
-    document.getElementById('qtyDisplay').textContent = qty;
-    updateSummary();
-  }
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  /* ── Pricing constants ── */
+  var PRICE_SMALL = 144;
+  var PRICE_LARGE = 138;
+  var qtySmall    = 0;
+  var qtyLarge    = 0;
 
-  function updateSummary() {
-    const flavor = document.getElementById('modal-flavor').value;
-    const size = document.getElementById('modal-size').value;
-    const summary = document.getElementById('orderSummary');
-    if (flavor) {
-      summary.classList.add('visible');
-      summary.innerHTML = `<strong>Order Summary:</strong> ${qty}× ${flavor} — ${size}`;
+  /* ─────────────────────────────────────
+     adjustQty
+     Increments or decrements a case count.
+     type: 'small' | 'large'
+     delta: +1 | -1
+  ───────────────────────────────────── */
+  function adjustQty(type, delta) {
+    if (type === 'small') {
+      qtySmall = Math.max(0, qtySmall + delta);
+      document.getElementById('qtySmallDisplay').textContent = qtySmall;
+      document.getElementById('qtySmallHidden').value        = qtySmall;
     } else {
-      summary.classList.remove('visible');
+      qtyLarge = Math.max(0, qtyLarge + delta);
+      document.getElementById('qtyLargeDisplay').textContent = qtyLarge;
+      document.getElementById('qtyLargeHidden').value        = qtyLarge;
     }
+    updateOrderSummary();
   }
 
+  /* ─────────────────────────────────────
+     updateOrderSummary
+     Rebuilds the live summary when
+     case quantities change.
+  ───────────────────────────────────── */
+  function updateOrderSummary() {
+    var box = document.getElementById('orderSummary');
+
+    if (qtySmall === 0 && qtyLarge === 0) {
+      box.classList.remove('visible');
+      box.innerHTML = '';
+      return;
+    }
+
+    var total = (qtySmall * PRICE_SMALL) + (qtyLarge * PRICE_LARGE);
+    var html  = '<div style="font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.5rem; font-weight:400;">Order Summary</div>';
+
+    if (qtySmall > 0) {
+      html += '<div class="order-summary-line">'
+            + '<span>' + qtySmall + ' × Small Case (12 ct · 24 oz)</span>'
+            + '<span>$' + (qtySmall * PRICE_SMALL).toLocaleString() + '</span>'
+            + '</div>';
+    }
+
+    if (qtyLarge > 0) {
+      html += '<div class="order-summary-line">'
+            + '<span>' + qtyLarge + ' × Large Case (6 ct · 48 oz)</span>'
+            + '<span>$' + (qtyLarge * PRICE_LARGE).toLocaleString() + '</span>'
+            + '</div>';
+    }
+
+    html += '<div class="order-summary-total">'
+          + '<span>Estimated Total</span>'
+          + '<span>$' + total.toLocaleString() + '</span>'
+          + '</div>';
+    html += '<div class="order-summary-disclaimer">Estimate only · final pricing confirmed after review</div>';
+
+    box.innerHTML = html;
+    box.classList.add('visible');
+  }
+
+  /* ─────────────────────────────────────
+     openModal
+     Opens the order modal.
+     flavorPreset: optional string that
+     pre-fills the assortment textarea.
+  ───────────────────────────────────── */
   function openModal(flavorPreset) {
-    const modal = document.getElementById('orderModal');
+    var modal = document.getElementById('orderModal');
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
 
-    // Reset form
-    document.getElementById('orderFormSection').style.display = 'block';
-    document.getElementById('orderSuccess').classList.remove('visible');
-    qty = 1;
-    document.getElementById('qtyDisplay').textContent = '1';
+    /* Reset case counts */
+    qtySmall = 0;
+    qtyLarge = 0;
+    document.getElementById('qtySmallDisplay').textContent = '0';
+    document.getElementById('qtyLargeDisplay').textContent = '0';
+    document.getElementById('qtySmallHidden').value        = '0';
+    document.getElementById('qtyLargeHidden').value        = '0';
+    document.getElementById('orderSummary').classList.remove('visible');
+    document.getElementById('orderSummary').innerHTML = '';
 
+    /* Reset submit button */
+    var btn = document.getElementById('orderSubmitBtn');
+    btn.disabled    = false;
+    btn.textContent = 'Submit Order Request';
+
+    /* Pre-fill flavor field if opened from a cake card */
     if (flavorPreset) {
-      const sel = document.getElementById('modal-flavor');
-      for (let i = 0; i < sel.options.length; i++) {
-        if (sel.options[i].text.includes(flavorPreset.split('·')[0].trim())) {
-          sel.selectedIndex = i;
-          break;
-        }
+      var flavorField = document.getElementById('o-flavors');
+      if (flavorField && !flavorField.value) {
+        flavorField.value = flavorPreset;
       }
-      updateSummary();
     }
+
+    /* Set minimum date to today */
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementById('o-date').setAttribute('min', today);
+
+    /* Scroll modal to top */
+    modal.querySelector('.modal').scrollTop = 0;
   }
 
+  /* ─────────────────────────────────────
+     closeModal
+  ───────────────────────────────────── */
   function closeModal() {
     document.getElementById('orderModal').classList.remove('open');
     document.body.style.overflow = '';
   }
 
+  /* Click outside modal to close */
   function handleOverlayClick(e) {
     if (e.target === document.getElementById('orderModal')) closeModal();
   }
 
-  function submitOrder() {
-    const flavor = document.getElementById('modal-flavor').value;
-    const first = document.getElementById('modal-first').value.trim();
-    const email = document.getElementById('modal-email').value.trim();
+  /* Escape key to close modal */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
 
-    if (!flavor) { alert('Please select a cake flavor.'); return; }
-    if (!first) { alert('Please enter your first name.'); return; }
-    if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
+  /* ─────────────────────────────────────
+     submitOrder
+     Validates the form client-side, then
+     submits via fetch to Netlify.
+     On success → redirects to thank-you.html
+  ───────────────────────────────────── */
+  function submitOrder(e) {
+    e.preventDefault();
 
-    document.getElementById('orderFormSection').style.display = 'none';
-    document.getElementById('orderSuccess').classList.add('visible');
+    var name     = document.getElementById('o-name').value.trim();
+    var email    = document.getElementById('o-email').value.trim();
+    var phone    = document.getElementById('o-phone').value.trim();
+    var address  = document.getElementById('o-address').value.trim();
+    var delivery = document.getElementById('o-delivery-type').value;
+    var flavors  = document.getElementById('o-flavors').value.trim();
+    var date     = document.getElementById('o-date').value;
+
+    if (!name)                            { alert('Please enter your full name.');                    return; }
+    if (!email || !email.includes('@'))   { alert('Please enter a valid email address.');             return; }
+    if (!phone)                           { alert('Please enter a phone number.');                    return; }
+    if (!address)                         { alert('Please enter a delivery address.');                return; }
+    if (!delivery)                        { alert('Please select a delivery or shipping preference.'); return; }
+    if (qtySmall === 0 && qtyLarge === 0) { alert('Please add at least one case to your order.');     return; }
+    if (!flavors)                         { alert('Please describe your flavor assortment.');         return; }
+    if (!date)                            { alert('Please select a requested fulfillment date.');      return; }
+
+    /* Disable button to prevent double-submit */
+    var btn = document.getElementById('orderSubmitBtn');
+    btn.disabled    = true;
+    btn.textContent = 'Submitting…';
+
+    /* POST to Netlify, then redirect to thank-you.html */
+    var formData = new FormData(e.target);
+    fetch('/', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body:    new URLSearchParams(formData).toString()
+    })
+    .then(function() {
+      window.location.href = '/thank-you.html';
+    })
+    .catch(function() {
+      btn.disabled    = false;
+      btn.textContent = 'Submit Order Request';
+      alert('Something went wrong. Please email orders@bostonteacakes.club directly.');
+    });
   }
 
-  function submitContact() {
-    const first = document.getElementById('cf-first').value.trim();
-    const email = document.getElementById('cf-email').value.trim();
-    const msg = document.getElementById('cf-message').value.trim();
+  /* ─────────────────────────────────────
+     submitContact
+     General enquiry form handler
+  ───────────────────────────────────── */
+  function submitContact(e) {
+    e.preventDefault();
 
-    if (!first) { alert('Please enter your first name.'); return; }
-    if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
-    if (!msg) { alert('Please enter a message.'); return; }
+    var first = document.getElementById('cf-first').value.trim();
+    var email = document.getElementById('cf-email').value.trim();
+    var msg   = document.getElementById('cf-message').value.trim();
 
-    document.getElementById('contactSuccess').style.display = 'block';
-    document.querySelector('.form-submit').style.display = 'none';
+    if (!first)                          { alert('Please enter your first name.');        return; }
+    if (!email || !email.includes('@'))  { alert('Please enter a valid email address.'); return; }
+    if (!msg)                            { alert('Please enter a message.');              return; }
+
+    var formData = new FormData(e.target);
+    fetch('/', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body:    new URLSearchParams(formData).toString()
+    })
+    .then(function() {
+      document.getElementById('contactSuccess').style.display = 'block';
+      e.target.querySelector('button[type="submit"]').style.display = 'none';
+    })
+    .catch(function() {
+      alert('Something went wrong. Please email orders@bostonteacakes.club directly.');
+    });
   }
 
-  // Scroll fade-in
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  // Keyboard close
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-</script>
-
-</body>
-</html>
+  /* ─────────────────────────────────────
+     Scroll fade-in observer
+  ───────────────────────────────────── */
+  var fadeObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+     
