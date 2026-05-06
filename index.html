@@ -35,6 +35,7 @@
     overflow-x: hidden;
   }
 
+  /* ─── Navigation ─── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -47,7 +48,6 @@
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
-
   .nav-logo {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.35rem;
@@ -56,14 +56,12 @@
     letter-spacing: 0.04em;
     text-decoration: none;
   }
-
   .nav-links {
     display: flex;
     list-style: none;
     gap: 2.8rem;
     align-items: center;
   }
-
   .nav-links a {
     font-size: 0.72rem;
     letter-spacing: 0.18em;
@@ -73,7 +71,6 @@
     transition: color 0.2s;
     font-weight: 400;
   }
-
   .nav-links a:hover { color: var(--brown); }
   .nav-links .btn-nav {
     background: var(--brown);
@@ -84,6 +81,7 @@
   }
   .nav-links .btn-nav:hover { background: var(--brown-mid); }
 
+  /* ─── Hero ─── */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -92,7 +90,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .hero::before {
     content: '';
     position: absolute;
@@ -101,7 +98,6 @@
       radial-gradient(ellipse 60% 70% at 70% 50%, rgba(196,154,74,0.10) 0%, transparent 60%),
       radial-gradient(ellipse 40% 50% at 20% 80%, rgba(59,35,20,0.06) 0%, transparent 50%);
   }
-
   .hero-inner {
     max-width: 1200px;
     margin: 0 auto;
@@ -112,7 +108,6 @@
     align-items: center;
     position: relative;
   }
-
   .hero-eyebrow {
     font-size: 0.68rem;
     letter-spacing: 0.25em;
@@ -121,7 +116,6 @@
     margin-bottom: 1.5rem;
     font-weight: 400;
   }
-
   .hero h1 {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(3.2rem, 6vw, 5.2rem);
@@ -131,7 +125,6 @@
     margin-bottom: 1.8rem;
   }
   .hero h1 em { font-style: italic; color: var(--brown-light); }
-
   .hero-sub {
     font-size: 1rem;
     color: var(--text-muted);
@@ -139,13 +132,13 @@
     margin-bottom: 2.2rem;
     line-height: 1.8;
   }
-
   .hero-btns {
     display: flex;
     gap: 1.2rem;
     flex-wrap: wrap;
   }
 
+  /* ─── Buttons ─── */
   .btn-primary, .btn-outline {
     padding: 0.9rem 2.2rem;
     font-family: 'Jost', sans-serif;
@@ -226,11 +219,9 @@
     font-weight: 400;
   }
 
+  /* ─── Sections ─── */
   section { padding: 7rem 4rem; }
-  .section-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
   .section-label {
     font-size: 0.65rem;
     letter-spacing: 0.28em;
@@ -249,6 +240,7 @@
     margin-bottom: 1.5rem;
   }
 
+  /* ─── Story ─── */
   #story { background: var(--warm-white); }
   .story-grid {
     display: grid;
@@ -270,11 +262,7 @@
     background: var(--border);
     border: 1px solid var(--border);
   }
-  .stat {
-    background: var(--cream);
-    padding: 2rem;
-    text-align: center;
-  }
+  .stat { background: var(--cream); padding: 2rem; text-align: center; }
   .stat-num {
     font-family: 'Cormorant Garamond', serif;
     font-size: 3rem;
@@ -292,12 +280,14 @@
     display: block;
   }
 
+  /* ─── Cakes Collection ─── */
   #cakes { background: var(--cream); }
-  .cakes-header { text-align: center; margin-bottom: 4rem; }
-  .cakes-sub { color: var(--text-muted); font-size: 0.92rem; }
+  .cakes-header { text-align: center; margin-bottom: 2rem; }
+  .cakes-sub { color: var(--text-muted); font-size: 0.92rem; margin-top: 0.5rem; }
+
   .cakes-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
   .cake-card {
@@ -324,7 +314,7 @@
   .cake-icon { font-size: 2.8rem; margin-bottom: 1.2rem; }
   .cake-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
+    font-size: 1.55rem;
     font-weight: 400;
     color: var(--brown);
     margin-bottom: 0.8rem;
@@ -340,57 +330,125 @@
   .cake-pricing {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-bottom: 1.4rem;
+    gap: 0.5rem;
+    margin-bottom: 1.3rem;
   }
   .cake-price-pill {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     color: var(--text-muted);
     background: var(--cream);
     border: 1px solid var(--border);
-    padding: 0.28rem 0.7rem;
+    padding: 0.28rem 0.65rem;
     letter-spacing: 0.04em;
     line-height: 1.5;
   }
   .cake-price-pill strong { font-weight: 500; color: var(--brown); }
-  .cake-order-btn {
-    background: transparent;
-    color: var(--brown);
-    border: 1px solid var(--brown);
-    padding: 0.7rem 1.4rem;
+
+  /* Stripe buy buttons */
+  .cake-btn-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+  .cake-stripe-btn {
+    display: block;
+    text-align: center;
+    padding: 0.68rem 1rem;
     font-family: 'Jost', sans-serif;
     font-size: 0.68rem;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.2s;
+    text-decoration: none;
     font-weight: 400;
-    width: 100%;
+    transition: all 0.2s;
+    border: 1px solid var(--brown);
+    color: var(--brown);
+    background: transparent;
+    cursor: pointer;
   }
-  .cake-order-btn:hover { background: var(--brown); color: var(--cream); }
-  .pricing-disclaimer {
+  .cake-stripe-btn:hover { background: var(--brown); color: var(--cream); }
+  .cake-stripe-btn.btn-filled { background: var(--brown); color: var(--cream); }
+  .cake-stripe-btn.btn-filled:hover { background: var(--brown-mid); }
+
+  /* Safety / nut-free banners */
+  .safety-banner {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    padding: 1.3rem 1.8rem;
+    margin: 2rem 0 2.8rem;
+    font-size: 0.86rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+  .safety-banner strong { color: var(--brown); font-weight: 500; }
+  .nut-disclaimer {
     text-align: center;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  .pricing-note {
+    text-align: center;
+    margin-top: 0.6rem;
     font-size: 0.75rem;
     color: var(--text-muted);
     font-style: italic;
   }
 
-  #cases { background: var(--warm-white); }
-  .cases-header { text-align: center; margin-bottom: 3.5rem; }
-  .cases-header p {
+  /* ─── Corporate & Business Accounts ─── */
+  #corporate { background: var(--warm-white); }
+  .corporate-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+  .corporate-copy p {
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
+    font-size: 0.98rem;
+  }
+  .corporate-copy strong { color: var(--brown); font-weight: 500; }
+
+  .account-types {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+  .account-type {
+    border: 1px solid rgba(59,35,20,0.15);
+    padding: 1.5rem;
+    background: var(--cream);
+  }
+  .account-type-icon { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
+  .account-type-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--brown);
+    margin-bottom: 0.4rem;
+  }
+  .account-type-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .cases-subheader { margin-bottom: 2rem; }
+  .cases-subheader p {
     color: var(--text-muted);
     font-size: 0.95rem;
-    max-width: 520px;
-    margin: 0 auto;
     line-height: 1.8;
   }
   .cases-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    max-width: 800px;
-    margin: 0 auto 2.5rem;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
   }
   .case-card {
     border: 1px solid var(--border);
@@ -460,6 +518,7 @@
     font-style: italic;
     line-height: 1.6;
   }
+
   .assortment-strip {
     background: var(--cream);
     border: 1px solid var(--border);
@@ -468,75 +527,75 @@
     display: flex;
     align-items: flex-start;
     gap: 0.9rem;
-    max-width: 800px;
-    margin: 0 auto;
+    margin-bottom: 1.5rem;
     font-size: 0.88rem;
     color: var(--text-muted);
     line-height: 1.7;
   }
   .assortment-strip strong { color: var(--brown); font-weight: 500; }
 
-  #wholesale { background: var(--brown); color: var(--cream); }
-  #wholesale .section-label { color: var(--gold-light); }
-  #wholesale .section-title { color: var(--cream); }
-  .wholesale-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: start;
+  /* Submit a PO CTA block */
+  .po-cta {
+    padding: 2.5rem;
+    background: var(--brown);
+    text-align: center;
   }
-  .wholesale-copy p {
-    color: rgba(253,250,245,0.65);
-    margin-bottom: 1.2rem;
-    font-size: 0.98rem;
-  }
-  .wholesale-types {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-  .wholesale-type {
-    border: 1px solid rgba(253,250,245,0.15);
-    padding: 1.8rem;
-  }
-  .wholesale-type-icon { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
-  .wholesale-type-name {
+  .po-cta-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    font-weight: 400;
+    font-size: 1.7rem;
+    font-weight: 300;
     color: var(--cream);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.7rem;
   }
-  .wholesale-type-desc {
-    font-size: 0.82rem;
-    color: rgba(253,250,245,0.5);
-    line-height: 1.6;
-  }
-
-  #contact { background: var(--warm-white); }
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: start;
-  }
-  .contact-copy p {
-    color: var(--text-muted);
+  .po-cta-sub {
+    font-size: 0.86rem;
+    color: rgba(253,250,245,0.65);
     margin-bottom: 1.5rem;
-    font-size: 0.98rem;
+    line-height: 1.7;
   }
-  .contact-details {
-    display: flex;
-    flex-direction: column;
+  .btn-po {
+    display: inline-block;
+    padding: 0.9rem 2.4rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 400;
+    background: var(--cream);
+    color: var(--brown);
+    border: 1px solid var(--cream);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-po:hover { background: transparent; color: var(--cream); }
+
+  /* ─── Contact ─── */
+  #contact { background: var(--cream); }
+  .contact-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .contact-header p {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    max-width: 500px;
+    margin: 0.8rem auto 0;
+    line-height: 1.8;
+  }
+  .contact-items-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    margin-top: 2rem;
+    max-width: 860px;
+    margin: 0 auto 2.5rem;
   }
   .contact-item {
     display: flex;
     gap: 1.2rem;
     align-items: flex-start;
     padding: 1.5rem;
-    background: var(--cream);
+    background: var(--warm-white);
     border: 1px solid var(--border);
   }
   .contact-item-label {
@@ -556,67 +615,10 @@
   }
   .contact-item-value a { color: var(--brown); text-decoration: none; }
   .contact-item-value a:hover { color: var(--brown-light); }
+  .contact-safety { max-width: 860px; margin: 0 auto; }
+  .contact-safety .safety-banner { margin: 0; }
 
-  .contact-form, .modal-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
-  .form-group label {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    font-weight: 400;
-  }
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    padding: 0.9rem 1rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.92rem;
-    color: var(--text);
-    font-weight: 300;
-    outline: none;
-    transition: border-color 0.2s;
-    width: 100%;
-    -webkit-appearance: none;
-    appearance: none;
-    border-radius: 0;
-  }
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus { border-color: var(--brown-light); }
-  .form-group textarea { resize: vertical; min-height: 100px; }
-
-  .form-submit {
-    background: var(--brown);
-    color: var(--cream);
-    border: none;
-    padding: 1rem 2rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.2s;
-    font-weight: 400;
-    align-self: flex-start;
-  }
-  .form-submit:hover { background: var(--brown-mid); }
-  .form-success {
-    display: none;
-    background: var(--sage);
-    color: white;
-    padding: 1.5rem;
-    font-size: 0.9rem;
-    line-height: 1.7;
-  }
-
+  /* ─── Footer ─── */
   footer {
     background: var(--brown);
     color: rgba(253,250,245,0.5);
@@ -626,6 +628,7 @@
     justify-content: space-between;
     font-size: 0.72rem;
     letter-spacing: 0.1em;
+    gap: 2rem;
   }
   .footer-logo {
     font-family: 'Cormorant Garamond', serif;
@@ -633,8 +636,17 @@
     color: rgba(253,250,245,0.8);
     font-weight: 400;
     letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .footer-safety {
+    font-size: 0.66rem;
+    color: rgba(253,250,245,0.4);
+    text-align: center;
+    line-height: 1.8;
+    letter-spacing: 0.06em;
   }
 
+  /* ─── Modal ─── */
   .modal-overlay {
     display: none;
     position: fixed;
@@ -694,6 +706,7 @@
   }
   .modal-close:hover { color: var(--brown); }
   .modal-body { padding: 2rem 2.5rem 2.5rem; }
+  .modal-form { display: flex; flex-direction: column; gap: 1.2rem; }
   .modal-section-label {
     font-size: 0.6rem;
     letter-spacing: 0.22em;
@@ -705,6 +718,51 @@
     margin-top: 0.3rem;
     display: block;
   }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+  .form-group label {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 0.9rem 1rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.92rem;
+    color: var(--text);
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--brown-light); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit {
+    background: var(--brown);
+    color: var(--cream);
+    border: none;
+    padding: 1rem 2rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-weight: 400;
+  }
+  .form-submit:hover { background: var(--brown-mid); }
+
   .qty-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   .qty-group { display: flex; flex-direction: column; gap: 0.5rem; }
   .qty-group label {
@@ -809,6 +867,7 @@
     line-height: 1.8;
   }
 
+  /* ─── Animations ─── */
   .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -816,24 +875,24 @@
   }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 
+  /* ─── Responsive ─── */
   @media (max-width: 900px) {
     nav { padding: 1rem 2rem; }
     .nav-links { gap: 1.5rem; }
     .hero, section { padding: 5rem 2rem; }
-    .hero-inner, .story-grid, .wholesale-grid, .contact-grid {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
+    .hero-inner, .story-grid, .corporate-layout { grid-template-columns: 1fr; gap: 3rem; }
     .hero { padding-top: 7rem; }
     .cake-emblem { width: 260px; height: 260px; }
     .cakes-grid { grid-template-columns: 1fr 1fr; }
     .cases-grid { grid-template-columns: 1fr; max-width: 420px; }
+    .contact-items-row { grid-template-columns: 1fr; max-width: 480px; }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .footer-safety { padding: 0; }
   }
   @media (max-width: 600px) {
     .nav-links { display: none; }
     .cakes-grid { grid-template-columns: 1fr; }
-    .wholesale-types { grid-template-columns: 1fr; }
+    .account-types { grid-template-columns: 1fr; }
     .form-row, .qty-row { grid-template-columns: 1fr; }
     .modal-body { padding: 1.5rem; }
     .modal-header { padding: 1.5rem 1.5rem 1.2rem; }
@@ -842,30 +901,31 @@
 </head>
 <body>
 
+<!-- ─── Navigation ─── -->
 <nav>
   <a href="#" class="nav-logo">Boston Tea Cake Co.</a>
   <ul class="nav-links">
-    <li><a href="#cakes">Our Cakes</a></li>
-    <li><a href="#cases">Pricing</a></li>
-    <li><a href="#wholesale">Wholesale</a></li>
+    <li><a href="#cakes">View the Collection</a></li>
+    <li><a href="#corporate">Case Pricing</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#" class="btn-nav" onclick="openModal(); return false;">Order the Cakes</a></li>
+    <li><a href="#corporate" class="btn-nav" onclick="openModal(); return false;">Submit a PO</a></li>
   </ul>
 </nav>
 
+<!-- ─── Hero ─── -->
 <section class="hero" id="top">
   <div class="hero-inner">
     <div class="hero-left">
       <p class="hero-eyebrow">Est. 1993 · Milford, Massachusetts</p>
       <h1>Baked with <em>Devotion</em><br>to flavor.</h1>
-      <p class="hero-sub">Gourmet bundt cakes crafted from scratch, using only the purest ingredients. Four signature flavors. No shortcuts. No compromises.</p>
+      <p class="hero-sub">Gourmet bundt cakes crafted from scratch, using only the purest ingredients. Six signature flavors. Nut-free. Kosher. Ships nationwide.</p>
       <div class="hero-btns">
-        <a href="#" class="btn-primary" onclick="openModal(); return false;">Order the Cakes</a>
-        <a href="#cakes" class="btn-outline">View the Collection</a>
+        <a href="#cakes" class="btn-primary">View the Collection</a>
+        <a href="#corporate" class="btn-outline">Submit a PO</a>
       </div>
       <div class="badge-row">
-        <span class="badge">Four Signature Flavors</span>
-        <span class="badge">Locally Delivered</span>
+        <span class="badge">Six Signature Flavors</span>
+        <span class="badge">Ships Nationwide</span>
         <span class="badge">Made Fresh Weekly</span>
         <span class="badge">Family Recipe Since 1993</span>
       </div>
@@ -879,6 +939,7 @@
   </div>
 </section>
 
+<!-- ─── Our Story ─── -->
 <section id="story">
   <div class="section-inner">
     <div class="story-grid fade-in">
@@ -887,10 +948,11 @@
         <h2 class="section-title">A Legacy Baked Into Every Crumb</h2>
         <p>The Boston Tea Cake Company has been a <strong>Milford institution</strong> since 1993. What began as a devotion to quality — real ingredients, real recipes, real care — has grown into a brand that people remember and return to, year after year.</p>
         <p>Our gourmet bundt cakes are individually prepared from scratch. <strong>No fillers. No shortcuts.</strong> Just the kind of baking that takes time, skill, and genuine pride in the craft.</p>
+        <p>We operate a <strong>nut-free facility</strong> and use only <strong>kosher-certified ingredients</strong> — because exceptional baking should be inclusive baking.</p>
       </div>
       <div class="stats-grid">
         <div class="stat"><span class="stat-num">1993</span><span class="stat-label">Est. in Milford, MA</span></div>
-        <div class="stat"><span class="stat-num">4</span><span class="stat-label">Signature Flavors</span></div>
+        <div class="stat"><span class="stat-num">6</span><span class="stat-label">Signature Flavors</span></div>
         <div class="stat"><span class="stat-num">30+</span><span class="stat-label">Years of Craft</span></div>
         <div class="stat"><span class="stat-num">100%</span><span class="stat-label">From Scratch</span></div>
       </div>
@@ -898,150 +960,258 @@
   </div>
 </section>
 
+<!-- ─── The Collection ─── -->
 <section id="cakes">
   <div class="section-inner">
+
     <div class="cakes-header fade-in">
       <span class="section-label">The Collection</span>
-      <h2 class="section-title">Four Flavors. All Exceptional.</h2>
-      <p class="cakes-sub">Each flavor available as a Small (24 oz) or Large (48 oz) cake. All orders fulfilled fresh.</p>
+      <h2 class="section-title">Six Flavors. All Exceptional.</h2>
+      <p class="cakes-sub">Each flavor available for mail order. Select your size below — shipping included in every price.</p>
     </div>
+
+    <div class="safety-banner fade-in">
+      ✦&nbsp;&nbsp;<strong>Boston Tea Cake Company LTD is a nut-free bakery facility.</strong> No Boston Tea Cake Company LTD cakes contain nuts of any kind. All Boston Tea Cake Company LTD ingredients are kosher.
+    </div>
+
     <div class="cakes-grid">
+
+      <!-- 1. Traditional Sour Cream & Cinnamon -->
       <div class="cake-card fade-in">
         <span class="cake-tag">Signature · The Original</span>
         <div class="cake-icon">☕</div>
-        <h3 class="cake-name">The Classic</h3>
-        <p class="cake-desc">Sour cream coffee cake with cinnamon crumble &amp; walnuts. Where it all began — the original recipe, unchanged since 1993.</p>
-        <div class="cake-pricing"><span class="cake-price-pill">Small 24 oz · <strong>$12</strong></span><span class="cake-price-pill">Large 48 oz · <strong>$23</strong></span></div>
-        <button class="cake-order-btn" onclick="openModal('The Classic')">Order This Cake</button>
+        <h3 class="cake-name">Traditional Sour Cream &amp; Cinnamon</h3>
+        <p class="cake-desc">The original recipe, unchanged since 1993. Rich sour cream cake layered with fragrant cinnamon crumble. Pure nostalgia in every bite.</p>
+        <div class="cake-pricing">
+          <span class="cake-price-pill">Small 1.5 lb · <strong>$40</strong> · shipping incl.</span>
+          <span class="cake-price-pill">Large 3 lb · <strong>$50</strong> · shipping incl.</span>
+        </div>
+        <div class="cake-btn-row">
+          <a href="https://buy.stripe.com/aFa14gdipezNcvE3xtak00a" class="cake-stripe-btn">Order Small — $40</a>
+          <a href="https://buy.stripe.com/7sYeV65PX8bp7bkgkfak00b" class="cake-stripe-btn btn-filled">Order Large — $50</a>
+        </div>
       </div>
+
+      <!-- 2. Apple Cinnamon -->
       <div class="cake-card fade-in">
-        <span class="cake-tag">Indulgent · Bold</span>
-        <div class="cake-icon">🍫</div>
-        <h3 class="cake-name">Double Chocolate</h3>
-        <p class="cake-desc">Dense, dark, and utterly decadent. For those who don't believe in half-measures.</p>
-        <div class="cake-pricing"><span class="cake-price-pill">Small 24 oz · <strong>$12</strong></span><span class="cake-price-pill">Large 48 oz · <strong>$23</strong></span></div>
-        <button class="cake-order-btn" onclick="openModal('Double Chocolate')">Order This Cake</button>
+        <span class="cake-tag">Classic · Warm Spice</span>
+        <div class="cake-icon">🍎</div>
+        <h3 class="cake-name">Apple Cinnamon</h3>
+        <p class="cake-desc">Tender crumb folded with sweet apple and warm cinnamon. A timeless combination, done beautifully.</p>
+        <div class="cake-pricing">
+          <span class="cake-price-pill">Small 1.5 lb · <strong>$40</strong> · shipping incl.</span>
+          <span class="cake-price-pill">Large 3 lb · <strong>$50</strong> · shipping incl.</span>
+        </div>
+        <div class="cake-btn-row">
+          <a href="https://buy.stripe.com/dRmeV6a6dezNcvEaZVak008" class="cake-stripe-btn">Order Small — $40</a>
+          <a href="https://buy.stripe.com/3cI7sE2DL1N1eDM0lhak009" class="cake-stripe-btn btn-filled">Order Large — $50</a>
+        </div>
       </div>
-      <div class="cake-card fade-in">
-        <span class="cake-tag">Refined · Fan Favorite</span>
-        <div class="cake-icon">🍋</div>
-        <h3 class="cake-name">Lemon Vanilla Glaze</h3>
-        <p class="cake-desc">Bright lemon with a silky vanilla glaze. Delicate, refined, and impossible to resist.</p>
-        <div class="cake-pricing"><span class="cake-price-pill">Small 24 oz · <strong>$12</strong></span><span class="cake-price-pill">Large 48 oz · <strong>$23</strong></span></div>
-        <button class="cake-order-btn" onclick="openModal('Lemon Vanilla Glaze')">Order This Cake</button>
-      </div>
+
+      <!-- 3. Blueberry -->
       <div class="cake-card fade-in">
         <span class="cake-tag">Seasonal · Luscious</span>
         <div class="cake-icon">🫐</div>
         <h3 class="cake-name">Blueberry</h3>
-        <p class="cake-desc">Dense, moist, bursting with real blueberries in every single bite. Pure generosity.</p>
-        <div class="cake-pricing"><span class="cake-price-pill">Small 24 oz · <strong>$12</strong></span><span class="cake-price-pill">Large 48 oz · <strong>$23</strong></span></div>
-        <button class="cake-order-btn" onclick="openModal('Blueberry')">Order This Cake</button>
-      </div>
-    </div>
-    <p class="pricing-disclaimer">Prices are based on market rates and are subject to change.</p>
-  </div>
-</section>
-
-<section id="cases">
-  <div class="section-inner">
-    <div class="cases-header fade-in">
-      <span class="section-label">Case Pricing</span>
-      <h2 class="section-title">Sold by the case.</h2>
-      <p>All orders are fulfilled by the case. Mix and match any of the four flavors — just describe your preferred assortment when you submit your request.</p>
-    </div>
-    <div class="cases-grid fade-in">
-      <div class="case-card">
-        <span class="case-card-label">Small Case</span>
-        <h3>12 Cakes</h3>
-        <div class="case-card-price"><sup>$</sup>144 <small>per case</small></div>
-        <div class="case-details">
-          <div class="case-detail">12 individual cakes</div>
-          <div class="case-detail">24 oz · approx. 6 slices each</div>
-          <div class="case-detail">$12 per cake</div>
-          <div class="case-detail">Any flavor or mixed assortment</div>
+        <p class="cake-desc">Dense, moist, and bursting with real blueberries in every bite. Pure generosity in cake form.</p>
+        <div class="cake-pricing">
+          <span class="cake-price-pill">Small 1.5 lb · <strong>$40</strong> · shipping incl.</span>
+          <span class="cake-price-pill">Large 3 lb · <strong>$50</strong> · shipping incl.</span>
         </div>
-        <p class="case-card-note">Ideal for variety orders, introductory supply, or smaller accounts.</p>
-      </div>
-      <div class="case-card">
-        <span class="case-card-label">Large Case</span>
-        <h3>6 Cakes</h3>
-        <div class="case-card-price"><sup>$</sup>138 <small>per case</small></div>
-        <div class="case-details">
-          <div class="case-detail">6 large-format cakes</div>
-          <div class="case-detail">48 oz · approx. 8 slices each</div>
-          <div class="case-detail">$23 per cake</div>
-          <div class="case-detail">Any flavor or mixed assortment</div>
+        <div class="cake-btn-row">
+          <a href="https://buy.stripe.com/4gM3co7Y54ZdfHQ1plak006" class="cake-stripe-btn">Order Small — $40</a>
+          <a href="https://buy.stripe.com/3cIbIU2DL4Zd8fo4Bxak007" class="cake-stripe-btn btn-filled">Order Large — $50</a>
         </div>
-        <p class="case-card-note">Greater yield per unit — preferred for service accounts and recurring orders.</p>
       </div>
-    </div>
-    <div class="assortment-strip fade-in"><span style="font-size:1.1rem; flex-shrink:0; margin-top:0.1rem;">🎨</span><span><strong>Mixed cases welcome.</strong> Each case may contain any combination of The Classic, Double Chocolate, Lemon Vanilla Glaze, and Blueberry. Simply describe your preferred mix in the order request.</span></div>
+
+      <!-- 4. Chocolate Ecstasy -->
+      <div class="cake-card fade-in">
+        <span class="cake-tag">Indulgent · Bold</span>
+        <div class="cake-icon">🍫</div>
+        <h3 class="cake-name">Chocolate Ecstasy</h3>
+        <p class="cake-desc">Dense, dark, and utterly decadent. For those who don't believe in half-measures.</p>
+        <div class="cake-pricing">
+          <span class="cake-price-pill">Small 1.5 lb · <strong>$40</strong> · shipping incl.</span>
+          <span class="cake-price-pill">Large 3 lb · <strong>$50</strong> · shipping incl.</span>
+        </div>
+        <div class="cake-btn-row">
+          <a href="https://buy.stripe.com/28E28kbah9ftbrAaZVak004" class="cake-stripe-btn">Order Small — $40</a>
+          <a href="https://buy.stripe.com/14AfZa7Y5ajxgLUec7ak005" class="cake-stripe-btn btn-filled">Order Large — $50</a>
+        </div>
+      </div>
+
+      <!-- 5. Cranberry Cream -->
+      <div class="cake-card fade-in">
+        <span class="cake-tag">Bright · Festive</span>
+        <div class="cake-icon">🍒</div>
+        <h3 class="cake-name">Cranberry Cream</h3>
+        <p class="cake-desc">Bright tart cranberry ribbons woven through a lusciously creamy crumb. Festive, vibrant, and completely irresistible.</p>
+        <div class="cake-pricing">
+          <span class="cake-price-pill">Small 1.5 lb · <strong>$40</strong> · shipping incl.</span>
+          <span class="cake-price-pill">Large 3 lb · <strong>$50</strong> · shipping incl.</span>
+        </div>
+        <div class="cake-btn-row">
+          <a href="https://buy.stripe.com/dRm6oA1zH9ftbrA9VRak002" class="cake-stripe-btn">Order Small — $40</a>
+          <a href="https://buy.stripe.com/5kQ3co6U10IX1R09VRak003" class="cake-stripe-btn btn-filled">Order Large — $50</a>
+        </div>
+      </div>
+
+      <!-- 6. Lotsa Lemon -->
+      <div class="cake-card fade-in">
+        <span class="cake-tag">Refined · Fan Favorite</span>
+        <div class="cake-icon">🍋</div>
+        <h3 class="cake-name">Lotsa Lemon</h3>
+        <p class="cake-desc">Bright, zesty, and unapologetically lemony. A citrus lover's dream from the very first bite.</p>
+        <div class="cake-pricing">
+          <span class="cake-price-pill">Small 1.5 lb · <strong>$40</strong> · shipping incl.</span>
+          <span class="cake-price-pill">Large 3 lb · <strong>$50</strong> · shipping incl.</span>
+        </div>
+        <div class="cake-btn-row">
+          <a href="https://buy.stripe.com/dRm8wI6U1fDR2V48RNak001" class="cake-stripe-btn">Order Small — $40</a>
+          <a href="https://buy.stripe.com/00w7sE7Y52R5dzI4Bxak000" class="cake-stripe-btn btn-filled">Order Large — $50</a>
+        </div>
+      </div>
+
+    </div><!-- /cakes-grid -->
+
+    <p class="nut-disclaimer">Any depiction of nuts with cake is for illustrative promotional purposes only. All Boston Tea Cake Company LTD cakes are nut-free.</p>
+    <p class="pricing-note">All mail-order prices include shipping. Cakes ship fresh throughout the United States.</p>
+
   </div>
 </section>
 
-<section id="wholesale">
+<!-- ─── Corporate & Business Accounts ─── -->
+<section id="corporate">
   <div class="section-inner">
-    <div class="wholesale-grid fade-in">
-      <div class="wholesale-copy">
-        <span class="section-label">Trade &amp; Wholesale</span>
-        <h2 class="section-title">Bring The Club<br>To Your Guests</h2>
-        <p>Boston Tea Cake Company supplies wholesale accounts to cafés, hotels, event planners, and corporate dining. Our cakes pair beautifully with tea and coffee service, and make memorable corporate gifts.</p>
+    <div class="corporate-layout fade-in">
+
+      <div class="corporate-copy">
+        <span class="section-label">Corporate &amp; Business Accounts</span>
+        <h2 class="section-title">Wholesale &amp;<br>Case Pricing</h2>
+        <p>Boston Tea Cake Company supplies wholesale accounts to <strong>cafés, hotels, event planners, and corporate dining</strong>. Our cakes pair beautifully with tea and coffee service, and make memorable corporate gifts.</p>
+        <p>Case orders are reviewed personally. Submit your purchase order and we'll follow up with availability, confirmation, and PayPal payment instructions. <strong>No payment is collected at the time of submission.</strong></p>
+        <div class="account-types">
+          <div class="account-type">
+            <span class="account-type-icon">☕</span>
+            <div class="account-type-name">Cafés &amp; Tea Rooms</div>
+            <div class="account-type-desc">Perfect pairing for sit-down service</div>
+          </div>
+          <div class="account-type">
+            <span class="account-type-icon">🏨</span>
+            <div class="account-type-name">Hotels</div>
+            <div class="account-type-desc">Prestige placement &amp; amenity gifting</div>
+          </div>
+          <div class="account-type">
+            <span class="account-type-icon">🎉</span>
+            <div class="account-type-name">Event Planners</div>
+            <div class="account-type-desc">Volume orders, consistent quality</div>
+          </div>
+          <div class="account-type">
+            <span class="account-type-icon">🏢</span>
+            <div class="account-type-name">Corporate Dining</div>
+            <div class="account-type-desc">Standing weekly orders available</div>
+          </div>
+        </div>
       </div>
-      <div class="wholesale-types">
-        <div class="wholesale-type"><span class="wholesale-type-icon">☕</span><div class="wholesale-type-name">Cafés &amp; Tea Rooms</div><div class="wholesale-type-desc">Perfect pairing for sit-down service</div></div>
-        <div class="wholesale-type"><span class="wholesale-type-icon">🏨</span><div class="wholesale-type-name">Hotels</div><div class="wholesale-type-desc">Prestige placement &amp; amenity gifting</div></div>
-        <div class="wholesale-type"><span class="wholesale-type-icon">🎉</span><div class="wholesale-type-name">Event Planners</div><div class="wholesale-type-desc">Volume orders, consistent quality</div></div>
-        <div class="wholesale-type"><span class="wholesale-type-icon">🏢</span><div class="wholesale-type-name">Corporate Dining</div><div class="wholesale-type-desc">Standing weekly orders available</div></div>
+
+      <div>
+        <div class="cases-subheader">
+          <span class="section-label">Case Pricing</span>
+          <p>All wholesale orders are fulfilled by the case. Mix and match any of our six flavors — describe your preferred assortment when you submit your PO.</p>
+        </div>
+        <div class="cases-grid">
+          <div class="case-card">
+            <span class="case-card-label">Small Case</span>
+            <h3>12 Cakes</h3>
+            <div class="case-card-price"><sup>$</sup>144 <small>per case</small></div>
+            <div class="case-details">
+              <div class="case-detail">12 individual cakes</div>
+              <div class="case-detail">1.5 lb · approx. 6 slices each</div>
+              <div class="case-detail">Any flavor or mixed assortment</div>
+            </div>
+            <p class="case-card-note">Ideal for variety orders, introductory supply, or smaller accounts.</p>
+          </div>
+          <div class="case-card">
+            <span class="case-card-label">Large Case</span>
+            <h3>6 Cakes</h3>
+            <div class="case-card-price"><sup>$</sup>138 <small>per case</small></div>
+            <div class="case-details">
+              <div class="case-detail">6 large-format cakes</div>
+              <div class="case-detail">3 lb · approx. 8 slices each</div>
+              <div class="case-detail">Any flavor or mixed assortment</div>
+            </div>
+            <p class="case-card-note">Greater yield per unit — preferred for service accounts and recurring orders.</p>
+          </div>
+        </div>
+        <div class="assortment-strip">
+          <span style="font-size:1.1rem; flex-shrink:0; margin-top:0.1rem;">🎨</span>
+          <span><strong>Mixed cases welcome.</strong> Each case may contain any combination of our six flavors: Traditional Sour Cream &amp; Cinnamon, Apple Cinnamon, Blueberry, Chocolate Ecstasy, Cranberry Cream, and Lotsa Lemon.</span>
+        </div>
+        <div class="po-cta">
+          <div class="po-cta-title">Ready to place a wholesale order?</div>
+          <p class="po-cta-sub">Submit your purchase order and we'll review it personally. PayPal accepted. No payment collected here.</p>
+          <button class="btn-po" onclick="openModal()">Submit a PO</button>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- ─── Contact ─── -->
 <section id="contact">
   <div class="section-inner">
-    <div class="contact-grid fade-in">
-      <div class="contact-copy">
-        <span class="section-label">Get In Touch</span>
-        <h2 class="section-title">Ready to Order?</h2>
-        <p>Whether you're placing a case order or simply have a question, we'd love to hear from you. Orders are reviewed personally, and payment instructions are sent after review.</p>
-        <div class="contact-details">
-          <div class="contact-item"><div><span class="contact-item-label">Location</span><span class="contact-item-value">Milford, Massachusetts</span></div></div>
-          <div class="contact-item"><div><span class="contact-item-label">Orders</span><span class="contact-item-value"><a href="mailto:orders@bostonteacakes.club">orders@bostonteacakes.club</a></span></div></div>
-          <div class="contact-item"><div><span class="contact-item-label">Payments &amp; Follow-Up</span><span class="contact-item-value"><a href="mailto:hello@bostonteacakes.club">hello@bostonteacakes.club</a></span></div></div>
-          <div class="contact-item"><div><span class="contact-item-label">Phone</span><span class="contact-item-value"><a href="tel:5082772949">508-277-2949</a></span></div></div>
+
+    <div class="contact-header fade-in">
+      <span class="section-label">Contact</span>
+      <h2 class="section-title">Reach Us Directly</h2>
+      <p>For questions about mail-order cakes, corporate accounts, or anything else — we'd love to hear from you.</p>
+    </div>
+
+    <div class="contact-items-row fade-in">
+      <div class="contact-item">
+        <div>
+          <span class="contact-item-label">Location</span>
+          <span class="contact-item-value">Milford, Massachusetts</span>
         </div>
       </div>
-      <div>
-        <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitContact(event)">
-          <input type="hidden" name="form-name" value="contact">
-          <p class="visually-hidden"><label>Leave this blank: <input name="bot-field"></label></p>
-          <div class="form-row">
-            <div class="form-group"><label for="cf-first">First Name</label><input type="text" id="cf-first" name="first-name" placeholder="Jane" autocomplete="given-name"></div>
-            <div class="form-group"><label for="cf-last">Last Name</label><input type="text" id="cf-last" name="last-name" placeholder="Smith" autocomplete="family-name"></div>
-          </div>
-          <div class="form-group"><label for="cf-email">Email Address</label><input type="email" id="cf-email" name="email" placeholder="jane@example.com" autocomplete="email"></div>
-          <div class="form-group"><label for="cf-subject">Subject</label><select id="cf-subject" name="subject"><option value="">— Select a topic —</option><option>Submit an Order Request</option><option>General Question</option><option>Wholesale Inquiry</option></select></div>
-          <div class="form-group"><label for="cf-message">Message</label><textarea id="cf-message" name="message" placeholder="Tell us what you're looking for…"></textarea></div>
-          <button type="submit" class="form-submit">Send Message</button>
-          <div class="form-success" id="contactSuccess"><strong>Message received.</strong> We’ll be in touch shortly.</div>
-        </form>
+      <div class="contact-item">
+        <div>
+          <span class="contact-item-label">Email</span>
+          <span class="contact-item-value"><a href="mailto:bostonteacakecompany@comcast.net">bostonteacakecompany@comcast.net</a></span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div>
+          <span class="contact-item-label">Phone</span>
+          <span class="contact-item-value"><a href="tel:5082772949">508-277-2949</a></span>
+        </div>
       </div>
     </div>
+
+    <div class="contact-safety fade-in">
+      <div class="safety-banner">
+        ✦&nbsp;&nbsp;<strong>Boston Tea Cake Company LTD is a nut-free bakery facility.</strong> No Boston Tea Cake Company LTD cakes contain nuts of any kind. All Boston Tea Cake Company LTD ingredients are kosher.
+      </div>
+    </div>
+
   </div>
 </section>
 
+<!-- ─── Footer ─── -->
 <footer>
   <span class="footer-logo">The Boston Tea Cake Company</span>
+  <span class="footer-safety">Nut-free facility · All ingredients kosher · No Boston Tea Cake Company LTD cakes contain nuts of any kind</span>
   <span>© 2026 Boston Tea Cake Company, Ltd. · Milford, MA · bostonteacakes.club · Est. 1993</span>
 </footer>
 
+<!-- ─── Corporate Order Modal (Submit a PO) ─── -->
 <div class="modal-overlay" id="orderModal" onclick="handleOverlayClick(event)">
   <div class="modal">
     <div class="modal-header">
       <div>
-        <div class="modal-title">Submit an Order Request</div>
-        <span class="modal-subtitle">After we review your order, we’ll email payment instructions. PayPal accepted.</span>
+        <div class="modal-title">Submit a Purchase Order</div>
+        <span class="modal-subtitle">For wholesale &amp; corporate accounts · PayPal accepted · No payment collected here</span>
       </div>
       <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
     </div>
@@ -1051,34 +1221,82 @@
         <p class="visually-hidden"><label>Leave this blank: <input name="bot-field"></label></p>
 
         <span class="modal-section-label">Contact Information</span>
-        <div class="form-group"><label for="o-name">Full Name</label><input type="text" id="o-name" name="customer-name" placeholder="Jane Smith" autocomplete="name" required></div>
-        <div class="form-group"><label for="o-business">Business Name <span style="font-size:0.7rem; font-weight:300; text-transform:none; letter-spacing:0; color:var(--text-muted);">(optional)</span></label><input type="text" id="o-business" name="business-name" placeholder="Café, hotel, event company…" autocomplete="organization"></div>
-        <div class="form-row">
-          <div class="form-group"><label for="o-email">Email</label><input type="email" id="o-email" name="email" placeholder="jane@example.com" autocomplete="email" required></div>
-          <div class="form-group"><label for="o-phone">Phone</label><input type="tel" id="o-phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel" required></div>
+        <div class="form-group">
+          <label for="o-name">Full Name</label>
+          <input type="text" id="o-name" name="customer-name" placeholder="Jane Smith" autocomplete="name" required>
         </div>
-        <div class="form-group"><label for="o-contact-pref">Preferred Contact Method</label><select id="o-contact-pref" name="preferred-contact"><option value="">— Select preference —</option><option value="Email">Email</option><option value="Phone call">Phone call</option><option value="Text message">Text message</option></select></div>
-        <div class="form-group"><label for="o-address">Delivery Address</label><input type="text" id="o-address" name="delivery-address" placeholder="Street, city, state, ZIP" autocomplete="street-address" required></div>
-        <div class="form-group"><label for="o-delivery-type">Local Delivery or Shipping?</label><select id="o-delivery-type" name="delivery-type" required><option value="">— Select option —</option><option value="Local delivery">Local delivery</option><option value="Shipping requested">Shipping requested</option><option value="Not sure — please advise">Not sure — please advise</option></select></div>
+        <div class="form-group">
+          <label for="o-business">Business Name <span style="font-size:0.7rem; font-weight:300; text-transform:none; letter-spacing:0; color:var(--text-muted);">(optional)</span></label>
+          <input type="text" id="o-business" name="business-name" placeholder="Café, hotel, event company…" autocomplete="organization">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="o-email">Email</label>
+            <input type="email" id="o-email" name="email" placeholder="jane@example.com" autocomplete="email" required>
+          </div>
+          <div class="form-group">
+            <label for="o-phone">Phone</label>
+            <input type="tel" id="o-phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="o-contact-pref">Preferred Contact Method</label>
+          <select id="o-contact-pref" name="preferred-contact">
+            <option value="">— Select preference —</option>
+            <option value="Email">Email</option>
+            <option value="Phone call">Phone call</option>
+            <option value="Text message">Text message</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="o-address">Delivery Address</label>
+          <input type="text" id="o-address" name="delivery-address" placeholder="Street, city, state, ZIP" autocomplete="street-address" required>
+        </div>
+        <div class="form-group">
+          <label for="o-delivery-type">Local Delivery or Shipping?</label>
+          <select id="o-delivery-type" name="delivery-type" required>
+            <option value="">— Select option —</option>
+            <option value="Local delivery">Local delivery</option>
+            <option value="Shipping requested">Shipping requested</option>
+            <option value="Not sure — please advise">Not sure — please advise</option>
+          </select>
+        </div>
 
         <span class="modal-section-label">Case Order</span>
         <div class="qty-row">
           <div class="qty-group">
-            <label>Small Cases <span style="font-size:0.68rem; font-weight:300; text-transform:none; letter-spacing:0; color:var(--text-muted);">(12 × 24 oz · $144)</span></label>
-            <div class="qty-control"><button type="button" class="qty-btn" onclick="adjustQty('small', -1)" aria-label="Decrease small cases">−</button><span class="qty-display" id="qtySmallDisplay">0</span><button type="button" class="qty-btn" onclick="adjustQty('small', 1)" aria-label="Increase small cases">+</button></div>
+            <label>Small Cases <span style="font-size:0.68rem; font-weight:300; text-transform:none; letter-spacing:0; color:var(--text-muted);">(12 × 1.5 lb · $144)</span></label>
+            <div class="qty-control">
+              <button type="button" class="qty-btn" onclick="adjustQty('small', -1)" aria-label="Decrease small cases">−</button>
+              <span class="qty-display" id="qtySmallDisplay">0</span>
+              <button type="button" class="qty-btn" onclick="adjustQty('small', 1)" aria-label="Increase small cases">+</button>
+            </div>
             <input type="hidden" name="small-cases" id="qtySmallHidden" value="0">
           </div>
           <div class="qty-group">
-            <label>Large Cases <span style="font-size:0.68rem; font-weight:300; text-transform:none; letter-spacing:0; color:var(--text-muted);">(6 × 48 oz · $138)</span></label>
-            <div class="qty-control"><button type="button" class="qty-btn" onclick="adjustQty('large', -1)" aria-label="Decrease large cases">−</button><span class="qty-display" id="qtyLargeDisplay">0</span><button type="button" class="qty-btn" onclick="adjustQty('large', 1)" aria-label="Increase large cases">+</button></div>
+            <label>Large Cases <span style="font-size:0.68rem; font-weight:300; text-transform:none; letter-spacing:0; color:var(--text-muted);">(6 × 3 lb · $138)</span></label>
+            <div class="qty-control">
+              <button type="button" class="qty-btn" onclick="adjustQty('large', -1)" aria-label="Decrease large cases">−</button>
+              <span class="qty-display" id="qtyLargeDisplay">0</span>
+              <button type="button" class="qty-btn" onclick="adjustQty('large', 1)" aria-label="Increase large cases">+</button>
+            </div>
             <input type="hidden" name="large-cases" id="qtyLargeHidden" value="0">
           </div>
         </div>
-        <div class="form-group"><label for="o-flavors">Flavor Assortment</label><textarea id="o-flavors" name="flavor-assortment" placeholder="e.g. 2 small cases mixed: Classic, Lemon Vanilla Glaze, Blueberry" required></textarea></div>
+        <div class="form-group">
+          <label for="o-flavors">Flavor Assortment</label>
+          <textarea id="o-flavors" name="flavor-assortment" placeholder="e.g. 2 small cases: Traditional Sour Cream &amp; Cinnamon, Blueberry, Lotsa Lemon" required></textarea>
+        </div>
 
         <span class="modal-section-label">Fulfillment</span>
-        <div class="form-group"><label for="o-date">Requested Fulfillment Date</label><input type="date" id="o-date" name="fulfillment-date" required></div>
-        <div class="form-group"><label for="o-notes">Additional Notes <span style="font-size:0.7rem; font-weight:300; text-transform:none; letter-spacing:0; color:var(--text-muted);">(optional)</span></label><textarea id="o-notes" name="notes" placeholder="Special instructions, delivery notes, or anything else we should know…"></textarea></div>
+        <div class="form-group">
+          <label for="o-date">Requested Fulfillment Date</label>
+          <input type="date" id="o-date" name="fulfillment-date" required>
+        </div>
+        <div class="form-group">
+          <label for="o-notes">Additional Notes <span style="font-size:0.7rem; font-weight:300; text-transform:none; letter-spacing:0; color:var(--text-muted);">(optional)</span></label>
+          <textarea id="o-notes" name="notes" placeholder="Special instructions, delivery notes, or anything else we should know…"></textarea>
+        </div>
 
         <div class="info-panel"><strong>Payment:</strong> We review each order personally and then send payment instructions by email. PayPal is currently accepted.</div>
 
@@ -1087,7 +1305,7 @@
         <input type="hidden" name="order-summary" id="orderSummaryHidden" value="">
         <input type="hidden" name="estimated-total" id="estimatedTotalHidden" value="">
         <input type="hidden" name="payment-method" value="PayPal">
-        <input type="hidden" name="reply-from" value="hello@bostonteacakes.club">
+        <input type="hidden" name="reply-from" value="bostonteacakecompany@comcast.net">
 
         <button type="submit" class="form-submit" style="width:100%; padding:1.1rem;" id="orderSubmitBtn">Submit Order Request</button>
         <p class="modal-footer-note">No payment collected here · Orders fulfilled within about one week of confirmation</p>
@@ -1133,8 +1351,8 @@
     }
     var total = (qtySmall * PRICE_SMALL) + (qtyLarge * PRICE_LARGE);
     var html = '<div style="font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.5rem; font-weight:400;">Order Summary</div>';
-    if (qtySmall > 0) html += '<div class="order-summary-line"><span>' + qtySmall + ' × Small Case (12 ct · 24 oz)</span><span>$' + (qtySmall * PRICE_SMALL).toLocaleString() + '</span></div>';
-    if (qtyLarge > 0) html += '<div class="order-summary-line"><span>' + qtyLarge + ' × Large Case (6 ct · 48 oz)</span><span>$' + (qtyLarge * PRICE_LARGE).toLocaleString() + '</span></div>';
+    if (qtySmall > 0) html += '<div class="order-summary-line"><span>' + qtySmall + ' × Small Case (12 ct · 1.5 lb)</span><span>$' + (qtySmall * PRICE_SMALL).toLocaleString() + '</span></div>';
+    if (qtyLarge > 0) html += '<div class="order-summary-line"><span>' + qtyLarge + ' × Large Case (6 ct · 3 lb)</span><span>$' + (qtyLarge * PRICE_LARGE).toLocaleString() + '</span></div>';
     html += '<div class="order-summary-total"><span>Estimated Total</span><span>$' + total.toLocaleString() + '</span></div>';
     html += '<div class="order-summary-disclaimer">Estimate only · final pricing confirmed after review</div>';
     box.innerHTML = html;
@@ -1215,30 +1433,7 @@
     .catch(function() {
       btn.disabled = false;
       btn.textContent = 'Submit Order Request';
-      alert('Something went wrong. Please email orders@bostonteacakes.club directly.');
-    });
-  }
-
-  function submitContact(e) {
-    e.preventDefault();
-    var first = document.getElementById('cf-first').value.trim();
-    var email = document.getElementById('cf-email').value.trim();
-    var msg = document.getElementById('cf-message').value.trim();
-    if (!first) { alert('Please enter your first name.'); return; }
-    if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
-    if (!msg) { alert('Please enter a message.'); return; }
-    var formData = new FormData(e.target);
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
-    })
-    .then(function() {
-      document.getElementById('contactSuccess').style.display = 'block';
-      e.target.querySelector('button[type="submit"]').style.display = 'none';
-    })
-    .catch(function() {
-      alert('Something went wrong. Please email orders@bostonteacakes.club directly.');
+      alert('Something went wrong. Please email bostonteacakecompany@comcast.net directly.');
     });
   }
 
