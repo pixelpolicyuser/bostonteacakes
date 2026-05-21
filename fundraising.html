@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fundraising Program — The Boston Tea Cake Company</title>
+<meta name="description" content="Run a gourmet cake fundraiser with The Boston Tea Cake Company. No upfront costs, no minimum orders, no risk — guaranteed. Perfect for schools, scouts, churches, civic groups, and community organizations. 100% nut-free bakery, safe for schools.">
+<meta name="keywords" content="cake fundraiser, school fundraiser, non-profit fundraising, gourmet cake fundraising program, nut-free school fundraiser, scout fundraiser, church fundraiser, Boston Tea Cake Company fundraising, community fundraiser Massachusetts">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F7F3EC;
+    --warm-white: #FDFAF5;
+    --brown: #3B2314;
+    --brown-mid: #6B3D22;
+    --brown-light: #A0664A;
+    --gold: #C49A4A;
+    --gold-light: #DDB96A;
+    --sage: #7A9B6A;
+    --sage-light: #EFF4EC;
+    --text: #2A1A0E;
+    --text-muted: #7A6050;
+    --border: #D8C9B5;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── Navigation ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(247,243,236,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--brown);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.8rem;
+    align-items: center;
+  }
+  .nav-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 400;
+  }
+  .nav-links a:hover { color: var(--brown); }
+  .nav-links a.active { color: var(--brown); border-bottom: 1px solid var(--gold); padding-bottom: 0.1rem; }
+  .nav-links .btn-nav {
+    background: var(--brown);
+    color: var(--cream) !important;
+    padding: 0.55rem 1.4rem;
+    letter-spacing: 0.16em;
+    transition: background 0.2s;
+  }
+  .nav-links .btn-nav:hover { background: var(--brown-mid); }
+  .nav-links .btn-nav.active-page {
+    background: var(--gold);
+    color: var(--brown) !important;
+  }
+
+  /* ─── Page Header ─── */
+  .page-header {
+    padding: 10rem 4rem 6rem;
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 70% at 90% 30%, rgba(122,155,106,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 60% at 5% 80%, rgba(196,154,74,0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .page-header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 6rem;
+    align-items: center;
+  }
+  .page-eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    font-weight: 400;
+    display: block;
+  }
+  .page-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 300;
+    color: var(--brown);
+    line-height: 1.1;
+    margin-bottom: 1.4rem;
+  }
+  .page-header h1 em { font-style: italic; color: var(--brown-light); }
+  .page-header-sub {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    max-width: 520px;
+  }
+  .header-badges {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .header-badge {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 400;
+  }
+  .header-badge::before { content: '✦'; color: var(--gold); font-size: 0.5rem; }
+
+  /* Header promise block */
+  .header-promise {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .promise-item {
+    background: var(--cream);
+    padding: 1.6rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  .promise-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .promise-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: block;
+    font-weight: 400;
+    margin-bottom: 0.1rem;
+  }
+  .promise-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--brown);
+    line-height: 1.2;
+  }
+
+  /* ─── Resume Banner ─── */
+  .resume-banner {
+    background: var(--sage);
+    padding: 1.3rem 4rem;
+    text-align: center;
+    font-size: 0.84rem;
+    color: #fff;
+    letter-spacing: 0.04em;
+    line-height: 1.7;
+  }
+  .resume-banner strong { font-weight: 500; }
+
+  /* ─── Sections ─── */
+  section { padding: 7rem 4rem; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    font-weight: 400;
+    display: block;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 300;
+    color: var(--brown);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+  .section-title em { font-style: italic; color: var(--brown-light); }
+
+  /* ─── How It Works ─── */
+  #how-it-works { background: var(--cream); }
+  .how-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+  .how-copy p {
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
+    font-size: 0.98rem;
+  }
+  .how-copy strong { color: var(--brown); font-weight: 500; }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+  .benefit-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    padding: 1.8rem 1.6rem;
+    text-align: center;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .benefit-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(59,35,20,0.08);
+  }
+  .benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 20%; right: 20%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .benefit-icon { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
+  .benefit-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--brown);
+    margin-bottom: 0.4rem;
+  }
+  .benefit-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* Steps list */
+  .steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .step-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num-circle {
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background: var(--brown);
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+  .step-content strong {
+    display: block;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brown);
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+  }
+  .step-content span {
+    font-size: 0.87rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* ─── Who We Serve ─── */
+  #who-we-serve { background: var(--warm-white); }
+  .who-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  .who-header p {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    max-width: 580px;
+    margin: 0.8rem auto 0;
+    line-height: 1.8;
+  }
+  .orgs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    margin-bottom: 3rem;
+  }
+  .org-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 1.8rem 1.4rem;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .org-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(59,35,20,0.08);
+  }
+  .org-icon { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
+  .org-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--brown);
+    line-height: 1.25;
+  }
+  .org-example {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    margin-top: 0.35rem;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  .loyalty-strip {
+    background: var(--brown);
+    padding: 2.5rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: center;
+  }
+  .loyalty-strip-text {}
+  .loyalty-strip-eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    display: block;
+    font-weight: 400;
+  }
+  .loyalty-strip-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.25;
+    margin-bottom: 0.6rem;
+  }
+  .loyalty-strip-desc {
+    font-size: 0.88rem;
+    color: rgba(253,250,245,0.65);
+    line-height: 1.75;
+    max-width: 540px;
+  }
+  .loyalty-stat {
+    text-align: center;
+    flex-shrink: 0;
+    border-left: 1px solid rgba(196,154,74,0.3);
+    padding-left: 3rem;
+  }
+  .loyalty-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    display: block;
+  }
+  .loyalty-stat-label {
+    font-size: 0.64rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(253,250,245,0.45);
+    margin-top: 0.4rem;
+    display: block;
+  }
+
+  /* ─── School Safety ─── */
+  #school-safety { background: var(--sage-light); border-top: 1px solid #C8DBBF; border-bottom: 1px solid #C8DBBF; }
+  .safety-layout {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .safety-emblem {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: var(--sage);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    flex-shrink: 0;
+    box-shadow: 0 8px 30px rgba(122,155,106,0.25);
+  }
+  .safety-emblem-icon { font-size: 2.8rem; line-height: 1; }
+  .safety-emblem-text {
+    font-size: 0.55rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .safety-copy {}
+  .safety-copy .section-label { color: var(--sage); }
+  .safety-copy h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 300;
+    color: var(--brown);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .safety-copy p {
+    color: var(--text-muted);
+    font-size: 0.96rem;
+    margin-bottom: 0.9rem;
+    line-height: 1.8;
+  }
+  .safety-copy strong { color: var(--brown); font-weight: 500; }
+  .allergen-pills {
+    display: flex;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+    margin-top: 1.2rem;
+  }
+  .allergen-pill {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 0;
+    font-weight: 500;
+    border: 1px solid;
+  }
+  .allergen-pill.free {
+    background: rgba(122,155,106,0.12);
+    color: #4A7A3A;
+    border-color: #9DC68A;
+  }
+  .allergen-pill.contains {
+    background: rgba(59,35,20,0.06);
+    color: var(--text-muted);
+    border-color: var(--border);
+  }
+
+  /* ─── Campaign Schedule ─── */
+  #schedule { background: var(--warm-white); }
+  .schedule-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .schedule-header p {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    max-width: 580px;
+    margin: 0.8rem auto 0;
+    line-height: 1.8;
+  }
+  .schedule-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+  .schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 560px;
+  }
+  .schedule-table thead tr {
+    background: var(--brown);
+  }
+  .schedule-table thead th {
+    padding: 1.1rem 1.6rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.63rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    font-weight: 400;
+    text-align: left;
+  }
+  .schedule-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+  .schedule-table tbody tr:last-child { border-bottom: none; }
+  .schedule-table tbody tr:nth-child(even) { background: var(--cream); }
+  .schedule-table tbody tr:nth-child(odd) { background: var(--warm-white); }
+  .schedule-table tbody tr:hover { background: rgba(196,154,74,0.06); }
+  .schedule-table td {
+    padding: 1.1rem 1.6rem;
+    color: var(--text-muted);
+    vertical-align: middle;
+  }
+  .schedule-table td:first-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--brown);
+    white-space: nowrap;
+  }
+  .schedule-table td .holiday-icon {
+    margin-right: 0.6rem;
+  }
+  .schedule-table td.date-col {
+    font-size: 0.86rem;
+    white-space: nowrap;
+  }
+  .schedule-table td.delivery-col {
+    font-size: 0.86rem;
+    white-space: nowrap;
+  }
+  .deadline-badge {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: rgba(196,154,74,0.12);
+    color: var(--gold);
+    border: 1px solid rgba(196,154,74,0.3);
+    padding: 0.18rem 0.55rem;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+    font-weight: 500;
+  }
+
+  .schedule-note {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    padding: 1.2rem 1.8rem;
+    font-size: 0.86rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+  .schedule-note strong { color: var(--brown); font-weight: 500; }
+
+  /* ─── Get Started ─── */
+  #get-started { background: var(--cream); }
+  .started-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-bottom: 3rem;
+  }
+  .started-copy p {
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
+    font-size: 0.98rem;
+  }
+  .started-copy strong { color: var(--brown); font-weight: 500; }
+  .contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding: 1.4rem;
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+  }
+  .contact-item-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .contact-item-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+    display: block;
+    font-weight: 400;
+  }
+  .contact-item-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--brown);
+    font-weight: 400;
+  }
+  .contact-item-value a { color: var(--brown); text-decoration: none; }
+  .contact-item-value a:hover { color: var(--brown-light); }
+
+  .cta-block {
+    background: var(--brown);
+    padding: 3.5rem;
+    text-align: center;
+  }
+  .cta-block-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 0.7rem;
+    line-height: 1.2;
+  }
+  .cta-block-title em { font-style: italic; color: var(--gold-light); }
+  .cta-block-sub {
+    font-size: 0.9rem;
+    color: rgba(253,250,245,0.65);
+    margin-bottom: 2rem;
+    line-height: 1.75;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-cream {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 400;
+    background: var(--cream);
+    color: var(--brown);
+    border: 1px solid var(--cream);
+    transition: all 0.2s;
+  }
+  .btn-cream:hover { background: transparent; color: var(--cream); }
+  .btn-cream-outline {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 400;
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid rgba(253,250,245,0.45);
+    transition: all 0.2s;
+  }
+  .btn-cream-outline:hover { background: rgba(253,250,245,0.1); border-color: var(--cream); }
+
+  /* ─── Inquiry Form ─── */
+  #inquiry-form { background: var(--cream); }
+  .form-header { text-align: center; margin-bottom: 3rem; }
+  .form-header p { color: var(--text-muted); font-size: 0.98rem; max-width: 520px; margin: 0.8rem auto 0; line-height: 1.8; }
+  .inquiry-form-wrap { max-width: 780px; margin: 0 auto; background: var(--warm-white); border: 1px solid var(--border); padding: 3rem; }
+  .netlify-form { display: flex; flex-direction: column; gap: 1.2rem; }
+  .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .f-group { display: flex; flex-direction: column; gap: 0.5rem; }
+  .f-group label { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); font-weight: 400; }
+  .f-group input, .f-group select, .f-group textarea { background: var(--cream); border: 1px solid var(--border); padding: 0.9rem 1rem; font-family: 'Jost', sans-serif; font-size: 0.92rem; color: var(--text); font-weight: 300; outline: none; transition: border-color 0.2s; width: 100%; -webkit-appearance: none; appearance: none; border-radius: 0; }
+  .f-group input:focus, .f-group select:focus, .f-group textarea:focus { border-color: var(--brown-light); }
+  .f-group textarea { resize: vertical; min-height: 110px; }
+  .f-section-label { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 400; padding-bottom: 0.7rem; border-bottom: 1px solid var(--border); margin-top: 0.5rem; display: block; }
+  .form-submit-btn { background: var(--brown); color: var(--cream); border: none; padding: 1.1rem 2.8rem; font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; font-weight: 400; align-self: flex-start; }
+  .form-submit-btn:hover { background: var(--brown-mid); }
+  .form-note { font-size: 0.78rem; color: var(--text-muted); line-height: 1.7; border-left: 3px solid var(--gold); padding-left: 1rem; }
+  .f-visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+  /* ─── Footer ─── */
+  footer {
+    background: var(--brown);
+    color: rgba(253,250,245,0.5);
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    gap: 2rem;
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: rgba(253,250,245,0.8);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .footer-safety {
+    font-size: 0.66rem;
+    color: rgba(253,250,245,0.4);
+    text-align: center;
+    line-height: 1.8;
+    letter-spacing: 0.06em;
+  }
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .footer-links a {
+    color: rgba(253,250,245,0.5);
+    text-decoration: none;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: rgba(253,250,245,0.8); }
+
+  /* ─── Animations ─── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 1000px) {
+    .orgs-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 900px) {
+    nav { padding: 1rem 2rem; }
+    .nav-links { gap: 1.5rem; }
+    .page-header { padding: 8rem 2rem 4rem; }
+    .page-header-inner { grid-template-columns: 1fr; gap: 3rem; }
+    section { padding: 5rem 2rem; }
+    .resume-banner { padding: 1.2rem 2rem; }
+    .how-layout, .started-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .safety-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .safety-emblem { display: none; }
+    .loyalty-strip { grid-template-columns: 1fr; gap: 1.5rem; }
+    .loyalty-stat { border-left: none; border-top: 1px solid rgba(196,154,74,0.3); padding-left: 0; padding-top: 1.5rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .footer-links { justify-content: center; }
+  }
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .orgs-grid { grid-template-columns: repeat(2, 1fr); }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .cta-block { padding: 2.5rem 1.5rem; }
+    .form-row-2 { grid-template-columns: 1fr; }
+    .inquiry-form-wrap { padding: 2rem 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── Navigation ─── -->
+<nav>
+  <a href="index.html" class="nav-logo">Boston Tea Cake Co.</a>
+  <ul class="nav-links">
+    <li><a href="index.html#story">About Us</a></li>
+    <li><a href="index.html#cakes">Order Online</a></li>
+    <li><a href="distributors.html">Wholesalers</a></li>
+    <li><a href="business-accounts.html">Business Accounts</a></li>
+    <li><a href="fundraising.html" class="btn-nav active-page">Fundraiser</a></li>
+  </ul>
+</nav>
+
+<!-- ─── Resume Banner ─── -->
+<div class="resume-banner">
+  🎉 &nbsp;<strong>Our Fundraising Program Has Returned.</strong> After a pause during the COVID-19 pandemic, we are proud to announce that the BTCC Fundraising Program has fully resumed in 2026. Contact us today to schedule your campaign.
+</div>
+
+<!-- ─── Page Header ─── -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <span class="page-eyebrow">Fundraising Program</span>
+      <h1>Raise More.<br>Risk <em>Nothing.</em></h1>
+      <p class="page-header-sub">The Boston Tea Cake Company has been helping non-profits, schools, scouts, churches, and community groups raise funds for decades. No upfront costs. No minimum orders. No risk. Just a product people genuinely love — and a program that works.</p>
+      <div class="header-badges">
+        <span class="header-badge">No Upfront Costs</span>
+        <span class="header-badge">No Minimum Orders</span>
+        <span class="header-badge">100% Nut-Free · School Safe</span>
+        <span class="header-badge">Guaranteed Program</span>
+      </div>
+    </div>
+    <div class="header-promise">
+      <div class="promise-item">
+        <span class="promise-icon">💰</span>
+        <div>
+          <span class="promise-label">Upfront Cost</span>
+          <span class="promise-value">Zero — None Required</span>
+        </div>
+      </div>
+      <div class="promise-item">
+        <span class="promise-icon">📦</span>
+        <div>
+          <span class="promise-label">Minimum Order</span>
+          <span class="promise-value">None Whatsoever</span>
+        </div>
+      </div>
+      <div class="promise-item">
+        <span class="promise-icon">⚠️</span>
+        <div>
+          <span class="promise-label">Risk to Your Organization</span>
+          <span class="promise-value">Zero — Fully Guaranteed</span>
+        </div>
+      </div>
+      <div class="promise-item">
+        <span class="promise-icon">🛡️</span>
+        <div>
+          <span class="promise-label">Nut-Free Facility</span>
+          <span class="promise-value">100% · Safe for Schools</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── How It Works ─── -->
+<section id="how-it-works">
+  <div class="section-inner">
+    <div class="how-layout fade-in">
+
+      <div class="how-copy">
+        <span class="section-label">How the Program Works</span>
+        <h2 class="section-title">Simple to Run.<br><em>Powerful</em> Results.</h2>
+        <p>A Boston Tea Cake Company fundraiser is one of the easiest campaigns your organization will ever run. Your members take orders and collect payment upfront — then we bake, box, and deliver. There's nothing to pre-purchase, no inventory to manage, and no financial risk to your group.</p>
+        <p>The product does the selling for you. Gourmet bundt cakes are a <strong>meaningful, memorable alternative</strong> to gift wrap, popcorn, or candy — and customers come back every year asking when the next sale is. Many of our fundraising partners have run annual campaigns with BTCC for <strong>years, even decades</strong>.</p>
+
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <span class="benefit-icon">🚫</span>
+            <div class="benefit-title">No Upfront Costs</div>
+            <p class="benefit-desc">Your organization pays nothing in advance. Orders are collected, then we fulfill.</p>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-icon">📋</span>
+            <div class="benefit-title">No Minimum Orders</div>
+            <p class="benefit-desc">Sell one cake or a thousand — there is no floor. Every sale counts toward your goal.</p>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-icon">✅</span>
+            <div class="benefit-title">Fully Guaranteed</div>
+            <p class="benefit-desc">The program is guaranteed. If something isn't right, we make it right — every time.</p>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-icon">🔁</span>
+            <div class="benefit-title">Built to Repeat</div>
+            <p class="benefit-desc">Customers ask for this sale every year. Run it annually and watch your results grow.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <span class="section-label">Step by Step</span>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-num-circle">1</div>
+            <div class="step-content">
+              <strong>Contact Us to Schedule</strong>
+              <span>Reach out by phone at <strong>(508) 277-2949</strong> or email to set up your campaign. We'll confirm your holiday window, order deadline, and delivery target from our schedule.</span>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num-circle">2</div>
+            <div class="step-content">
+              <strong>Receive Your Order Forms</strong>
+              <span>We provide all the materials your sellers need — order forms with flavor descriptions, sizes, and pricing. No design work, no printing costs on your end.</span>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num-circle">3</div>
+            <div class="step-content">
+              <strong>Your Members Take Orders</strong>
+              <span>Sellers collect orders and payment directly from customers during the sale window. No inventory to manage and no money out of pocket for your organization.</span>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num-circle">4</div>
+            <div class="step-content">
+              <strong>Submit by the Deadline</strong>
+              <span>Send us your compiled order by the due date shown in the campaign schedule. We review and confirm everything personally before baking begins.</span>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num-circle">5</div>
+            <div class="step-content">
+              <strong>We Bake &amp; Deliver</strong>
+              <span>Fresh cakes are baked and delivered within your target window. Each cake arrives in an individual white bakery box, ready for your customers to pick up.</span>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num-circle">6</div>
+            <div class="step-content">
+              <strong>Keep Your Proceeds</strong>
+              <span>Your group keeps the fundraising proceeds. Simple, clean, and rewarding — and ready to run again next year.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Who We Serve ─── -->
+<section id="who-we-serve">
+  <div class="section-inner">
+    <div class="who-header fade-in">
+      <span class="section-label">Who We Work With</span>
+      <h2 class="section-title">Built for <em>Your</em> Community</h2>
+      <p>The BTCC Fundraising Program is designed for any non-profit, civic group, school, or community organization with a goal to reach and a community ready to support it. If your group is raising money for something that matters, we're the right partner.</p>
+    </div>
+
+    <div class="orgs-grid fade-in">
+      <div class="org-card">
+        <span class="org-icon">🏫</span>
+        <div class="org-name">School Districts</div>
+        <p class="org-example">Sports equipment, band instruments, field trips &amp; class projects</p>
+      </div>
+      <div class="org-card">
+        <span class="org-icon">📚</span>
+        <div class="org-name">Library Clubs</div>
+        <p class="org-example">New collections, programming, and community literacy events</p>
+      </div>
+      <div class="org-card">
+        <span class="org-icon">⚜️</span>
+        <div class="org-name">Boy Scouts</div>
+        <p class="org-example">Troop activities, camping gear &amp; badge programs</p>
+      </div>
+      <div class="org-card">
+        <span class="org-icon">🍀</span>
+        <div class="org-name">Girl Scouts</div>
+        <p class="org-example">Troop trips, leadership programs &amp; community service</p>
+      </div>
+      <div class="org-card">
+        <span class="org-icon">⛪</span>
+        <div class="org-name">Churches &amp; Faith Groups</div>
+        <p class="org-example">Bake sales, mission trips &amp; congregation programs</p>
+      </div>
+      <div class="org-card">
+        <span class="org-icon">🏕️</span>
+        <div class="org-name">Summer Camps</div>
+        <p class="org-example">Scholarship funds, equipment &amp; facility improvements</p>
+      </div>
+      <div class="org-card">
+        <span class="org-icon">⚽</span>
+        <div class="org-name">Youth Sports &amp; Recreation</div>
+        <p class="org-example">Leagues, uniforms, travel tournaments &amp; team equipment</p>
+      </div>
+      <div class="org-card">
+        <span class="org-icon">🎨</span>
+        <div class="org-name">Community Arts Orgs</div>
+        <p class="org-example">Performances, exhibitions &amp; arts education programs</p>
+      </div>
+      <div class="org-card">
+        <span class="org-icon">🏛️</span>
+        <div class="org-name">Civic Groups</div>
+        <p class="org-example">Annual campaigns for service clubs &amp; civic organizations</p>
+      </div>
+      <div class="org-card">
+        <span class="org-icon">🤝</span>
+        <div class="org-name">Business &amp; Social Clubs</div>
+        <p class="org-example">Annual fundraisers supporting club operations &amp; initiatives</p>
+      </div>
+      <div class="org-card">
+        <span class="org-icon">🌱</span>
+        <div class="org-name">Non-Profit Organizations</div>
+        <p class="org-example">Any registered non-profit with a community fundraising goal</p>
+      </div>
+      <div class="org-card">
+        <span class="org-icon">🎗️</span>
+        <div class="org-name">Cause &amp; Awareness Groups</div>
+        <p class="org-example">Health, advocacy &amp; community awareness fundraising campaigns</p>
+      </div>
+    </div>
+
+    <div class="loyalty-strip fade-in">
+      <div class="loyalty-strip-text">
+        <span class="loyalty-strip-eyebrow">Long-Term Fundraising Partnerships</span>
+        <div class="loyalty-strip-title">Our Clients Come Back Year After Year</div>
+        <p class="loyalty-strip-desc">The Boston Tea Cake Company fundraising program has built lasting partnerships with organizations across New England and beyond. Most of our fundraising clients run annual campaigns — and many have been partnering with us for years, even decades. When a fundraiser works this well, there's no reason to change.</p>
+      </div>
+      <div class="loyalty-stat">
+        <span class="loyalty-stat-num">40+</span>
+        <span class="loyalty-stat-label">Years Running Fundraisers</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── School Safety ─── -->
+<section id="school-safety">
+  <div class="section-inner">
+    <div class="safety-layout fade-in">
+      <div class="safety-emblem">
+        <span class="safety-emblem-icon">🛡️</span>
+        <span class="safety-emblem-text">100%<br>Nut-Free<br>Facility</span>
+      </div>
+      <div class="safety-copy">
+        <span class="section-label">School &amp; Allergen Safety</span>
+        <h2>A Fundraiser Safe for <em>Every</em> Student</h2>
+        <p>For school districts and youth organizations, allergen safety isn't optional — it's essential. <strong>The Boston Tea Cake Company operates a 100% nut-free bakery facility.</strong> No BTCC cake contains nuts of any kind, and all ingredients are kosher-certified.</p>
+        <p>This makes our fundraising program one of the few gourmet cake options <strong>truly safe to bring into school environments</strong> — no waivers, no workarounds, no exceptions needed. Every cake is baked in a facility where nuts are never present.</p>
+        <p>Our <strong>Lotsa Lemon</strong> cake takes allergen-friendliness even further — it is completely <strong>Dairy-Free and Soy-Free</strong>, containing only Wheat and Eggs. A delicious option for students and families with additional dietary restrictions.</p>
+        <div class="allergen-pills">
+          <span class="allergen-pill free">✓ Nut-Free Facility</span>
+          <span class="allergen-pill free">✓ Kosher Certified</span>
+          <span class="allergen-pill free">✓ Lotsa Lemon: Dairy-Free</span>
+          <span class="allergen-pill free">✓ Lotsa Lemon: Soy-Free</span>
+          <span class="allergen-pill contains">Wheat present</span>
+          <span class="allergen-pill contains">Eggs present</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Campaign Schedule ─── -->
+<section id="schedule">
+  <div class="section-inner">
+    <div class="schedule-header fade-in">
+      <span class="section-label">2026 Campaign Schedule</span>
+      <h2 class="section-title">Plan Your <em>Fundraiser</em></h2>
+      <p>We run fundraising campaigns tied to major holidays throughout the year. Choose the window that works best for your organization — or contact us to discuss a custom campaign date. All deadlines are firm to ensure fresh, on-time delivery.</p>
+    </div>
+
+    <div class="schedule-table-wrap fade-in">
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Holiday</th>
+            <th>Suggested Sale Start</th>
+            <th>Orders Due</th>
+            <th>Target Delivery</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="holiday-icon">💝</span>Valentine's Day</td>
+            <td class="date-col">January 10th</td>
+            <td class="date-col">February 4th <span class="deadline-badge">Deadline</span></td>
+            <td class="delivery-col">February 8th – 9th</td>
+          </tr>
+          <tr>
+            <td><span class="holiday-icon">🐣</span>Easter</td>
+            <td class="date-col">March 21st</td>
+            <td class="date-col">April 15th <span class="deadline-badge">Deadline</span></td>
+            <td class="delivery-col">May 4th – 5th</td>
+          </tr>
+          <tr>
+            <td><span class="holiday-icon">🌸</span>Mother's Day</td>
+            <td class="date-col">April 4th</td>
+            <td class="date-col">April 29th <span class="deadline-badge">Deadline</span></td>
+            <td class="delivery-col">May 4th – 5th</td>
+          </tr>
+          <tr>
+            <td><span class="holiday-icon">👔</span>Father's Day</td>
+            <td class="date-col">May 16th</td>
+            <td class="date-col">June 10th <span class="deadline-badge">Deadline</span></td>
+            <td class="delivery-col">June 14th – 16th</td>
+          </tr>
+          <tr>
+            <td><span class="holiday-icon">🦃</span>Thanksgiving</td>
+            <td class="date-col">October 18th</td>
+            <td class="date-col">November 12th <span class="deadline-badge">Deadline</span></td>
+            <td class="delivery-col">November 19th – 20th</td>
+          </tr>
+          <tr>
+            <td><span class="holiday-icon">🎄</span>Christmas / Holiday</td>
+            <td class="date-col">November 15th</td>
+            <td class="date-col">December 10th <span class="deadline-badge">Deadline</span></td>
+            <td class="delivery-col">December 16th – 17th</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="schedule-note fade-in">
+      ✦&nbsp;&nbsp;<strong>Order deadlines are firm</strong> to ensure every cake is baked fresh and delivered on time. Contact us at <strong>(508) 277-2949</strong> or <a href="mailto:bostonteacakecompany@comcast.net" style="color: var(--brown-light);">bostonteacakecompany@comcast.net</a> to reserve your campaign window before the suggested sale start date — popular holiday slots fill early.
+    </div>
+  </div>
+</section>
+
+<!-- ─── Get Started ─── -->
+<section id="get-started">
+  <div class="section-inner">
+    <div class="started-layout fade-in">
+      <div class="started-copy">
+        <span class="section-label">Get Started</span>
+        <h2 class="section-title">Ready to Run<br>Your <em>Fundraiser?</em></h2>
+        <p>Getting started is simple. Reach out to us directly — by phone or email — to tell us about your organization and which holiday window you'd like to run your campaign in. We'll walk you through everything and get you set up with order forms and materials.</p>
+        <p>There's no paperwork, no commitment, and <strong>no cost to get started</strong>. We want your fundraiser to succeed, and we'll be with you every step of the way.</p>
+        <p>Questions? We're happy to answer them. Call us at <strong>(508) 277-2949</strong> — we'd love to hear about your organization and your goals.</p>
+      </div>
+      <div class="contact-items">
+        <div class="contact-item">
+          <span class="contact-item-icon">📞</span>
+          <div>
+            <span class="contact-item-label">Phone</span>
+            <span class="contact-item-value"><a href="tel:5082772949">(508) 277-2949</a></span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">✉️</span>
+          <div>
+            <span class="contact-item-label">Email</span>
+            <span class="contact-item-value"><a href="mailto:bostonteacakecompany@comcast.net">bostonteacakecompany@comcast.net</a></span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">📍</span>
+          <div>
+            <span class="contact-item-label">Location</span>
+            <span class="contact-item-value">7 Jillson Circle, Milford, MA 01757</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-block fade-in">
+      <div class="cta-block-title">Let's make your <em>fundraiser</em> a success.</div>
+      <p class="cta-block-sub">No upfront costs. No minimums. No risk. Just a program that works — backed by 40+ years of experience and a product your community will love.</p>
+      <div class="cta-btns">
+        <a href="tel:5082772949" class="btn-cream">Call (508) 277-2949</a>
+        <a href="mailto:bostonteacakecompany@comcast.net" class="btn-cream-outline">Email Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Fundraiser Inquiry Form ─── -->
+<section id="inquiry-form">
+  <div class="section-inner">
+    <div class="form-header fade-in">
+      <span class="section-label">Start Your Campaign</span>
+      <h2 class="section-title">Inquire About<br>a <em>Fundraiser</em></h2>
+      <p>Fill out the form below and we'll be in touch within 1–2 business days to confirm your campaign window, walk you through the process, and get your order forms on the way.</p>
+    </div>
+    <div class="inquiry-form-wrap fade-in">
+      <form class="netlify-form" name="fundraiser-inquiry" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="fundraiser-inquiry">
+        <p class="f-visually-hidden"><label>Leave this blank: <input name="bot-field"></label></p>
+
+        <span class="f-section-label">Organization Information</span>
+        <div class="form-row-2">
+          <div class="f-group">
+            <label for="fi-org-name">Organization Name *</label>
+            <input type="text" id="fi-org-name" name="organization-name" placeholder="e.g. Lincoln Elementary PTA" required>
+          </div>
+          <div class="f-group">
+            <label for="fi-org-type">Organization Type *</label>
+            <select id="fi-org-type" name="organization-type" required>
+              <option value="">— Select type —</option>
+              <option>School District / PTA</option>
+              <option>Library Club</option>
+              <option>Boy Scouts</option>
+              <option>Girl Scouts</option>
+              <option>Church / Faith Group</option>
+              <option>Summer Camp</option>
+              <option>Youth Sports / Recreation</option>
+              <option>Civic Group</option>
+              <option>Business / Social Club</option>
+              <option>Community Arts Organization</option>
+              <option>Non-Profit Organization</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <span class="f-section-label">Contact Information</span>
+        <div class="form-row-2">
+          <div class="f-group">
+            <label for="fi-name">Contact Name *</label>
+            <input type="text" id="fi-name" name="contact-name" placeholder="Your full name" required>
+          </div>
+          <div class="f-group">
+            <label for="fi-phone">Phone Number *</label>
+            <input type="tel" id="fi-phone" name="phone" placeholder="(508) 555-0100" required>
+          </div>
+        </div>
+        <div class="f-group">
+          <label for="fi-email">Email Address *</label>
+          <input type="email" id="fi-email" name="email" placeholder="you@organization.org" required>
+        </div>
+
+        <span class="f-section-label">Campaign Details</span>
+        <div class="form-row-2">
+          <div class="f-group">
+            <label for="fi-window">Desired Holiday Window *</label>
+            <select id="fi-window" name="holiday-window" required>
+              <option value="">— Select window —</option>
+              <option>Valentine's Day — Orders due Feb 4th</option>
+              <option>Easter — Orders due Apr 15th</option>
+              <option>Mother's Day — Orders due Apr 29th</option>
+              <option>Father's Day — Orders due Jun 10th</option>
+              <option>Thanksgiving — Orders due Nov 12th</option>
+              <option>Christmas / Holiday — Orders due Dec 10th</option>
+              <option>Not Sure — Please Contact Me</option>
+            </select>
+          </div>
+          <div class="f-group">
+            <label for="fi-participants">Est. Number of Fundraisers Participating *</label>
+            <input type="text" id="fi-participants" name="est-participants" placeholder="e.g. 10–15 or 50" required>
+          </div>
+        </div>
+        <div class="f-group">
+          <label for="fi-goal">Fundraising Goal (in dollars) *</label>
+          <input type="text" id="fi-goal" name="fundraising-goal" placeholder="e.g. $500 or $2,000" required>
+        </div>
+        <div class="f-group">
+          <label for="fi-notes">Additional Notes <span style="font-size:0.7rem;font-weight:300;text-transform:none;letter-spacing:0;">(optional)</span></label>
+          <textarea id="fi-notes" name="notes" placeholder="Anything else we should know about your organization or campaign…"></textarea>
+        </div>
+
+        <div class="form-note">No upfront costs or commitments required. Submitting this form simply opens the conversation — we'll review your details and reach out to get you set up.</div>
+        <button type="submit" class="form-submit-btn">Submit Fundraiser Inquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ─── */
+<footer>
+  <span class="footer-logo">The Boston Tea Cake Company</span>
+  <span class="footer-safety">100% Nut-free facility · All ingredients kosher · Est. 1983 · Milford, MA</span>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#cakes">Order Online</a>
+    <a href="business-accounts.html">Business Accounts</a>
+    <a href="distributors.html">Wholesalers</a>
+  </div>
+</footer>
+
+<script>
+  var fadeObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(function(el) {
+    fadeObserver.observe(el);
+  });
+</script>
+</body>
+</html>

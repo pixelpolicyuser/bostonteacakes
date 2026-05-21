@@ -255,6 +255,51 @@
   }
   .story-copy strong { color: var(--brown); font-weight: 500; }
 
+  /* ─── Story Milestones Timeline ─── */
+  .story-milestones {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .milestone {
+    display: flex;
+    gap: 1.4rem;
+    align-items: flex-start;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .milestone:last-child { border-bottom: none; }
+  .milestone-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--gold);
+    min-width: 90px;
+    padding-top: 0.1rem;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+    line-height: 1.3;
+  }
+  .milestone-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .milestone-content strong {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brown);
+    font-weight: 500;
+  }
+  .milestone-content span {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
   .stats-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -905,10 +950,11 @@
 <nav>
   <a href="#" class="nav-logo">Boston Tea Cake Co.</a>
   <ul class="nav-links">
-    <li><a href="#cakes">View the Collection</a></li>
-    <li><a href="#corporate">Case Pricing</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#corporate" class="btn-nav" onclick="openModal(); return false;">Submit a PO</a></li>
+    <li><a href="#story">About Us</a></li>
+    <li><a href="#cakes">Order Online</a></li>
+    <li><a href="distributors.html">Wholesalers</a></li>
+    <li><a href="business-accounts.html">Business Accounts</a></li>
+    <li><a href="fundraising.html" class="btn-nav">Fundraiser</a></li>
   </ul>
 </nav>
 
@@ -916,7 +962,7 @@
 <section class="hero" id="top">
   <div class="hero-inner">
     <div class="hero-left">
-      <p class="hero-eyebrow">Est. 1993 · Milford, Massachusetts</p>
+      <p class="hero-eyebrow">Est. 1983 · Milford, Massachusetts</p>
       <h1>Baked with <em>Devotion</em><br>to flavor.</h1>
       <p class="hero-sub">Gourmet bundt cakes crafted from scratch, using only the purest ingredients. Six signature flavors. Nut-free. Kosher. Ships nationwide.</p>
       <div class="hero-btns">
@@ -927,7 +973,7 @@
         <span class="badge">Six Signature Flavors</span>
         <span class="badge">Ships Nationwide</span>
         <span class="badge">Made Fresh Weekly</span>
-        <span class="badge">Family Recipe Since 1993</span>
+        <span class="badge">Family Recipe Since 1983</span>
       </div>
     </div>
     <div class="hero-visual">
@@ -946,15 +992,49 @@
       <div class="story-copy">
         <span class="section-label">Our Story</span>
         <h2 class="section-title">A Legacy Baked Into Every Crumb</h2>
-        <p>The Boston Tea Cake Company has been a <strong>Milford institution</strong> since 1993. What began as a devotion to quality — real ingredients, real recipes, real care — has grown into a brand that people remember and return to, year after year.</p>
-        <p>Our gourmet bundt cakes are individually prepared from scratch. <strong>No fillers. No shortcuts.</strong> Just the kind of baking that takes time, skill, and genuine pride in the craft.</p>
-        <p>We operate a <strong>nut-free facility</strong> and use only <strong>kosher-certified ingredients</strong> — because exceptional baking should be inclusive baking.</p>
+        <p>In 1983, <strong>Steve Jacobs</strong> made a bold decision: he left a career in Higher Education to start a home food service business delivering meats and seafood directly to families across Massachusetts. It was a leap of faith — and it came with an unexpected twist.</p>
+        <p>With every order, Steve included a freshly baked coffee cake as a <strong>thank-you gift</strong> for his customers. He never imagined what would happen next. Before long, customers began calling not for meats or seafood, but for the cake. "Just the cake for now," they'd say. And the direction of his life changed forever.</p>
+        <p>For years, Steve operated as <strong>The Gypsy Baking Company</strong> — a fitting name for a baker without a home kitchen of his own. Every Sunday, he would travel <strong>up to 50 miles</strong> to rent shuttered bakeries for the day, mixing and baking his cakes before sunrise, then delivering them fresh. It was an extraordinary commitment to a craft he had come to love.</p>
+        <p>In <strong>1999</strong>, that wandering chapter came to a close. Steve established a permanent, <strong>3,000 square foot production facility in Milford, Massachusetts</strong> — a real home for a bakery that had earned one. The Boston Tea Cake Company was officially rooted, and the cakes that once traveled town-to-town in the back of a car could now ship across the entire country.</p>
+        <p>Today, every cake is still made from scratch using the same devotion to quality that turned a free gift into a calling. We operate a <strong>100% nut-free bakery facility</strong> and use only <strong>kosher-certified ingredients</strong> — because a cake this special should be one that everyone can enjoy.</p>
       </div>
-      <div class="stats-grid">
-        <div class="stat"><span class="stat-num">1993</span><span class="stat-label">Est. in Milford, MA</span></div>
-        <div class="stat"><span class="stat-num">6</span><span class="stat-label">Signature Flavors</span></div>
-        <div class="stat"><span class="stat-num">30+</span><span class="stat-label">Years of Craft</span></div>
-        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">From Scratch</span></div>
+      <div>
+        <div class="stats-grid">
+          <div class="stat"><span class="stat-num">1983</span><span class="stat-label">Founded by Steve Jacobs</span></div>
+          <div class="stat"><span class="stat-num">6</span><span class="stat-label">Signature Flavors</span></div>
+          <div class="stat"><span class="stat-num">40+</span><span class="stat-label">Years of Craft</span></div>
+          <div class="stat"><span class="stat-num">100%</span><span class="stat-label">From Scratch</span></div>
+        </div>
+        <div class="story-milestones">
+          <div class="milestone">
+            <span class="milestone-year">1983</span>
+            <div class="milestone-content">
+              <strong>The First Cake</strong>
+              <span>Steve Jacobs leaves Higher Education to start a home food service business — and includes a free coffee cake with every order.</span>
+            </div>
+          </div>
+          <div class="milestone">
+            <span class="milestone-year">The Gypsy Years</span>
+            <div class="milestone-content">
+              <strong>The Gypsy Baking Company</strong>
+              <span>Renting closed bakeries on Sundays, traveling up to 50 miles to bake his cakes fresh each week.</span>
+            </div>
+          </div>
+          <div class="milestone">
+            <span class="milestone-year">1999</span>
+            <div class="milestone-content">
+              <strong>A Permanent Home</strong>
+              <span>A 3,000 sq. ft. facility opens in Milford, MA — the Boston Tea Cake Company finds its home.</span>
+            </div>
+          </div>
+          <div class="milestone">
+            <span class="milestone-year">Today</span>
+            <div class="milestone-content">
+              <strong>Shipping Nationwide</strong>
+              <span>Six signature flavors, baked fresh and shipped to doorsteps across the United States.</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -981,7 +1061,7 @@
         <span class="cake-tag">Signature · The Original</span>
         <div class="cake-icon">☕</div>
         <h3 class="cake-name">Traditional Sour Cream &amp; Cinnamon</h3>
-        <p class="cake-desc">The original recipe, unchanged since 1993. Rich sour cream cake layered with fragrant cinnamon crumble. Pure nostalgia in every bite.</p>
+        <p class="cake-desc">The original recipe, unchanged since day one. Rich sour cream cake layered with fragrant cinnamon crumble and pure vanilla. The cake that started it all — and still the one customers come back for most.</p>
         <div class="cake-pricing">
           <span class="cake-price-pill">Small 1.5 lb · <strong>$40</strong> · shipping incl.</span>
           <span class="cake-price-pill">Large 3 lb · <strong>$50</strong> · shipping incl.</span>
@@ -1013,7 +1093,7 @@
         <span class="cake-tag">Seasonal · Luscious</span>
         <div class="cake-icon">🫐</div>
         <h3 class="cake-name">Blueberry</h3>
-        <p class="cake-desc">Dense, moist, and bursting with real blueberries in every bite. Pure generosity in cake form.</p>
+        <p class="cake-desc">Made with wild Maine blueberries — 25% more fruit than most bakers use. Dense, moist, and bursting with real berry flavor in every single bite.</p>
         <div class="cake-pricing">
           <span class="cake-price-pill">Small 1.5 lb · <strong>$40</strong> · shipping incl.</span>
           <span class="cake-price-pill">Large 3 lb · <strong>$50</strong> · shipping incl.</span>
@@ -1061,7 +1141,7 @@
         <span class="cake-tag">Refined · Fan Favorite</span>
         <div class="cake-icon">🍋</div>
         <h3 class="cake-name">Lotsa Lemon</h3>
-        <p class="cake-desc">Bright, zesty, and unapologetically lemony. A citrus lover's dream from the very first bite.</p>
+        <p class="cake-desc">Bright, zesty, and unapologetically lemony. A citrus lover's dream — and our most allergen-friendly flavor. <strong>Dairy-Free &amp; Soy-Free</strong>, made with only Wheat and Eggs.</p>
         <div class="cake-pricing">
           <span class="cake-price-pill">Small 1.5 lb · <strong>$40</strong> · shipping incl.</span>
           <span class="cake-price-pill">Large 3 lb · <strong>$50</strong> · shipping incl.</span>
@@ -1202,7 +1282,7 @@
 <footer>
   <span class="footer-logo">The Boston Tea Cake Company</span>
   <span class="footer-safety">Nut-free facility · All ingredients kosher · No Boston Tea Cake Company LTD cakes contain nuts of any kind</span>
-  <span>© 2026 Boston Tea Cake Company, Ltd. · Milford, MA · bostonteacakes.club · Est. 1993</span>
+  <span>© 2026 Boston Tea Cake Company, Ltd. · Milford, MA · bostonteacakes.club · Est. 1983</span>
 </footer>
 
 <!-- ─── Corporate Order Modal (Submit a PO) ─── -->
