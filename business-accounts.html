@@ -597,6 +597,13 @@
   .form-note { font-size: 0.78rem; color: var(--text-muted); line-height: 1.7; border-left: 3px solid var(--gold); padding-left: 1rem; }
   .f-visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
+  .btn-header-cta { display: inline-block; padding: 0.85rem 2rem; background: var(--brown); color: var(--cream); font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; font-weight: 400; margin-bottom: 2rem; transition: background 0.2s; }
+  .btn-header-cta:hover { background: var(--brown-mid); }
+  .footer-contact { font-size: 0.68rem; letter-spacing: 0.08em; display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap; }
+  .footer-contact-sep { color: rgba(253,250,245,0.25); }
+  .prot-phone a, .prot-email a { color: rgba(253,250,245,0.5); text-decoration: none; transition: color 0.2s; }
+  .prot-phone a:hover, .prot-email a:hover { color: rgba(253,250,245,0.8); }
+
   /* ─── Footer ─── */
   footer {
     background: var(--brown);
@@ -688,6 +695,7 @@
     <span class="page-eyebrow">Business Accounts &amp; Corporate Gifts</span>
     <h1>Wholesale Accounts &amp;<br><em>Corporate Gifting</em></h1>
     <p class="page-header-sub">From standing wholesale accounts for cafés and hotels to memorable corporate gift programs — the Boston Tea Cake Company is a partner that makes an impression.</p>
+    <a href="#inquiry-form" class="btn-header-cta">Open an Account →</a>
     <div class="header-badges">
       <span class="header-badge">No Payment at Submission</span>
       <span class="header-badge">100% Nut-Free Facility</span>
@@ -852,7 +860,7 @@
       <div class="order-step">
         <span class="order-step-num">1</span>
         <div class="order-step-title">Contact Us</div>
-        <p class="order-step-desc">Reach out by phone at <strong>(508) 277-2949</strong> or by email at bostonteacakecompany@comcast.net. Tell us about your business and what you're looking for — wholesale supply, corporate gifting, or both.</p>
+        <p class="order-step-desc">Use the inquiry form below to tell us about your business and what you're looking for — wholesale supply, corporate gifting, or both. We review every submission personally.</p>
       </div>
       <div class="order-step">
         <span class="order-step-num">2</span>
@@ -867,10 +875,9 @@
     </div>
     <div class="order-cta-block fade-in">
       <div class="order-cta-title">Ready to get started?</div>
-      <p class="order-cta-sub">Contact us today to discuss wholesale pricing, corporate gift programs, or recurring account options. We'd love to work with you.</p>
+      <p class="order-cta-sub">Fill out the account inquiry form below — we'll review it personally and follow up with pricing, availability, and next steps.</p>
       <div class="order-cta-btns">
-        <a href="tel:5082772949" class="btn-cream">Call (508) 277-2949</a>
-        <a href="mailto:bostonteacakecompany@comcast.net" class="btn-cream-outline">Email Us</a>
+        <a href="#inquiry-form" class="btn-cream">Open an Account →</a>
       </div>
     </div>
   </div>
@@ -891,16 +898,16 @@
           <span class="contact-item-value">7 Jillson Circle, Milford, MA 01757</span>
         </div>
       </div>
-      <div class="contact-item">
+      <div class="contact-item" style="cursor:pointer;" onclick="window.location='#inquiry-form'">
         <div>
-          <span class="contact-item-label">Email</span>
-          <span class="contact-item-value"><a href="mailto:bostonteacakecompany@comcast.net">bostonteacakecompany@comcast.net</a></span>
+          <span class="contact-item-label">Wholesale Inquiry</span>
+          <span class="contact-item-value"><a href="#inquiry-form" style="color:var(--brown);text-decoration:none;">Submit Account Form →</a></span>
         </div>
       </div>
-      <div class="contact-item">
+      <div class="contact-item" style="cursor:pointer;" onclick="window.location='#inquiry-form'">
         <div>
-          <span class="contact-item-label">Phone</span>
-          <span class="contact-item-value"><a href="tel:5082772949">(508) 277-2949</a></span>
+          <span class="contact-item-label">Corporate Gifts</span>
+          <span class="contact-item-value"><a href="#inquiry-form" style="color:var(--brown);text-decoration:none;">Submit Account Form →</a></span>
         </div>
       </div>
     </div>
@@ -978,7 +985,7 @@
           <textarea id="ba-notes" name="notes" placeholder="Tell us about your business, estimated order frequency, flavor preferences, or anything else that would help us prepare…"></textarea>
         </div>
 
-        <div class="form-note">No payment is collected here. We review every inquiry personally and follow up with availability, pricing, and next steps via email from bostonteacakecompany@comcast.net.</div>
+        <div class="form-note">No payment is collected here. We review every inquiry personally and follow up with availability, pricing, and next steps — typically within 1–2 business days.</div>
         <button type="submit" class="form-submit-btn">Submit Account Inquiry</button>
       </form>
     </div>
@@ -989,15 +996,26 @@
 <footer>
   <span class="footer-logo">The Boston Tea Cake Company</span>
   <span class="footer-safety">100% Nut-free facility · All ingredients kosher · Est. 1983 · Milford, MA</span>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="index.html#cakes">Order Online</a>
-    <a href="fundraising.html">Fundraiser</a>
-    <a href="distributors.html">Wholesalers</a>
+  <div class="footer-contact">
+    <span class="prot-phone"></span>
+    <span class="footer-contact-sep">·</span>
+    <span class="prot-email"></span>
   </div>
 </footer>
 
 <script>
+  // ─── Protected contact rendering (anti-scraper) ───
+  (function(){
+    var ph=['508','277','2949'], em=['bostonteacakecompany','comcast.net'];
+    document.querySelectorAll('.prot-phone').forEach(function(el){
+      el.innerHTML='<a href="tel:'+ph.join('')+'">(' +ph[0]+') '+ph[1]+'-'+ph[2]+'</a>';
+    });
+    document.querySelectorAll('.prot-email').forEach(function(el){
+      var a=em[0]+'\u0040'+em[1];
+      el.innerHTML='<a href="mailto:'+a+'">'+a+'</a>';
+    });
+  })();
+
   function toggleShipping(cb) {
     var group = document.getElementById('shipping-group');
     var input = document.getElementById('ba-shipping');

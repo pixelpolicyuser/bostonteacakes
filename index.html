@@ -220,7 +220,9 @@
   }
 
   /* ─── Sections ─── */
-  section { padding: 7rem 4rem; }
+  section { padding: 5rem 4rem; }
+  #story { padding-bottom: 3.5rem; }
+  #cakes { padding-top: 3.5rem; }
   .section-inner { max-width: 1200px; margin: 0 auto; }
   .section-label {
     font-size: 0.65rem;
@@ -241,7 +243,7 @@
   }
 
   /* ─── Story ─── */
-  #story { background: var(--warm-white); }
+  #story { background: var(--warm-white); padding-bottom: 3rem; }
   .story-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -326,7 +328,7 @@
   }
 
   /* ─── Cakes Collection ─── */
-  #cakes { background: var(--cream); }
+  #cakes { background: var(--cream); padding-top: 3rem; }
   .cakes-header { text-align: center; margin-bottom: 2rem; }
   .cakes-sub { color: var(--text-muted); font-size: 0.92rem; margin-top: 0.5rem; }
 
@@ -663,6 +665,11 @@
   .contact-safety { max-width: 860px; margin: 0 auto; }
   .contact-safety .safety-banner { margin: 0; }
 
+  .footer-contact { font-size: 0.68rem; letter-spacing: 0.08em; display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap; }
+  .footer-contact-sep { color: rgba(253,250,245,0.25); }
+  .prot-phone a, .prot-email a { color: rgba(253,250,245,0.5); text-decoration: none; transition: color 0.2s; }
+  .prot-phone a:hover, .prot-email a:hover { color: rgba(253,250,245,0.8); }
+
   /* ─── Footer ─── */
   footer {
     background: var(--brown);
@@ -967,7 +974,6 @@
       <p class="hero-sub">Gourmet bundt cakes crafted from scratch, using only the purest ingredients. Six signature flavors. Nut-free. Kosher. Ships nationwide.</p>
       <div class="hero-btns">
         <a href="#cakes" class="btn-primary">View the Collection</a>
-        <a href="#corporate" class="btn-outline">Submit a PO</a>
       </div>
       <div class="badge-row">
         <span class="badge">Six Signature Flavors</span>
@@ -1091,7 +1097,15 @@
       <!-- 3. Blueberry -->
       <div class="cake-card fade-in">
         <span class="cake-tag">Seasonal · Luscious</span>
-        <div class="cake-icon">🫐</div>
+        <div class="cake-icon">
+          <svg width="45" height="40" viewBox="0 0 45 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:0 auto;">
+            <circle cx="13" cy="25" r="11" fill="#4B3A9A"/>
+            <circle cx="30" cy="21" r="10" fill="#5C47A8"/>
+            <circle cx="22" cy="31" r="9" fill="#372883"/>
+            <circle cx="11" cy="21" r="4" fill="#7066C0" opacity="0.5"/>
+            <circle cx="29" cy="17" r="3.5" fill="#7B72C8" opacity="0.5"/>
+          </svg>
+        </div>
         <h3 class="cake-name">Blueberry</h3>
         <p class="cake-desc">Made with wild Maine blueberries — 25% more fruit than most bakers use. Dense, moist, and bursting with real berry flavor in every single bite.</p>
         <div class="cake-pricing">
@@ -1243,9 +1257,9 @@
   <div class="section-inner">
 
     <div class="contact-header fade-in">
-      <span class="section-label">Contact</span>
-      <h2 class="section-title">Reach Us Directly</h2>
-      <p>For questions about mail-order cakes, corporate accounts, or anything else — we'd love to hear from you.</p>
+      <span class="section-label">Get in Touch</span>
+      <h2 class="section-title">How Can We Help?</h2>
+      <p>Use the links below to reach the right page — each has a dedicated form so your inquiry reaches us directly.</p>
     </div>
 
     <div class="contact-items-row fade-in">
@@ -1255,16 +1269,16 @@
           <span class="contact-item-value">Milford, Massachusetts</span>
         </div>
       </div>
-      <div class="contact-item">
+      <div class="contact-item" style="cursor:pointer;" onclick="window.location='fundraising.html#inquiry-form'">
         <div>
-          <span class="contact-item-label">Email</span>
-          <span class="contact-item-value"><a href="mailto:bostonteacakecompany@comcast.net">bostonteacakecompany@comcast.net</a></span>
+          <span class="contact-item-label">Fundraising</span>
+          <span class="contact-item-value"><a href="fundraising.html#inquiry-form" style="color:var(--brown);text-decoration:none;">Start a Fundraiser →</a></span>
         </div>
       </div>
-      <div class="contact-item">
+      <div class="contact-item" style="cursor:pointer;" onclick="window.location='business-accounts.html#inquiry-form'">
         <div>
-          <span class="contact-item-label">Phone</span>
-          <span class="contact-item-value"><a href="tel:5082772949">508-277-2949</a></span>
+          <span class="contact-item-label">Wholesale &amp; Corporate Gifts</span>
+          <span class="contact-item-value"><a href="business-accounts.html#inquiry-form" style="color:var(--brown);text-decoration:none;">Open an Account →</a></span>
         </div>
       </div>
     </div>
@@ -1282,7 +1296,13 @@
 <footer>
   <span class="footer-logo">The Boston Tea Cake Company</span>
   <span class="footer-safety">Nut-free facility · All ingredients kosher · No Boston Tea Cake Company LTD cakes contain nuts of any kind</span>
-  <span>© 2026 Boston Tea Cake Company, Ltd. · Milford, MA · bostonteacakes.club · Est. 1983</span>
+  <div class="footer-contact">
+    <span class="prot-phone"></span>
+    <span class="footer-contact-sep">·</span>
+    <span class="prot-email"></span>
+    <span class="footer-contact-sep">·</span>
+    <span>© 2026 Boston Tea Cake Company, Ltd. · Est. 1983</span>
+  </div>
 </footer>
 
 <!-- ─── Corporate Order Modal (Submit a PO) ─── -->
@@ -1395,6 +1415,18 @@
 </div>
 
 <script>
+  // ─── Protected contact rendering (anti-scraper) ───
+  (function(){
+    var ph=['508','277','2949'], em=['bostonteacakecompany','comcast.net'];
+    document.querySelectorAll('.prot-phone').forEach(function(el){
+      el.innerHTML='<a href="tel:'+ph.join('')+'">(' +ph[0]+') '+ph[1]+'-'+ph[2]+'</a>';
+    });
+    document.querySelectorAll('.prot-email').forEach(function(el){
+      var a=em[0]+'\u0040'+em[1];
+      el.innerHTML='<a href="mailto:'+a+'">'+a+'</a>';
+    });
+  })();
+
   var PRICE_SMALL = 144;
   var PRICE_LARGE = 138;
   var qtySmall = 0;

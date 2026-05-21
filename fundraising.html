@@ -194,6 +194,7 @@
   .resume-banner {
     background: var(--sage);
     padding: 1.3rem 4rem;
+    margin-top: 62px;
     text-align: center;
     font-size: 0.84rem;
     color: #fff;
@@ -203,7 +204,7 @@
   .resume-banner strong { font-weight: 500; }
 
   /* ─── Sections ─── */
-  section { padding: 7rem 4rem; }
+  section { padding: 5rem 4rem; }
   .section-inner { max-width: 1200px; margin: 0 auto; }
   .section-label {
     font-size: 0.65rem;
@@ -712,6 +713,11 @@
   .form-note { font-size: 0.78rem; color: var(--text-muted); line-height: 1.7; border-left: 3px solid var(--gold); padding-left: 1rem; }
   .f-visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
+  .footer-contact { font-size: 0.68rem; letter-spacing: 0.08em; display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap; }
+  .footer-contact-sep { color: rgba(253,250,245,0.25); }
+  .prot-phone a, .prot-email a { color: rgba(253,250,245,0.5); text-decoration: none; transition: color 0.2s; }
+  .prot-phone a:hover, .prot-email a:hover { color: rgba(253,250,245,0.8); }
+
   /* ─── Footer ─── */
   footer {
     background: var(--brown);
@@ -899,7 +905,7 @@
             <div class="step-num-circle">1</div>
             <div class="step-content">
               <strong>Contact Us to Schedule</strong>
-              <span>Reach out by phone at <strong>(508) 277-2949</strong> or email to set up your campaign. We'll confirm your holiday window, order deadline, and delivery target from our schedule.</span>
+              <span>Fill out the inquiry form below to tell us about your organization and which holiday window you'd like to run your campaign in. We'll confirm your schedule, order deadline, and delivery target.</span>
             </div>
           </div>
           <div class="step-item">
@@ -1060,13 +1066,13 @@
 <!-- ─── Campaign Schedule ─── -->
 <section id="schedule">
   <div class="section-inner">
-    <div class="schedule-header fade-in">
+    <div class="schedule-header">
       <span class="section-label">2026 Campaign Schedule</span>
       <h2 class="section-title">Plan Your <em>Fundraiser</em></h2>
       <p>We run fundraising campaigns tied to major holidays throughout the year. Choose the window that works best for your organization — or contact us to discuss a custom campaign date. All deadlines are firm to ensure fresh, on-time delivery.</p>
     </div>
 
-    <div class="schedule-table-wrap fade-in">
+    <div class="schedule-table-wrap">
       <table class="schedule-table">
         <thead>
           <tr>
@@ -1117,8 +1123,8 @@
       </table>
     </div>
 
-    <div class="schedule-note fade-in">
-      ✦&nbsp;&nbsp;<strong>Order deadlines are firm</strong> to ensure every cake is baked fresh and delivered on time. Contact us at <strong>(508) 277-2949</strong> or <a href="mailto:bostonteacakecompany@comcast.net" style="color: var(--brown-light);">bostonteacakecompany@comcast.net</a> to reserve your campaign window before the suggested sale start date — popular holiday slots fill early.
+    <div class="schedule-note">
+      ✦&nbsp;&nbsp;<strong>Order deadlines are firm</strong> to ensure every cake is baked fresh and delivered on time. Use the inquiry form below to reserve your campaign window — popular holiday slots fill early.
     </div>
   </div>
 </section>
@@ -1126,27 +1132,20 @@
 <!-- ─── Get Started ─── -->
 <section id="get-started">
   <div class="section-inner">
-    <div class="started-layout fade-in">
+    <div class="started-layout">
       <div class="started-copy">
         <span class="section-label">Get Started</span>
         <h2 class="section-title">Ready to Run<br>Your <em>Fundraiser?</em></h2>
-        <p>Getting started is simple. Reach out to us directly — by phone or email — to tell us about your organization and which holiday window you'd like to run your campaign in. We'll walk you through everything and get you set up with order forms and materials.</p>
+        <p>Getting started is simple. Fill out the inquiry form below — tell us about your organization and which holiday window you'd like. We'll walk you through everything and get your order forms on the way.</p>
         <p>There's no paperwork, no commitment, and <strong>no cost to get started</strong>. We want your fundraiser to succeed, and we'll be with you every step of the way.</p>
-        <p>Questions? We're happy to answer them. Call us at <strong>(508) 277-2949</strong> — we'd love to hear about your organization and your goals.</p>
+        <p>Questions? Use the form below and we'll respond within 1–2 business days.</p>
       </div>
       <div class="contact-items">
         <div class="contact-item">
-          <span class="contact-item-icon">📞</span>
+          <span class="contact-item-icon">📋</span>
           <div>
-            <span class="contact-item-label">Phone</span>
-            <span class="contact-item-value"><a href="tel:5082772949">(508) 277-2949</a></span>
-          </div>
-        </div>
-        <div class="contact-item">
-          <span class="contact-item-icon">✉️</span>
-          <div>
-            <span class="contact-item-label">Email</span>
-            <span class="contact-item-value"><a href="mailto:bostonteacakecompany@comcast.net">bostonteacakecompany@comcast.net</a></span>
+            <span class="contact-item-label">Quickest Way to Start</span>
+            <span class="contact-item-value"><a href="#inquiry-form">Submit the Inquiry Form Below →</a></span>
           </div>
         </div>
         <div class="contact-item">
@@ -1159,12 +1158,11 @@
       </div>
     </div>
 
-    <div class="cta-block fade-in">
+      <div class="cta-block">
       <div class="cta-block-title">Let's make your <em>fundraiser</em> a success.</div>
       <p class="cta-block-sub">No upfront costs. No minimums. No risk. Just a program that works — backed by 40+ years of experience and a product your community will love.</p>
       <div class="cta-btns">
-        <a href="tel:5082772949" class="btn-cream">Call (508) 277-2949</a>
-        <a href="mailto:bostonteacakecompany@comcast.net" class="btn-cream-outline">Email Us</a>
+        <a href="#inquiry-form" class="btn-cream">Submit a Fundraiser Inquiry</a>
       </div>
     </div>
   </div>
@@ -1173,12 +1171,12 @@
 <!-- ─── Fundraiser Inquiry Form ─── -->
 <section id="inquiry-form">
   <div class="section-inner">
-    <div class="form-header fade-in">
+    <div class="form-header">
       <span class="section-label">Start Your Campaign</span>
       <h2 class="section-title">Inquire About<br>a <em>Fundraiser</em></h2>
       <p>Fill out the form below and we'll be in touch within 1–2 business days to confirm your campaign window, walk you through the process, and get your order forms on the way.</p>
     </div>
-    <div class="inquiry-form-wrap fade-in">
+    <div class="inquiry-form-wrap">
       <form class="netlify-form" name="fundraiser-inquiry" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="fundraiser-inquiry">
         <p class="f-visually-hidden"><label>Leave this blank: <input name="bot-field"></label></p>
@@ -1261,19 +1259,31 @@
   </div>
 </section>
 
-<!-- ─── Footer ─── */
+<!-- ─── Footer ─── -->
 <footer>
   <span class="footer-logo">The Boston Tea Cake Company</span>
   <span class="footer-safety">100% Nut-free facility · All ingredients kosher · Est. 1983 · Milford, MA</span>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="index.html#cakes">Order Online</a>
-    <a href="business-accounts.html">Business Accounts</a>
-    <a href="distributors.html">Wholesalers</a>
+  <div class="footer-contact">
+    <span class="prot-phone"></span>
+    <span class="footer-contact-sep">·</span>
+    <span class="prot-email"></span>
   </div>
 </footer>
 
 <script>
+  // ─── Protected contact rendering (anti-scraper) ───
+  (function(){
+    var ph=['508','277','2949'], em=['bostonteacakecompany','comcast.net'];
+    document.querySelectorAll('.prot-phone').forEach(function(el){
+      el.innerHTML='<a href="tel:'+ph.join('')+'">(' +ph[0]+') '+ph[1]+'-'+ph[2]+'</a>';
+    });
+    document.querySelectorAll('.prot-email').forEach(function(el){
+      var a=em[0]+'\u0040'+em[1];
+      el.innerHTML='<a href="mailto:'+a+'">'+a+'</a>';
+    });
+  })();
+
+  // ─── Fade-in: IntersectionObserver + guaranteed fallback ───
   var fadeObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
@@ -1281,11 +1291,18 @@
         fadeObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0, rootMargin: '0px' });
 
   document.querySelectorAll('.fade-in').forEach(function(el) {
     fadeObserver.observe(el);
   });
+
+  // Fallback: ensure everything is visible after 150ms regardless
+  setTimeout(function() {
+    document.querySelectorAll('.fade-in').forEach(function(el) {
+      el.classList.add('visible');
+    });
+  }, 150);
 </script>
 </body>
 </html>

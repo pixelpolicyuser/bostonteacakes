@@ -679,6 +679,13 @@
   .form-note { font-size: 0.78rem; color: var(--text-muted); line-height: 1.7; border-left: 3px solid var(--gold); padding-left: 1rem; }
   .f-visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
+  .btn-header-cta { display: inline-block; padding: 0.85rem 2rem; background: var(--gold); color: var(--brown); font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; font-weight: 500; margin-bottom: 2rem; transition: background 0.2s; }
+  .btn-header-cta:hover { background: var(--gold-light); }
+  .footer-contact { font-size: 0.68rem; letter-spacing: 0.08em; display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap; }
+  .footer-contact-sep { color: rgba(253,250,245,0.25); }
+  .prot-phone a, .prot-email a { color: rgba(253,250,245,0.5); text-decoration: none; transition: color 0.2s; }
+  .prot-phone a:hover, .prot-email a:hover { color: rgba(253,250,245,0.8); }
+
   /* ─── Footer ─── */
   footer {
     background: var(--brown);
@@ -778,6 +785,7 @@
       <span class="page-eyebrow">Distributor Opportunities</span>
       <h1>Grow Your Business<br>with a <em>Proven</em> Line</h1>
       <p class="page-header-sub">The Boston Tea Cake Company is looking for dedicated B2B distributors to introduce our gourmet bundt cake line to their existing customer base. High repeat sales, a loyal following, and a product people genuinely love — this is a line that sells itself.</p>
+      <a href="#inquiry-form" class="btn-header-cta">New Distributor Sign-up →</a>
       <div class="header-badges">
         <span class="header-badge">100% Account Protection</span>
         <span class="header-badge">Product Samples Provided</span>
@@ -1025,7 +1033,7 @@
       <div class="step-card">
         <span class="step-num">1</span>
         <div class="step-title">Reach Out</div>
-        <p class="step-desc">Contact us by phone at <strong>(508) 277-2949</strong> or email to introduce yourself and your distribution business. Tell us about the accounts and regions you currently serve.</p>
+        <p class="step-desc">Fill out the distributor inquiry form below. Tell us about your distribution business and the accounts and regions you currently serve.</p>
       </div>
       <div class="step-card">
         <span class="step-num">2</span>
@@ -1046,10 +1054,9 @@
 
     <div class="cta-block fade-in">
       <div class="cta-block-title">Ready to bring <em>Boston Tea Cake</em> to your customers?</div>
-      <p class="cta-block-sub">We're looking for dedicated partners who are serious about building a great book of business. If that sounds like you, let's talk.</p>
+      <p class="cta-block-sub">We're looking for dedicated partners who are serious about building a great book of business. Fill out the form below and we'll be in touch within 1–2 business days.</p>
       <div class="cta-btns">
-        <a href="tel:5082772949" class="btn-cream">Call (508) 277-2949</a>
-        <a href="mailto:bostonteacakecompany@comcast.net" class="btn-cream-outline">Email Us</a>
+        <a href="#inquiry-form" class="btn-cream">New Distributor Sign-up →</a>
       </div>
     </div>
   </div>
@@ -1068,13 +1075,13 @@
         <span class="contact-item-label">Location</span>
         <span class="contact-item-value">7 Jillson Circle, Milford, MA 01757</span>
       </div>
-      <div class="contact-item">
-        <span class="contact-item-label">Email</span>
-        <span class="contact-item-value"><a href="mailto:bostonteacakecompany@comcast.net">bostonteacakecompany@comcast.net</a></span>
+      <div class="contact-item" style="cursor:pointer;" onclick="window.location='#inquiry-form'">
+        <span class="contact-item-label">Apply to Distribute</span>
+        <span class="contact-item-value"><a href="#inquiry-form" style="color:var(--brown);text-decoration:none;">Submit Distributor Form →</a></span>
       </div>
       <div class="contact-item">
-        <span class="contact-item-label">Phone</span>
-        <span class="contact-item-value"><a href="tel:5082772949">(508) 277-2949</a></span>
+        <span class="contact-item-label">Response Time</span>
+        <span class="contact-item-value">Within 1–2 Business Days</span>
       </div>
     </div>
   </div>
@@ -1144,15 +1151,26 @@
 <footer>
   <span class="footer-logo">The Boston Tea Cake Company</span>
   <span class="footer-safety">100% Nut-free facility · All ingredients kosher · Est. 1983 · Milford, MA</span>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="index.html#cakes">Order Online</a>
-    <a href="business-accounts.html">Business Accounts</a>
-    <a href="fundraising.html">Fundraiser</a>
+  <div class="footer-contact">
+    <span class="prot-phone"></span>
+    <span class="footer-contact-sep">·</span>
+    <span class="prot-email"></span>
   </div>
 </footer>
 
 <script>
+  // ─── Protected contact rendering (anti-scraper) ───
+  (function(){
+    var ph=['508','277','2949'], em=['bostonteacakecompany','comcast.net'];
+    document.querySelectorAll('.prot-phone').forEach(function(el){
+      el.innerHTML='<a href="tel:'+ph.join('')+'">(' +ph[0]+') '+ph[1]+'-'+ph[2]+'</a>';
+    });
+    document.querySelectorAll('.prot-email').forEach(function(el){
+      var a=em[0]+'\u0040'+em[1];
+      el.innerHTML='<a href="mailto:'+a+'">'+a+'</a>';
+    });
+  })();
+
   var fadeObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
