@@ -686,6 +686,37 @@
   .prot-phone a, .prot-email a { color: rgba(253,250,245,0.5); text-decoration: none; transition: color 0.2s; }
   .prot-phone a:hover, .prot-email a:hover { color: rgba(253,250,245,0.8); }
 
+  /* ─── PDF Link · Pre-footer · Feedback Modal ─── */
+  .footer-pdf-link { color: rgba(253,250,245,0.5); text-decoration: none; font-size: 0.68rem; letter-spacing: 0.1em; transition: color 0.2s; }
+  .footer-pdf-link:hover { color: rgba(253,250,245,0.85); text-decoration: underline; }
+  .prefooter-feedback { background: var(--warm-white); border-top: 1px solid var(--border); padding: 1.4rem 4rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .prefooter-text { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; max-width: 560px; }
+  .prefooter-text strong { color: var(--brown); font-weight: 500; }
+  .btn-feedback { background: transparent; border: 1px solid var(--brown); color: var(--brown); padding: 0.65rem 1.5rem; font-family: 'Jost', sans-serif; font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 400; cursor: pointer; transition: all 0.2s; flex-shrink: 0; }
+  .btn-feedback:hover { background: var(--brown); color: var(--cream); }
+  .fb-overlay { display: none; position: fixed; inset: 0; background: rgba(42,26,14,0.72); z-index: 300; backdrop-filter: blur(4px); align-items: center; justify-content: center; padding: 2rem; }
+  .fb-overlay.open { display: flex; }
+  .fb-modal { background: var(--warm-white); max-width: 600px; width: 100%; max-height: 92vh; overflow-y: auto; border: 1px solid var(--border); box-shadow: 0 40px 100px rgba(42,26,14,0.3); }
+  .fb-modal-head { padding: 2rem 2.5rem 1.4rem; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; }
+  .fb-modal-title { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400; color: var(--brown); }
+  .fb-modal-sub { display: block; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.3rem; }
+  .fb-close { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--text-muted); line-height: 1; padding: 0.2rem; transition: color 0.2s; }
+  .fb-close:hover { color: var(--brown); }
+  .fb-body { padding: 2rem 2.5rem 2.5rem; }
+  .fb-form { display: flex; flex-direction: column; gap: 1.1rem; }
+  .fb-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .fb-group { display: flex; flex-direction: column; gap: 0.45rem; }
+  .fb-group label { font-size: 0.63rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); font-weight: 400; }
+  .fb-group input, .fb-group select, .fb-group textarea { background: var(--cream); border: 1px solid var(--border); padding: 0.85rem 1rem; font-family: 'Jost', sans-serif; font-size: 0.9rem; color: var(--text); font-weight: 300; outline: none; transition: border-color 0.2s; width: 100%; appearance: none; -webkit-appearance: none; border-radius: 0; }
+  .fb-group input:focus, .fb-group select:focus, .fb-group textarea:focus { border-color: var(--brown-light); }
+  .fb-group textarea { resize: vertical; min-height: 100px; }
+  .fb-sep { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 400; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); display: block; }
+  .fb-submit { background: var(--brown); color: var(--cream); border: none; padding: 1rem 2.4rem; font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; font-weight: 400; width: 100%; }
+  .fb-submit:hover { background: var(--brown-mid); }
+  .fb-note { font-size: 0.75rem; color: var(--text-muted); line-height: 1.6; }
+  .fb-honeypot { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  @media (max-width: 600px) { .prefooter-feedback { padding: 1.2rem 1.5rem; flex-direction: column; align-items: flex-start; } .fb-row { grid-template-columns: 1fr; } .fb-modal-head { padding: 1.4rem 1.5rem 1.2rem; } .fb-body { padding: 1.4rem 1.5rem; } }
+
   /* ─── Footer ─── */
   footer {
     background: var(--brown);
@@ -1147,6 +1178,64 @@
   </div>
 </section>
 
+<!-- ─── Feedback / Web Dev Pre-footer ─── -->
+<div class="prefooter-feedback">
+  <p class="prefooter-text"><strong>Like the site?</strong> Share feedback about the Boston Tea Cake Company website, or reach out to inquire about professional web development services for your own business.</p>
+  <button class="btn-feedback" onclick="openFB()">Share Feedback</button>
+</div>
+
+<!-- ─── Feedback / Web Dev Modal ─── -->
+<div class="fb-overlay" id="fbModal" onclick="if(event.target===this)closeFB()">
+  <div class="fb-modal">
+    <div class="fb-modal-head">
+      <div>
+        <div class="fb-modal-title">Get in Touch</div>
+        <span class="fb-modal-sub">Site feedback · Web development services</span>
+      </div>
+      <button class="fb-close" onclick="closeFB()" aria-label="Close">✕</button>
+    </div>
+    <div class="fb-body">
+      <form class="fb-form" name="site-feedback" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="fbbot">
+        <input type="hidden" name="form-name" value="site-feedback">
+        <label class="fb-honeypot">Don't fill this out: <input name="fbbot"></label>
+        <div class="fb-group">
+          <label for="fb-type">Inquiry Type *</label>
+          <select id="fb-type" name="inquiry-type" required>
+            <option value="">— Please select —</option>
+            <option>BTCC Site Feedback</option>
+            <option>Request Web Development Services</option>
+          </select>
+        </div>
+        <span class="fb-sep">Contact Information</span>
+        <div class="fb-row">
+          <div class="fb-group">
+            <label for="fb-name">Full Name *</label>
+            <input type="text" id="fb-name" name="name" placeholder="Your full name" required>
+          </div>
+          <div class="fb-group">
+            <label for="fb-phone">Phone <span style="font-size:0.65rem;text-transform:none;letter-spacing:0;font-weight:300;">(optional)</span></label>
+            <input type="tel" id="fb-phone" name="phone" placeholder="(555) 555-0100">
+          </div>
+        </div>
+        <div class="fb-group">
+          <label for="fb-email">Email Address *</label>
+          <input type="email" id="fb-email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="fb-group">
+          <label for="fb-address">Address <span style="font-size:0.65rem;text-transform:none;letter-spacing:0;font-weight:300;">(optional)</span></label>
+          <input type="text" id="fb-address" name="address" placeholder="City, State, or full address">
+        </div>
+        <div class="fb-group">
+          <label for="fb-message">Message *</label>
+          <textarea id="fb-message" name="message" placeholder="Share your feedback or describe the web development services you're interested in…" required></textarea>
+        </div>
+        <p class="fb-note">Your message is sent securely. We respond within 1–2 business days.</p>
+        <button type="submit" class="fb-submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</div>
+
 <!-- ─── Footer ─── -->
 <footer>
   <span class="footer-logo">The Boston Tea Cake Company</span>
@@ -1155,6 +1244,8 @@
     <span class="prot-phone"></span>
     <span class="footer-contact-sep">·</span>
     <span class="prot-email"></span>
+    <span class="footer-contact-sep">·</span>
+    <a class="footer-pdf-link" href="https://raw.githubusercontent.com/pixelpolicyuser/bostonteacakes/main/BTCC_Product_Ingredient_Sheet.pdf" target="_blank" rel="noopener">Ingredient Sheet ↓</a>
   </div>
 </footer>
 
@@ -1170,6 +1261,20 @@
       el.innerHTML='<a href="mailto:'+a+'">'+a+'</a>';
     });
   })();
+
+
+  // ─── Feedback Modal ───
+  function openFB() {
+    document.getElementById('fbModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeFB() {
+    document.getElementById('fbModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeFB();
+  });
 
   var fadeObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
