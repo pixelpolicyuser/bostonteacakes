@@ -1161,134 +1161,67 @@
 </section>
 
 <!-- ─── Get Started ─── -->
-<section id="get-started">
-  <div class="section-inner">
-    <div class="started-layout">
-      <div class="started-copy">
-        <span class="section-label">Get Started</span>
-        <h2 class="section-title">Ready to Run<br>Your <em>Fundraiser?</em></h2>
-        <p>Getting started is simple. Fill out the inquiry form below — tell us about your organization and which holiday window you'd like. We'll walk you through everything and get your order forms on the way.</p>
-        <p>There's no paperwork, no commitment, and <strong>no cost to get started</strong>. We want your fundraiser to succeed, and we'll be with you every step of the way.</p>
-        <p>Questions? Use the form below and we'll respond within 1–2 business days.</p>
-      </div>
-      <div class="contact-items">
-        <div class="contact-item">
-          <span class="contact-item-icon">📋</span>
-          <div>
-            <span class="contact-item-label">Quickest Way to Start</span>
-            <span class="contact-item-value"><a href="#inquiry-form">Submit the Inquiry Form Below →</a></span>
-          </div>
-        </div>
-        <div class="contact-item">
-          <span class="contact-item-icon">📍</span>
-          <div>
-            <span class="contact-item-label">Location</span>
-            <span class="contact-item-value">7 Jillson Circle, Milford, MA 01757</span>
-          </div>
-        </div>
-      </div>
-    </div>
 
-      <div class="cta-block">
-      <div class="cta-block-title">Let's make your <em>fundraiser</em> a success.</div>
-      <p class="cta-block-sub">No upfront costs. No minimums. No risk. Just a program that works — backed by 40+ years of experience and a product your community will love.</p>
+
+<section id="contact-cta">
+  <div class="section-inner">
+    <div class="cta-block fade-in">
+      <div class="cta-block-title">Ready to Run Your Fundraiser?</div>
+      <p class="cta-block-sub">No upfront costs, no minimums, no risk. Send us a quick message and we'll be in touch within 1–2 business days to get you set up.</p>
       <div class="cta-btns">
-        <a href="#inquiry-form" class="btn-cream">Submit a Fundraiser Inquiry</a>
+        <span class="prot-phone-cta"></span>
+        <button onclick="openFB()" class="btn-cream-outline">Message Us</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── Fundraiser Inquiry Form ─── -->
-<section id="inquiry-form">
-  <div class="section-inner">
-    <div class="form-header">
-      <span class="section-label">Start Your Campaign</span>
-      <h2 class="section-title">Inquire About<br>a <em>Fundraiser</em></h2>
-      <p>Fill out the form below and we'll be in touch within 1–2 business days to confirm your campaign window, walk you through the process, and get your order forms on the way.</p>
+<!-- ─── Contact Modal ─── -->
+<div class="fb-overlay" id="fbModal" onclick="if(event.target===this)closeFB()">
+  <div class="fb-modal">
+    <div class="fb-modal-head">
+      <div>
+        <div class="fb-modal-title">Send Us a Message</div>
+        <span class="fb-modal-sub">We respond within 1–2 business days</span>
+      </div>
+      <button class="fb-close" onclick="closeFB()" aria-label="Close">✕</button>
     </div>
-    <div class="inquiry-form-wrap">
-      <form class="netlify-form" name="fundraiser-inquiry" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="fundraiser-inquiry">
-        <p class="f-visually-hidden"><label>Leave this blank: <input name="bot-field"></label></p>
-
-        <span class="f-section-label">Organization Information</span>
-        <div class="form-row-2">
-          <div class="f-group">
-            <label for="fi-org-name">Organization Name *</label>
-            <input type="text" id="fi-org-name" name="organization-name" placeholder="e.g. Lincoln Elementary PTA" required>
+    <div class="fb-body">
+      <form class="fb-form" name="site-feedback" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="fbbot">
+        <input type="hidden" name="form-name" value="site-feedback">
+        <label class="fb-honeypot">Don't fill this out: <input name="fbbot"></label>
+        <div class="fb-group">
+          <label for="fb-type">What can we help you with? *</label>
+          <select id="fb-type" name="inquiry-type" required>
+            <option value="">— Please select —</option>
+            <option>Fundraising Program Inquiry</option>
+            <option>Wholesale / Business Account</option>
+            <option>Distributor Opportunity</option>
+            <option>General Question</option>
+            <option>BTCC Site Feedback</option>
+            <option>Request Web Development Services</option>
+          </select>
+        </div>
+        <div class="fb-row">
+          <div class="fb-group">
+            <label for="fb-name">Name *</label>
+            <input type="text" id="fb-name" name="name" placeholder="Your full name" required>
           </div>
-          <div class="f-group">
-            <label for="fi-org-type">Organization Type *</label>
-            <select id="fi-org-type" name="organization-type" required>
-              <option value="">— Select type —</option>
-              <option>School District / PTA</option>
-              <option>Library Club</option>
-              <option>Boy Scouts</option>
-              <option>Girl Scouts</option>
-              <option>Church / Faith Group</option>
-              <option>Summer Camp</option>
-              <option>Youth Sports / Recreation</option>
-              <option>Civic Group</option>
-              <option>Business / Social Club</option>
-              <option>Community Arts Organization</option>
-              <option>Non-Profit Organization</option>
-              <option>Other</option>
-            </select>
+          <div class="fb-group">
+            <label for="fb-email">Email *</label>
+            <input type="email" id="fb-email" name="email" placeholder="you@example.com" required>
           </div>
         </div>
-
-        <span class="f-section-label">Contact Information</span>
-        <div class="form-row-2">
-          <div class="f-group">
-            <label for="fi-name">Contact Name *</label>
-            <input type="text" id="fi-name" name="contact-name" placeholder="Your full name" required>
-          </div>
-          <div class="f-group">
-            <label for="fi-phone">Phone Number *</label>
-            <input type="tel" id="fi-phone" name="phone" placeholder="(508) 555-0100" required>
-          </div>
+        <div class="fb-group">
+          <label for="fb-message">Message *</label>
+          <textarea id="fb-message" name="message" placeholder="Tell us what you need…" required></textarea>
         </div>
-        <div class="f-group">
-          <label for="fi-email">Email Address *</label>
-          <input type="email" id="fi-email" name="email" placeholder="you@organization.org" required>
-        </div>
-
-        <span class="f-section-label">Campaign Details</span>
-        <div class="form-row-2">
-          <div class="f-group">
-            <label for="fi-window">Desired Holiday Window *</label>
-            <select id="fi-window" name="holiday-window" required>
-              <option value="">— Select window —</option>
-              <option>Valentine's Day — Orders due Feb 4th</option>
-              <option>Easter — Orders due Apr 15th</option>
-              <option>Mother's Day — Orders due Apr 29th</option>
-              <option>Father's Day — Orders due Jun 10th</option>
-              <option>Thanksgiving — Orders due Nov 12th</option>
-              <option>Christmas / Holiday — Orders due Dec 10th</option>
-              <option>Not Sure — Please Contact Me</option>
-            </select>
-          </div>
-          <div class="f-group">
-            <label for="fi-participants">Est. Number of Fundraisers Participating *</label>
-            <input type="text" id="fi-participants" name="est-participants" placeholder="e.g. 10–15 or 50" required>
-          </div>
-        </div>
-        <div class="f-group">
-          <label for="fi-goal">Fundraising Goal (in dollars) *</label>
-          <input type="text" id="fi-goal" name="fundraising-goal" placeholder="e.g. $500 or $2,000" required>
-        </div>
-        <div class="f-group">
-          <label for="fi-notes">Additional Notes <span style="font-size:0.7rem;font-weight:300;text-transform:none;letter-spacing:0;">(optional)</span></label>
-          <textarea id="fi-notes" name="notes" placeholder="Anything else we should know about your organization or campaign…"></textarea>
-        </div>
-
-        <div class="form-note">No upfront costs or commitments required. Submitting this form simply opens the conversation — we'll review your details and reach out to get you set up.</div>
-        <button type="submit" class="form-submit-btn">Submit Fundraiser Inquiry</button>
+        <p class="fb-note">Your message is sent securely. No bots. No spam.</p>
+        <button type="submit" class="fb-submit">Send Message</button>
       </form>
     </div>
   </div>
-</section>
+</div>
 
 <!-- ─── Footer ─── -->
 <footer>

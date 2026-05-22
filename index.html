@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Boston Tea Cake Company</title>
+<title>The Boston Tea Cake Company — Gourmet Bundt Cakes, Mail Order, Wholesale & Fundraising</title>
+<meta name="description" content="The Boston Tea Cake Company offers premium gourmet bundt coffee cakes baked 100% from scratch. Nationwide mail-order delivery, wholesale bakery accounts, and profitable fundraising programs. 100% nut-free facility. Est. 1983, Milford, MA.">
+<meta name="keywords" content="Boston Tea Cake Company, gourmet bundt cakes, mail order cakes, coffee cake delivery, nut-free bakery Massachusetts, bakery fundraiser, wholesale cake supplier">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -1284,42 +1286,16 @@
 </section>
 
 <!-- ─── Contact ─── -->
-<section id="contact">
+<section id="contact-cta">
   <div class="section-inner">
-
-    <div class="contact-header fade-in">
-      <span class="section-label">Get in Touch</span>
-      <h2 class="section-title">How Can We Help?</h2>
-      <p>Use the links below to reach the right page — each has a dedicated form so your inquiry reaches us directly.</p>
-    </div>
-
-    <div class="contact-items-row fade-in">
-      <div class="contact-item">
-        <div>
-          <span class="contact-item-label">Location</span>
-          <span class="contact-item-value">Milford, Massachusetts</span>
-        </div>
-      </div>
-      <div class="contact-item" style="cursor:pointer;" onclick="window.location='fundraising.html#inquiry-form'">
-        <div>
-          <span class="contact-item-label">Fundraising</span>
-          <span class="contact-item-value"><a href="fundraising.html#inquiry-form" style="color:var(--brown);text-decoration:none;">Start a Fundraiser →</a></span>
-        </div>
-      </div>
-      <div class="contact-item" style="cursor:pointer;" onclick="window.location='business-accounts.html#inquiry-form'">
-        <div>
-          <span class="contact-item-label">Wholesale &amp; Corporate Gifts</span>
-          <span class="contact-item-value"><a href="business-accounts.html#inquiry-form" style="color:var(--brown);text-decoration:none;">Open an Account →</a></span>
-        </div>
+    <div class="cta-block fade-in">
+      <div class="cta-block-title">Questions? Let\'s Talk.</div>
+      <p class="cta-block-sub">Call us directly or send a quick message — we respond within 1–2 business days.</p>
+      <div class="cta-btns">
+        <span class="prot-phone-cta"></span>
+        <button onclick="openFB()" class="btn-cream-outline">Message Us</button>
       </div>
     </div>
-
-    <div class="contact-safety fade-in">
-      <div class="safety-banner">
-        ✦&nbsp;&nbsp;<strong>Boston Tea Cake Company LTD is a nut-free bakery facility.</strong> No Boston Tea Cake Company LTD cakes contain nuts of any kind. All Boston Tea Cake Company LTD ingredients are kosher.
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -1329,13 +1305,13 @@
   <button class="btn-feedback" onclick="openFB()">Share Feedback</button>
 </div>
 
-<!-- ─── Feedback / Web Dev Modal ─── -->
+<!-- ─── Contact Modal ─── -->
 <div class="fb-overlay" id="fbModal" onclick="if(event.target===this)closeFB()">
   <div class="fb-modal">
     <div class="fb-modal-head">
       <div>
-        <div class="fb-modal-title">Get in Touch</div>
-        <span class="fb-modal-sub">Site feedback · Web development services</span>
+        <div class="fb-modal-title">Send Us a Message</div>
+        <span class="fb-modal-sub">We respond within 1–2 business days</span>
       </div>
       <button class="fb-close" onclick="closeFB()" aria-label="Close">✕</button>
     </div>
@@ -1344,24 +1320,38 @@
         <input type="hidden" name="form-name" value="site-feedback">
         <label class="fb-honeypot">Don't fill this out: <input name="fbbot"></label>
         <div class="fb-group">
-          <label for="fb-type">Inquiry Type *</label>
+          <label for="fb-type">What can we help you with? *</label>
           <select id="fb-type" name="inquiry-type" required>
             <option value="">— Please select —</option>
+            <option>Fundraising Program Inquiry</option>
+            <option>Wholesale / Business Account</option>
+            <option>Distributor Opportunity</option>
+            <option>General Question</option>
             <option>BTCC Site Feedback</option>
             <option>Request Web Development Services</option>
           </select>
         </div>
-        <span class="fb-sep">Contact Information</span>
         <div class="fb-row">
           <div class="fb-group">
-            <label for="fb-name">Full Name *</label>
+            <label for="fb-name">Name *</label>
             <input type="text" id="fb-name" name="name" placeholder="Your full name" required>
           </div>
           <div class="fb-group">
-            <label for="fb-phone">Phone <span style="font-size:0.65rem;text-transform:none;letter-spacing:0;font-weight:300;">(optional)</span></label>
-            <input type="tel" id="fb-phone" name="phone" placeholder="(555) 555-0100">
+            <label for="fb-email">Email *</label>
+            <input type="email" id="fb-email" name="email" placeholder="you@example.com" required>
           </div>
         </div>
+        <div class="fb-group">
+          <label for="fb-message">Message *</label>
+          <textarea id="fb-message" name="message" placeholder="Tell us what you need…" required></textarea>
+        </div>
+        <p class="fb-note">Your message is sent securely. No bots. No spam.</p>
+        <button type="submit" class="fb-submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</div>
+
         <div class="fb-group">
           <label for="fb-email">Email Address *</label>
           <input type="email" id="fb-email" name="email" placeholder="you@example.com" required>
@@ -1496,7 +1486,6 @@
         <input type="hidden" name="order-summary" id="orderSummaryHidden" value="">
         <input type="hidden" name="estimated-total" id="estimatedTotalHidden" value="">
         <input type="hidden" name="payment-method" value="PayPal">
-        <input type="hidden" name="reply-from" value="bostonteacakecompany@comcast.net">
 
         <button type="submit" class="form-submit" style="width:100%; padding:1.1rem;" id="orderSubmitBtn">Submit Order Request</button>
         <p class="modal-footer-note">No payment collected here · Orders fulfilled within about one week of confirmation</p>
@@ -1647,7 +1636,7 @@
     .catch(function() {
       btn.disabled = false;
       btn.textContent = 'Submit Order Request';
-      alert('Something went wrong. Please email bostonteacakecompany@comcast.net directly.');
+      alert('Something went wrong. Please try again or call us directly.');
     });
   }
 
