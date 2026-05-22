@@ -1,0 +1,13 @@
+# robots.txt — The Boston Tea Cake Company
+# https://bostonteacakes.club
+
+# Allow all well-behaved search engine crawlers
+User-agent: *
+Allow: /
+
+# Disallow the thank-you page from appearing in search results
+# (it has no value as a search result and would confuse visitors)
+Disallow: /thank-you.html
+
+# Point crawlers to the sitemap
+Sitemap: https://bostonteacakes.club/sitemap.xml
