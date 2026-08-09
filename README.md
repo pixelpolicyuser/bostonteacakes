@@ -20,3 +20,28 @@ Set email notifications in Netlify for these detected form names:
 ## SEO files
 
 `sitemap.xml` lists the four public pages. `thank-you.html` is intentionally excluded from search results with `noindex`. After deployment, submit `https://bostonteacakes.club/sitemap.xml` in Google Search Console.
+
+# Files
+
+## Ingredients Document
+
+BTCC_Product_Ingredient_Sheet.pdf 
+
+This file is linked at the footer of the website and contains the following information: 
+
+The file is the "Complete Product & Ingredient Reference Sheet" for The Boston Tea Cake Company, Ltd. It is designed for use in product labeling, e-commerce listings, third-party platforms, and allergen compliance.
+
+Key Information & Structure:
+
+Facility & Certifications: The document prominently establishes that all products are baked from scratch in a 100% nut-free facility using kosher ingredients, continuing a tradition since 1983.
+
+Signature Cake Line (8" Bundt Style): * It lists the ingredients and allergens for signature cakes, starting with the "Traditional Sour Cream & Cinnamon Coffee Cake".
+
+It specifies handling instructions: cakes have a shelf life of 10 days at room temperature, or up to 120 days if frozen.
+
+It includes a special dietary note that while all cakes are nut-free, the "Lotsa Lemon" cake is uniquely dairy-free and soy-free.
+
+Beyond the Bundt: The sheet catalogs an expanded product line including Cinnamon Bread, Jumbo Muffins (in flavors like Blueberry, Corn, and Pumpkin), Chocolate Whoopie Pies, and Apple Turnovers.
+
+Compliance & Safety: The document concludes with an "Allergen Quick Reference Chart" to easily track common allergens (WHEAT, EGGS, MILK, SOY) across the entire product catalog.
+
