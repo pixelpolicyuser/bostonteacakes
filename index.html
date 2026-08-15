@@ -80,14 +80,35 @@
       </article>
 
       <article class="card cake">
-        <h3>Blueberry</h3>
-        <p>Made with wild Maine blueberries — 25% more fruit than most bakers use. Dense, moist, and bursting with real berry flavor in every single bite.</p>
-        <p class="prices">Small 1.5 lb | $40 &nbsp; | &nbsp; Large 3 lb | $50</p>
-        <div class="order">
-          <a href="https://buy.stripe.com/4gM3co7Y54ZdfHQ1plak006">Order small</a>
-          <a href="https://buy.stripe.com/3cIbIU2DL4Zd8fo4Bxak007">Order large</a>
-        </div>
-      </article>
+  <!-- 1. The Clickable Thumbnail -->
+  <img src="blueberry-tea-cake.jpg" alt="Blueberry Cake with tea setting" style="width: 100%; max-width: 300px; border-radius: 8px; cursor: pointer; margin-bottom: 1rem;" onclick="document.getElementById('modal-blueberry').showModal()">
+  <p style="font-size: 0.85rem; color: var(--gold); margin-top: -0.5rem;">Click image for ingredients</p>
+
+  <!-- 2. The Product Details -->
+  <h3>Blueberry</h3>
+  <p>Made with wild Maine blueberries — 25% more fruit than most bakers use. Dense, moist, and bursting with real berry flavor in every single bite.</p>
+  <p class="prices">Small 1.5 lb | $40 &nbsp; | &nbsp; Large 3 lb | $50</p>
+  
+  <!-- 3. Active Stripe Checkout Links -->
+  <div class="order">
+    <a href="https://buy.stripe.com/4gM3co7Y54ZdfHQ1plak006">Order small</a> 
+    <a href="https://buy.stripe.com/3cIbIU2DL4Zd8fo4Bxak007">Order large</a>
+  </div>
+
+  <!-- 4. The Pop-up Ingredient Window -->
+  <dialog id="modal-blueberry" style="border: 1px solid var(--line); border-radius: 8px; background: var(--paper); padding: 2rem; max-width: 500px; color: var(--ink);">
+    <h4 style="margin-top: 0;">Blueberry Cake</h4>
+    <p style="font-size: 0.9rem;"><strong>Ingredients:</strong> Sugar, Bleached Wheat Flour [Flour, Niacin (a B vitamin), Iron, Thiamine Mononitrate (Vitamin B1), Riboflavin (Vitamin B2)], Whole Eggs, Sour Cream [Cultured Pasteurized Grade A Skim Milk, Cream, Modified Food Starch, Guar Gum, Sodium Citrate, Carrageenan, Locust Bean Gum and Potassium (to preserve freshness)], 0 Transfat Soybean or Canola Oil, Blueberries, Non Fat Dry Milk Solids, Cinnamon, Pure Vanilla Extract, Artificial Flavors, Sodium Bicarbonate, Sodium Aluminum Phosphate, Sodium Caseinate, Xanthan Gum, Locust Bean, Guar, Soybean Lecithin, Modified Food Starch, Mono &amp; Diglycerdies (emulsifiers), BHA to Preserve Freshness, Color (FD &amp; C- Yellow #5).</p>
+    <p style="font-size: 0.9rem;"><strong>Contains:</strong> WHEAT, EGGS, MILK, SOY</p>
+    <div style="background: var(--cream); padding: 1rem; border-radius: 4px; margin-top: 1rem; font-size: 0.85rem;">
+      <strong>Storage Instructions:</strong> All fruit and dessert cakes should be refrigerated until consumed for a longer shelf life. All cakes may be frozen and refrozen. IF SOLD FROZEN USE WITHIN 120 DAYS OF SELL DATE.
+    </div>
+    <p class="note" style="margin-top: 1rem;">Baked in a 100% nut-free facility using kosher ingredients.</p>
+    <form method="dialog" style="margin-top: 1.5rem;">
+      <button class="button alt" style="width: 100%;">Close Window</button>
+    </form>
+  </dialog>
+</article>
 
       <article class="card cake">
   <!-- 1. The Clickable Thumbnail -->
