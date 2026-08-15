@@ -90,14 +90,35 @@
       </article>
 
       <article class="card cake">
-        <h3>Chocolate Ecstasy</h3>
-        <p>Dense, dark, and utterly decadent. For those who don’t believe in half-measures.</p>
-        <p class="prices">Small 1.5 lb | $40 &nbsp; | &nbsp; Large 3 lb | $50</p>
-        <div class="order">
-          <a href="https://buy.stripe.com/28E28kbah9ftbrAaZVak004">Order small</a>
-          <a href="https://buy.stripe.com/14AfZa7Y5ajxgLUec7ak005">Order large</a>
-        </div>
-      </article>
+  <!-- 1. The Clickable Thumbnail -->
+  <img src="chocolate-ecstasy-nightlife.jpg" alt="Chocolate Ecstasy Cake in a nightlife setting" style="width: 100%; max-width: 300px; border-radius: 8px; cursor: pointer; margin-bottom: 1rem;" onclick="document.getElementById('modal-chocolate-ecstasy').showModal()">
+  <p style="font-size: 0.85rem; color: var(--gold); margin-top: -0.5rem;">Click image for ingredients</p>
+
+  <!-- 2. The Product Details -->
+  <h3>Chocolate Ecstasy</h3>
+  <p>Dense, dark, and utterly decadent. For those who don’t believe in half-measures.</p>
+  <p class="prices">Small 1.5 lb | $40 &nbsp; | &nbsp; Large 3 lb | $50</p>
+  
+  <!-- 3. Active Stripe Checkout Links -->
+  <div class="order">
+    <a href="https://buy.stripe.com/28E28kbah9ftbrAaZVak004">Order small</a> 
+    <a href="https://buy.stripe.com/14AfZa7Y5ajxgLUec7ak005">Order large</a>
+  </div>
+
+  <!-- 4. The Pop-up Ingredient Window -->
+  <dialog id="modal-chocolate-ecstasy" style="border: 1px solid var(--line); border-radius: 8px; background: var(--paper); padding: 2rem; max-width: 500px; color: var(--ink);">
+    <h4 style="margin-top: 0;">Chocolate Ecstasy Cake</h4>
+    <p style="font-size: 0.9rem;"><strong>Ingredients:</strong> Sugar, Bleached Wheat Flour [Flour, Niacin (a B vitamin), Iron, Thiamine Mononitrate (Vitamin B1), Riboflavin (Vitamin B2)], Water, Whole Eggs, Semi Sweet Chocolate [Sugar, Chocolate, Cocoa Butter, Milkfat, Soy Lecithin (an emulsifier), Vanillin (an artificial flavoring), Natural Flavoring], 0 Transfat Soybean or Canola Oil, Light Cream (Grade A Milk and Cream), 0 Transfat Margarine [Soybean and Palm Oil, Salt, Soy Lecithin, Mono and Diglycerides, Sodium Benzoate (preservative), Artificial Butter Flavor, Beta Carotene (color), Vitamin A Palmitate], Salt, Vegetable Mono &amp; Diglycerides and Soy Lecithin (emulsifiers), Potassium Dextrose, Corn and Wheat Starch, Double Dutch Dark Cocoa [Dutch cocoa (processed with alkali), Black cocoa (processed with alkali)], Baking Soda, Xanthan.</p>
+    <p style="font-size: 0.9rem;"><strong>Contains:</strong> WHEAT, EGGS, MILK, SOY</p>
+    <div style="background: var(--cream); padding: 1rem; border-radius: 4px; margin-top: 1rem; font-size: 0.85rem;">
+      <strong>Storage Instructions:</strong> All fruit and dessert cakes should be refrigerated until consumed for a longer shelf life. All cakes may be frozen and refrozen. IF SOLD FROZEN USE WITHIN 120 DAYS OF SELL DATE.
+    </div>
+    <p class="note" style="margin-top: 1rem;">Baked in a 100% nut-free facility using kosher ingredients.</p>
+    <form method="dialog" style="margin-top: 1.5rem;">
+      <button class="button alt" style="width: 100%;">Close Window</button>
+    </form>
+  </dialog>
+</article>
 
       <article class="card cake">
   <img src="cranberry-and-cream-tabled.jpg" alt="Cranberry Cream Cake presented on a table" style="width: 100%; max-width: 300px; border-radius: 8px; cursor: pointer; margin-bottom: 1rem;" onclick="document.getElementById('modal-cranberry-cream').showModal()">
